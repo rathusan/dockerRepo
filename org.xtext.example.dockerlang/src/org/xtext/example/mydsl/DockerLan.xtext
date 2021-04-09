@@ -1,0 +1,10 @@
+grammar org.xtext.example.mydsl.DockerLan with org.eclipse.xtext.common.Terminals
+
+generate dockerLan "http://www.xtext.org/example/mydsl/DockerLan"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
+//test
