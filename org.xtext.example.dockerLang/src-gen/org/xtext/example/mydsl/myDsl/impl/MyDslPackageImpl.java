@@ -5,17 +5,22 @@ package org.xtext.example.mydsl.myDsl.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.xtext.example.mydsl.myDsl.Greeting;
-import org.xtext.example.mydsl.myDsl.Model;
+import org.xtext.example.mydsl.myDsl.Cmd;
+import org.xtext.example.mydsl.myDsl.Dockerfile;
+import org.xtext.example.mydsl.myDsl.Entrypoint;
+import org.xtext.example.mydsl.myDsl.Expose;
+import org.xtext.example.mydsl.myDsl.From;
+import org.xtext.example.mydsl.myDsl.Maintainer;
 import org.xtext.example.mydsl.myDsl.MyDslFactory;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
-import org.xtext.example.mydsl.myDsl.TypeOfGreeting;
+import org.xtext.example.mydsl.myDsl.Statement;
+import org.xtext.example.mydsl.myDsl.Volume;
+import org.xtext.example.mydsl.myDsl.Workdir;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,21 +35,70 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass modelEClass = null;
+  private EClass dockerfileEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass greetingEClass = null;
+  private EClass statementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EEnum typeOfGreetingEEnum = null;
+  private EClass fromEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass cmdEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass entrypointEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass volumeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass maintainerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass exposeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass workdirEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass exeC_FORMEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -115,9 +169,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EClass getModel()
+  public EClass getDockerfile()
   {
-    return modelEClass;
+    return dockerfileEClass;
   }
 
   /**
@@ -126,9 +180,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getModel_Greetings()
+  public EReference getDockerfile_Statements()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(0);
+    return (EReference)dockerfileEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -137,9 +191,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EClass getGreeting()
+  public EClass getStatement()
   {
-    return greetingEClass;
+    return statementEClass;
   }
 
   /**
@@ -148,9 +202,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EAttribute getGreeting_Greeting()
+  public EClass getFrom()
   {
-    return (EAttribute)greetingEClass.getEStructuralFeatures().get(0);
+    return fromEClass;
   }
 
   /**
@@ -159,9 +213,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EAttribute getGreeting_Name()
+  public EAttribute getFrom_Platform_option()
   {
-    return (EAttribute)greetingEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)fromEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -170,9 +224,152 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EEnum getTypeOfGreeting()
+  public EAttribute getFrom_Name()
   {
-    return typeOfGreetingEEnum;
+    return (EAttribute)fromEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFrom_Tag_or_digest()
+  {
+    return (EAttribute)fromEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCmd()
+  {
+    return cmdEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getEntrypoint()
+  {
+    return entrypointEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getVolume()
+  {
+    return volumeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getMaintainer()
+  {
+    return maintainerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getMaintainer_Name()
+  {
+    return (EAttribute)maintainerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getExpose()
+  {
+    return exposeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getExpose_Ports()
+  {
+    return (EAttribute)exposeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getWorkdir()
+  {
+    return workdirEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getWorkdir_Path()
+  {
+    return (EAttribute)workdirEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getEXEC_FORM()
+  {
+    return exeC_FORMEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEXEC_FORM_Executable()
+  {
+    return (EAttribute)exeC_FORMEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEXEC_FORM_Parameters()
+  {
+    return (EAttribute)exeC_FORMEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -206,15 +403,34 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     isCreated = true;
 
     // Create classes and their features
-    modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__GREETINGS);
+    dockerfileEClass = createEClass(DOCKERFILE);
+    createEReference(dockerfileEClass, DOCKERFILE__STATEMENTS);
 
-    greetingEClass = createEClass(GREETING);
-    createEAttribute(greetingEClass, GREETING__GREETING);
-    createEAttribute(greetingEClass, GREETING__NAME);
+    statementEClass = createEClass(STATEMENT);
 
-    // Create enums
-    typeOfGreetingEEnum = createEEnum(TYPE_OF_GREETING);
+    fromEClass = createEClass(FROM);
+    createEAttribute(fromEClass, FROM__PLATFORM_OPTION);
+    createEAttribute(fromEClass, FROM__NAME);
+    createEAttribute(fromEClass, FROM__TAG_OR_DIGEST);
+
+    cmdEClass = createEClass(CMD);
+
+    entrypointEClass = createEClass(ENTRYPOINT);
+
+    volumeEClass = createEClass(VOLUME);
+
+    maintainerEClass = createEClass(MAINTAINER);
+    createEAttribute(maintainerEClass, MAINTAINER__NAME);
+
+    exposeEClass = createEClass(EXPOSE);
+    createEAttribute(exposeEClass, EXPOSE__PORTS);
+
+    workdirEClass = createEClass(WORKDIR);
+    createEAttribute(workdirEClass, WORKDIR__PATH);
+
+    exeC_FORMEClass = createEClass(EXEC_FORM);
+    createEAttribute(exeC_FORMEClass, EXEC_FORM__EXECUTABLE);
+    createEAttribute(exeC_FORMEClass, EXEC_FORM__PARAMETERS);
   }
 
   /**
@@ -246,19 +462,42 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    fromEClass.getESuperTypes().add(this.getStatement());
+    cmdEClass.getESuperTypes().add(this.getStatement());
+    cmdEClass.getESuperTypes().add(this.getEntrypoint());
+    exeC_FORMEClass.getESuperTypes().add(this.getCmd());
+    exeC_FORMEClass.getESuperTypes().add(this.getEntrypoint());
+    exeC_FORMEClass.getESuperTypes().add(this.getVolume());
 
     // Initialize classes and features; add operations and parameters
-    initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Greetings(), this.getGreeting(), null, "greetings", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(dockerfileEClass, Dockerfile.class, "Dockerfile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDockerfile_Statements(), this.getStatement(), null, "statements", null, 0, -1, Dockerfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(greetingEClass, Greeting.class, "Greeting", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGreeting_Greeting(), this.getTypeOfGreeting(), "greeting", null, 0, 1, Greeting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getGreeting_Name(), ecorePackage.getEString(), "name", null, 0, 1, Greeting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    // Initialize enums and add enum literals
-    initEEnum(typeOfGreetingEEnum, TypeOfGreeting.class, "TypeOfGreeting");
-    addEEnumLiteral(typeOfGreetingEEnum, TypeOfGreeting.HELLO);
-    addEEnumLiteral(typeOfGreetingEEnum, TypeOfGreeting.HI);
+    initEClass(fromEClass, From.class, "From", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFrom_Platform_option(), ecorePackage.getEString(), "platform_option", null, 0, 1, From.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFrom_Name(), ecorePackage.getEString(), "name", null, 0, 1, From.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFrom_Tag_or_digest(), ecorePackage.getEString(), "tag_or_digest", null, 0, 1, From.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(cmdEClass, Cmd.class, "Cmd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(entrypointEClass, Entrypoint.class, "Entrypoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(volumeEClass, Volume.class, "Volume", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(maintainerEClass, Maintainer.class, "Maintainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMaintainer_Name(), ecorePackage.getEString(), "name", null, 0, 1, Maintainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(exposeEClass, Expose.class, "Expose", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExpose_Ports(), ecorePackage.getEString(), "ports", null, 0, 1, Expose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(workdirEClass, Workdir.class, "Workdir", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getWorkdir_Path(), ecorePackage.getEString(), "path", null, 0, 1, Workdir.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(exeC_FORMEClass, org.xtext.example.mydsl.myDsl.EXEC_FORM.class, "EXEC_FORM", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEXEC_FORM_Executable(), ecorePackage.getEString(), "executable", null, 0, 1, org.xtext.example.mydsl.myDsl.EXEC_FORM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEXEC_FORM_Parameters(), ecorePackage.getEString(), "parameters", null, 0, -1, org.xtext.example.mydsl.myDsl.EXEC_FORM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

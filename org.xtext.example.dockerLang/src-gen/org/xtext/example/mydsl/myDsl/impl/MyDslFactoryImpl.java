@@ -4,7 +4,6 @@
 package org.xtext.example.mydsl.myDsl.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -66,8 +65,16 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     switch (eClass.getClassifierID())
     {
-      case MyDslPackage.MODEL: return createModel();
-      case MyDslPackage.GREETING: return createGreeting();
+      case MyDslPackage.DOCKERFILE: return createDockerfile();
+      case MyDslPackage.STATEMENT: return createStatement();
+      case MyDslPackage.FROM: return createFrom();
+      case MyDslPackage.CMD: return createCmd();
+      case MyDslPackage.ENTRYPOINT: return createEntrypoint();
+      case MyDslPackage.VOLUME: return createVolume();
+      case MyDslPackage.MAINTAINER: return createMaintainer();
+      case MyDslPackage.EXPOSE: return createExpose();
+      case MyDslPackage.WORKDIR: return createWorkdir();
+      case MyDslPackage.EXEC_FORM: return createEXEC_FORM();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -79,15 +86,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
-  public Object createFromString(EDataType eDataType, String initialValue)
+  public Dockerfile createDockerfile()
   {
-    switch (eDataType.getClassifierID())
-    {
-      case MyDslPackage.TYPE_OF_GREETING:
-        return createTypeOfGreetingFromString(eDataType, initialValue);
-      default:
-        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-    }
+    DockerfileImpl dockerfile = new DockerfileImpl();
+    return dockerfile;
   }
 
   /**
@@ -96,15 +98,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
-  public String convertToString(EDataType eDataType, Object instanceValue)
+  public Statement createStatement()
   {
-    switch (eDataType.getClassifierID())
-    {
-      case MyDslPackage.TYPE_OF_GREETING:
-        return convertTypeOfGreetingToString(eDataType, instanceValue);
-      default:
-        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-    }
+    StatementImpl statement = new StatementImpl();
+    return statement;
   }
 
   /**
@@ -113,10 +110,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
-  public Model createModel()
+  public From createFrom()
   {
-    ModelImpl model = new ModelImpl();
-    return model;
+    FromImpl from = new FromImpl();
+    return from;
   }
 
   /**
@@ -125,10 +122,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
-  public Greeting createGreeting()
+  public Cmd createCmd()
   {
-    GreetingImpl greeting = new GreetingImpl();
-    return greeting;
+    CmdImpl cmd = new CmdImpl();
+    return cmd;
   }
 
   /**
@@ -136,11 +133,11 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public TypeOfGreeting createTypeOfGreetingFromString(EDataType eDataType, String initialValue)
+  @Override
+  public Entrypoint createEntrypoint()
   {
-    TypeOfGreeting result = TypeOfGreeting.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
+    EntrypointImpl entrypoint = new EntrypointImpl();
+    return entrypoint;
   }
 
   /**
@@ -148,9 +145,59 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertTypeOfGreetingToString(EDataType eDataType, Object instanceValue)
+  @Override
+  public Volume createVolume()
   {
-    return instanceValue == null ? null : instanceValue.toString();
+    VolumeImpl volume = new VolumeImpl();
+    return volume;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Maintainer createMaintainer()
+  {
+    MaintainerImpl maintainer = new MaintainerImpl();
+    return maintainer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Expose createExpose()
+  {
+    ExposeImpl expose = new ExposeImpl();
+    return expose;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Workdir createWorkdir()
+  {
+    WorkdirImpl workdir = new WorkdirImpl();
+    return workdir;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EXEC_FORM createEXEC_FORM()
+  {
+    EXEC_FORMImpl exeC_FORM = new EXEC_FORMImpl();
+    return exeC_FORM;
   }
 
   /**

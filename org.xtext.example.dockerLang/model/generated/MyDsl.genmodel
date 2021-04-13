@@ -6,16 +6,30 @@
     complianceLevel="8.0" copyrightFields="false" runtimeVersion="2.20">
   <genPackages prefix="MyDsl" basePackage="org.xtext.example.mydsl" disposableProviderFactory="true"
       fileExtensions="dockerlang" ecorePackage="MyDsl.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="MyDsl.ecore#//TypeOfGreeting">
-      <genEnumLiterals ecoreEnumLiteral="MyDsl.ecore#//TypeOfGreeting/hello"/>
-      <genEnumLiterals ecoreEnumLiteral="MyDsl.ecore#//TypeOfGreeting/hi"/>
-    </genEnums>
-    <genClasses ecoreClass="MyDsl.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Model/greetings"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Dockerfile">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Dockerfile/statements"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Greeting">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Greeting/greeting"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Greeting/name"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Statement"/>
+    <genClasses ecoreClass="MyDsl.ecore#//From">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//From/platform_option"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//From/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//From/tag_or_digest"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Cmd"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Entrypoint"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Volume"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Maintainer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Maintainer/name"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Expose">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Expose/ports"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Workdir">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Workdir/path"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//EXEC_FORM">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//EXEC_FORM/executable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//EXEC_FORM/parameters"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

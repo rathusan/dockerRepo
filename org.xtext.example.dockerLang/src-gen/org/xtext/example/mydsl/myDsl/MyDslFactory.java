@@ -24,22 +24,94 @@ public interface MyDslFactory extends EFactory
   MyDslFactory eINSTANCE = org.xtext.example.mydsl.myDsl.impl.MyDslFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Model</em>'.
+   * Returns a new object of class '<em>Dockerfile</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model</em>'.
+   * @return a new object of class '<em>Dockerfile</em>'.
    * @generated
    */
-  Model createModel();
+  Dockerfile createDockerfile();
 
   /**
-   * Returns a new object of class '<em>Greeting</em>'.
+   * Returns a new object of class '<em>Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Greeting</em>'.
+   * @return a new object of class '<em>Statement</em>'.
    * @generated
    */
-  Greeting createGreeting();
+  Statement createStatement();
+
+  /**
+   * Returns a new object of class '<em>From</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>From</em>'.
+   * @generated
+   */
+  From createFrom();
+
+  /**
+   * Returns a new object of class '<em>Cmd</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Cmd</em>'.
+   * @generated
+   */
+  Cmd createCmd();
+
+  /**
+   * Returns a new object of class '<em>Entrypoint</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Entrypoint</em>'.
+   * @generated
+   */
+  Entrypoint createEntrypoint();
+
+  /**
+   * Returns a new object of class '<em>Volume</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Volume</em>'.
+   * @generated
+   */
+  Volume createVolume();
+
+  /**
+   * Returns a new object of class '<em>Maintainer</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Maintainer</em>'.
+   * @generated
+   */
+  Maintainer createMaintainer();
+
+  /**
+   * Returns a new object of class '<em>Expose</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expose</em>'.
+   * @generated
+   */
+  Expose createExpose();
+
+  /**
+   * Returns a new object of class '<em>Workdir</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Workdir</em>'.
+   * @generated
+   */
+  Workdir createWorkdir();
+
+  /**
+   * Returns a new object of class '<em>EXEC FORM</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>EXEC FORM</em>'.
+   * @generated
+   */
+  EXEC_FORM createEXEC_FORM();
 
   /**
    * Returns the package supported by this factory.

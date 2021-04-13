@@ -1,11 +1,86 @@
-grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+grammar org.xtext.example.mydsl.MyDsl
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 generate myDsl "http://www.xtext.org/example/DockerLang"
 
-Model:
-    greetings+=Greeting*;
+Dockerfile:
+	(statements+=Statement)*
+;
 
-Greeting:
-    greeting=TypeOfGreeting name=ID '!';
+Statement:
+	From|Cmd|Entrypoint|Volume|Maintainer|Expose|Workdir
+;
 
-enum TypeOfGreeting:
-    hello='Hello' | hi='Hi';
+From:
+    'FROM ' platform_option=PLATFORM_OPTION? name=IMAGE_NAME tag_or_digest=(IMAGE_TAG|IMAGE_DIGEST)?
+;
+
+Cmd:
+	'CMD' (EXEC_FORM | {Cmd}SHELL_FORM)
+;
+
+Entrypoint:
+    'ENTRYPOINT' (EXEC_FORM | {Cmd}SHELL_FORM)
+;
+
+Volume:
+    'VOLUME' (EXEC_FORM | {Volume}SHELL_FORM)
+;
+
+Maintainer:
+	'MAINTAINER' name=SHELL_FORM
+;
+
+Expose:
+	'EXPOSE' ports=SHELL_FORM
+;
+
+Workdir:
+    'WORKDIR' path=SHELL_FORM
+;
+
+
+
+
+
+IMAGE_NAME returns ecore::EString:
+	ID('/'ID)*
+;
+
+IMAGE_TAG:
+	':'(ID|INT|STRING)(ID|INT|STRING|'-'|'.')*
+;
+
+IMAGE_DIGEST:
+	'@'(ID|INT|STRING)(ID|INT|STRING|'-'|'.')*
+;
+
+PLATFORM_OPTION:
+	'--platform='IMAGE_NAME
+;
+
+EXEC_FORM:
+	' ['executable=STRING parameters+=EXEC_FORM_PARAMETER*']'
+;
+
+SHELL_FORM:
+	SHELL_CMD (CONTINUE_NL SHELL_CMD)*
+;
+
+
+
+
+
+terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+terminal INT returns ecore::EInt: ('0'..'9')+;
+terminal STRING:
+			'"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"' |
+			"'" ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|"'") )* "'"
+		;
+
+terminal CONTINUE_NL: '\\\n';
+terminal WS         : (' '|'\t'|'\r'|'\n')+;
+
+terminal ANY_OTHER: .;
+terminal EXEC_FORM_PARAMETER: ','STRING;
+terminal SHELL_CMD: (' '|'\t')!('\n'|'\r'|'\\')* ('\r'? '\n')?;
+

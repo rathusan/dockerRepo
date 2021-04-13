@@ -26,9 +26,21 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (ruleCall.getRule() == grammarAccess.getSHELL_FORMRule())
+			return getSHELL_FORMToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * SHELL_FORM:
+	 * 	SHELL_CMD (CONTINUE_NL SHELL_CMD)*
+	 * ;
+	 */
+	protected String getSHELL_FORMToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return " ";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {

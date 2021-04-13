@@ -5,7 +5,6 @@ package org.xtext.example.mydsl.myDsl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -59,51 +58,70 @@ public interface MyDslPackage extends EPackage
   MyDslPackage eINSTANCE = org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl.init();
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ModelImpl <em>Model</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.DockerfileImpl <em>Dockerfile</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.ModelImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getModel()
+   * @see org.xtext.example.mydsl.myDsl.impl.DockerfileImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getDockerfile()
    * @generated
    */
-  int MODEL = 0;
+  int DOCKERFILE = 0;
 
   /**
-   * The feature id for the '<em><b>Greetings</b></em>' containment reference list.
+   * The feature id for the '<em><b>Statements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__GREETINGS = 0;
+  int DOCKERFILE__STATEMENTS = 0;
 
   /**
-   * The number of structural features of the '<em>Model</em>' class.
+   * The number of structural features of the '<em>Dockerfile</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 1;
+  int DOCKERFILE_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.GreetingImpl <em>Greeting</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl <em>Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.GreetingImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getGreeting()
+   * @see org.xtext.example.mydsl.myDsl.impl.StatementImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getStatement()
    * @generated
    */
-  int GREETING = 1;
+  int STATEMENT = 1;
 
   /**
-   * The feature id for the '<em><b>Greeting</b></em>' attribute.
+   * The number of structural features of the '<em>Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GREETING__GREETING = 0;
+  int STATEMENT_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.FromImpl <em>From</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.FromImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFrom()
+   * @generated
+   */
+  int FROM = 2;
+
+  /**
+   * The feature id for the '<em><b>Platform option</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FROM__PLATFORM_OPTION = STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -112,90 +130,403 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GREETING__NAME = 1;
+  int FROM__NAME = STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Greeting</em>' class.
+   * The feature id for the '<em><b>Tag or digest</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GREETING_FEATURE_COUNT = 2;
+  int FROM__TAG_OR_DIGEST = STATEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.TypeOfGreeting <em>Type Of Greeting</em>}' enum.
+   * The number of structural features of the '<em>From</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.TypeOfGreeting
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getTypeOfGreeting()
    * @generated
+   * @ordered
    */
-  int TYPE_OF_GREETING = 2;
-
+  int FROM_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Model <em>Model</em>}'.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.CmdImpl <em>Cmd</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Model</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Model
+   * @see org.xtext.example.mydsl.myDsl.impl.CmdImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCmd()
    * @generated
    */
-  EClass getModel();
+  int CMD = 3;
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Model#getGreetings <em>Greetings</em>}'.
+   * The number of structural features of the '<em>Cmd</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Greetings</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Model#getGreetings()
-   * @see #getModel()
    * @generated
+   * @ordered
    */
-  EReference getModel_Greetings();
+  int CMD_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Greeting <em>Greeting</em>}'.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.EntrypointImpl <em>Entrypoint</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Greeting</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Greeting
+   * @see org.xtext.example.mydsl.myDsl.impl.EntrypointImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getEntrypoint()
    * @generated
    */
-  EClass getGreeting();
+  int ENTRYPOINT = 4;
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Greeting#getGreeting <em>Greeting</em>}'.
+   * The number of structural features of the '<em>Entrypoint</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Greeting</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Greeting#getGreeting()
-   * @see #getGreeting()
    * @generated
+   * @ordered
    */
-  EAttribute getGreeting_Greeting();
+  int ENTRYPOINT_FEATURE_COUNT = 0;
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Greeting#getName <em>Name</em>}'.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.VolumeImpl <em>Volume</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.VolumeImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getVolume()
+   * @generated
+   */
+  int VOLUME = 5;
+
+  /**
+   * The number of structural features of the '<em>Volume</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VOLUME_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.MaintainerImpl <em>Maintainer</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.MaintainerImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getMaintainer()
+   * @generated
+   */
+  int MAINTAINER = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAINTAINER__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Maintainer</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAINTAINER_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ExposeImpl <em>Expose</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.ExposeImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExpose()
+   * @generated
+   */
+  int EXPOSE = 7;
+
+  /**
+   * The feature id for the '<em><b>Ports</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPOSE__PORTS = 0;
+
+  /**
+   * The number of structural features of the '<em>Expose</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPOSE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.WorkdirImpl <em>Workdir</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.WorkdirImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getWorkdir()
+   * @generated
+   */
+  int WORKDIR = 8;
+
+  /**
+   * The feature id for the '<em><b>Path</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORKDIR__PATH = 0;
+
+  /**
+   * The number of structural features of the '<em>Workdir</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORKDIR_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.EXEC_FORMImpl <em>EXEC FORM</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.EXEC_FORMImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getEXEC_FORM()
+   * @generated
+   */
+  int EXEC_FORM = 9;
+
+  /**
+   * The feature id for the '<em><b>Executable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXEC_FORM__EXECUTABLE = CMD_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXEC_FORM__PARAMETERS = CMD_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>EXEC FORM</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXEC_FORM_FEATURE_COUNT = CMD_FEATURE_COUNT + 2;
+
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Dockerfile <em>Dockerfile</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Dockerfile</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Dockerfile
+   * @generated
+   */
+  EClass getDockerfile();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Dockerfile#getStatements <em>Statements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Statements</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Dockerfile#getStatements()
+   * @see #getDockerfile()
+   * @generated
+   */
+  EReference getDockerfile_Statements();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Statement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Statement</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Statement
+   * @generated
+   */
+  EClass getStatement();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.From <em>From</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>From</em>'.
+   * @see org.xtext.example.mydsl.myDsl.From
+   * @generated
+   */
+  EClass getFrom();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.From#getPlatform_option <em>Platform option</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Platform option</em>'.
+   * @see org.xtext.example.mydsl.myDsl.From#getPlatform_option()
+   * @see #getFrom()
+   * @generated
+   */
+  EAttribute getFrom_Platform_option();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.From#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Greeting#getName()
-   * @see #getGreeting()
+   * @see org.xtext.example.mydsl.myDsl.From#getName()
+   * @see #getFrom()
    * @generated
    */
-  EAttribute getGreeting_Name();
+  EAttribute getFrom_Name();
 
   /**
-   * Returns the meta object for enum '{@link org.xtext.example.mydsl.myDsl.TypeOfGreeting <em>Type Of Greeting</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.From#getTag_or_digest <em>Tag or digest</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Type Of Greeting</em>'.
-   * @see org.xtext.example.mydsl.myDsl.TypeOfGreeting
+   * @return the meta object for the attribute '<em>Tag or digest</em>'.
+   * @see org.xtext.example.mydsl.myDsl.From#getTag_or_digest()
+   * @see #getFrom()
    * @generated
    */
-  EEnum getTypeOfGreeting();
+  EAttribute getFrom_Tag_or_digest();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Cmd <em>Cmd</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Cmd</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Cmd
+   * @generated
+   */
+  EClass getCmd();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Entrypoint <em>Entrypoint</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Entrypoint</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Entrypoint
+   * @generated
+   */
+  EClass getEntrypoint();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Volume <em>Volume</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Volume</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Volume
+   * @generated
+   */
+  EClass getVolume();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Maintainer <em>Maintainer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Maintainer</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Maintainer
+   * @generated
+   */
+  EClass getMaintainer();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Maintainer#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Maintainer#getName()
+   * @see #getMaintainer()
+   * @generated
+   */
+  EAttribute getMaintainer_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Expose <em>Expose</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expose</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expose
+   * @generated
+   */
+  EClass getExpose();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Expose#getPorts <em>Ports</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Ports</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expose#getPorts()
+   * @see #getExpose()
+   * @generated
+   */
+  EAttribute getExpose_Ports();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Workdir <em>Workdir</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Workdir</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Workdir
+   * @generated
+   */
+  EClass getWorkdir();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Workdir#getPath <em>Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Path</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Workdir#getPath()
+   * @see #getWorkdir()
+   * @generated
+   */
+  EAttribute getWorkdir_Path();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.EXEC_FORM <em>EXEC FORM</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>EXEC FORM</em>'.
+   * @see org.xtext.example.mydsl.myDsl.EXEC_FORM
+   * @generated
+   */
+  EClass getEXEC_FORM();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.EXEC_FORM#getExecutable <em>Executable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Executable</em>'.
+   * @see org.xtext.example.mydsl.myDsl.EXEC_FORM#getExecutable()
+   * @see #getEXEC_FORM()
+   * @generated
+   */
+  EAttribute getEXEC_FORM_Executable();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.EXEC_FORM#getParameters <em>Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Parameters</em>'.
+   * @see org.xtext.example.mydsl.myDsl.EXEC_FORM#getParameters()
+   * @see #getEXEC_FORM()
+   * @generated
+   */
+  EAttribute getEXEC_FORM_Parameters();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -221,40 +552,50 @@ public interface MyDslPackage extends EPackage
   interface Literals
   {
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ModelImpl <em>Model</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.DockerfileImpl <em>Dockerfile</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.ModelImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getModel()
+     * @see org.xtext.example.mydsl.myDsl.impl.DockerfileImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getDockerfile()
      * @generated
      */
-    EClass MODEL = eINSTANCE.getModel();
+    EClass DOCKERFILE = eINSTANCE.getDockerfile();
 
     /**
-     * The meta object literal for the '<em><b>Greetings</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__GREETINGS = eINSTANCE.getModel_Greetings();
+    EReference DOCKERFILE__STATEMENTS = eINSTANCE.getDockerfile_Statements();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.GreetingImpl <em>Greeting</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl <em>Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.GreetingImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getGreeting()
+     * @see org.xtext.example.mydsl.myDsl.impl.StatementImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getStatement()
      * @generated
      */
-    EClass GREETING = eINSTANCE.getGreeting();
+    EClass STATEMENT = eINSTANCE.getStatement();
 
     /**
-     * The meta object literal for the '<em><b>Greeting</b></em>' attribute feature.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.FromImpl <em>From</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.FromImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFrom()
+     * @generated
+     */
+    EClass FROM = eINSTANCE.getFrom();
+
+    /**
+     * The meta object literal for the '<em><b>Platform option</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GREETING__GREETING = eINSTANCE.getGreeting_Greeting();
+    EAttribute FROM__PLATFORM_OPTION = eINSTANCE.getFrom_Platform_option();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -262,17 +603,125 @@ public interface MyDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GREETING__NAME = eINSTANCE.getGreeting_Name();
+    EAttribute FROM__NAME = eINSTANCE.getFrom_Name();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.TypeOfGreeting <em>Type Of Greeting</em>}' enum.
+     * The meta object literal for the '<em><b>Tag or digest</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.TypeOfGreeting
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getTypeOfGreeting()
      * @generated
      */
-    EEnum TYPE_OF_GREETING = eINSTANCE.getTypeOfGreeting();
+    EAttribute FROM__TAG_OR_DIGEST = eINSTANCE.getFrom_Tag_or_digest();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.CmdImpl <em>Cmd</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.CmdImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCmd()
+     * @generated
+     */
+    EClass CMD = eINSTANCE.getCmd();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.EntrypointImpl <em>Entrypoint</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.EntrypointImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getEntrypoint()
+     * @generated
+     */
+    EClass ENTRYPOINT = eINSTANCE.getEntrypoint();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.VolumeImpl <em>Volume</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.VolumeImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getVolume()
+     * @generated
+     */
+    EClass VOLUME = eINSTANCE.getVolume();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.MaintainerImpl <em>Maintainer</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.MaintainerImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getMaintainer()
+     * @generated
+     */
+    EClass MAINTAINER = eINSTANCE.getMaintainer();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAINTAINER__NAME = eINSTANCE.getMaintainer_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ExposeImpl <em>Expose</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.ExposeImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExpose()
+     * @generated
+     */
+    EClass EXPOSE = eINSTANCE.getExpose();
+
+    /**
+     * The meta object literal for the '<em><b>Ports</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPOSE__PORTS = eINSTANCE.getExpose_Ports();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.WorkdirImpl <em>Workdir</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.WorkdirImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getWorkdir()
+     * @generated
+     */
+    EClass WORKDIR = eINSTANCE.getWorkdir();
+
+    /**
+     * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WORKDIR__PATH = eINSTANCE.getWorkdir_Path();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.EXEC_FORMImpl <em>EXEC FORM</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.EXEC_FORMImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getEXEC_FORM()
+     * @generated
+     */
+    EClass EXEC_FORM = eINSTANCE.getEXEC_FORM();
+
+    /**
+     * The meta object literal for the '<em><b>Executable</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXEC_FORM__EXECUTABLE = eINSTANCE.getEXEC_FORM_Executable();
+
+    /**
+     * The meta object literal for the '<em><b>Parameters</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXEC_FORM__PARAMETERS = eINSTANCE.getEXEC_FORM_Parameters();
 
   }
 
