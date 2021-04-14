@@ -14,13 +14,19 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.example.mydsl.myDsl.Add;
 import org.xtext.example.mydsl.myDsl.Cmd;
+import org.xtext.example.mydsl.myDsl.Copy;
 import org.xtext.example.mydsl.myDsl.Dockerfile;
 import org.xtext.example.mydsl.myDsl.EXEC_FORM;
+import org.xtext.example.mydsl.myDsl.Entrypoint;
+import org.xtext.example.mydsl.myDsl.Env;
 import org.xtext.example.mydsl.myDsl.Expose;
 import org.xtext.example.mydsl.myDsl.From;
+import org.xtext.example.mydsl.myDsl.Label;
 import org.xtext.example.mydsl.myDsl.Maintainer;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
+import org.xtext.example.mydsl.myDsl.Run;
 import org.xtext.example.mydsl.myDsl.Volume;
 import org.xtext.example.mydsl.myDsl.Workdir;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
@@ -39,8 +45,14 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == MyDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case MyDslPackage.ADD:
+				sequence_Add(context, (Add) semanticObject); 
+				return; 
 			case MyDslPackage.CMD:
-				sequence_Cmd_Entrypoint(context, (Cmd) semanticObject); 
+				sequence_Cmd(context, (Cmd) semanticObject); 
+				return; 
+			case MyDslPackage.COPY:
+				sequence_Copy(context, (Copy) semanticObject); 
 				return; 
 			case MyDslPackage.DOCKERFILE:
 				sequence_Dockerfile(context, (Dockerfile) semanticObject); 
@@ -48,14 +60,26 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.EXEC_FORM:
 				sequence_EXEC_FORM(context, (EXEC_FORM) semanticObject); 
 				return; 
+			case MyDslPackage.ENTRYPOINT:
+				sequence_Entrypoint(context, (Entrypoint) semanticObject); 
+				return; 
+			case MyDslPackage.ENV:
+				sequence_Env(context, (Env) semanticObject); 
+				return; 
 			case MyDslPackage.EXPOSE:
 				sequence_Expose(context, (Expose) semanticObject); 
 				return; 
 			case MyDslPackage.FROM:
 				sequence_From(context, (From) semanticObject); 
 				return; 
+			case MyDslPackage.LABEL:
+				sequence_Label(context, (Label) semanticObject); 
+				return; 
 			case MyDslPackage.MAINTAINER:
 				sequence_Maintainer(context, (Maintainer) semanticObject); 
+				return; 
+			case MyDslPackage.RUN:
+				sequence_Run(context, (Run) semanticObject); 
 				return; 
 			case MyDslPackage.VOLUME:
 				sequence_Volume(context, (Volume) semanticObject); 
@@ -70,14 +94,39 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Statement returns Add
+	 *     Add returns Add
+	 *
+	 * Constraint:
+	 *     (chown_options=CHOWN_OPTION? file=ID directory=SHELL_CMD)
+	 */
+	protected void sequence_Add(ISerializationContext context, Add semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Statement returns Cmd
 	 *     Cmd returns Cmd
-	 *     Entrypoint returns Cmd
 	 *
 	 * Constraint:
 	 *     {Cmd}
 	 */
-	protected void sequence_Cmd_Entrypoint(ISerializationContext context, Cmd semanticObject) {
+	protected void sequence_Cmd(ISerializationContext context, Cmd semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statement returns Copy
+	 *     Copy returns Copy
+	 *
+	 * Constraint:
+	 *     (chown_options=CHOWN_OPTION? file=ID directory=SHELL_CMD)
+	 */
+	protected void sequence_Copy(ISerializationContext context, Copy semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -98,6 +147,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 * Contexts:
 	 *     Statement returns EXEC_FORM
 	 *     Cmd returns EXEC_FORM
+	 *     Run returns EXEC_FORM
 	 *     Entrypoint returns EXEC_FORM
 	 *     Volume returns EXEC_FORM
 	 *     EXEC_FORM returns EXEC_FORM
@@ -112,10 +162,37 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Statement returns Entrypoint
+	 *     Entrypoint returns Entrypoint
+	 *
+	 * Constraint:
+	 *     {Entrypoint}
+	 */
+	protected void sequence_Entrypoint(ISerializationContext context, Entrypoint semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statement returns Env
+	 *     Env returns Env
+	 *
+	 * Constraint:
+	 *     key_value_pairs+=KV_PAIR_EQUALS+
+	 */
+	protected void sequence_Env(ISerializationContext context, Env semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statement returns Expose
 	 *     Expose returns Expose
 	 *
 	 * Constraint:
-	 *     ports=SHELL_FORM
+	 *     ports=SHELL_CMD
 	 */
 	protected void sequence_Expose(ISerializationContext context, Expose semanticObject) {
 		if (errorAcceptor != null) {
@@ -123,7 +200,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.EXPOSE__PORTS));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExposeAccess().getPortsSHELL_FORMParserRuleCall_1_0(), semanticObject.getPorts());
+		feeder.accept(grammarAccess.getExposeAccess().getPortsSHELL_CMDTerminalRuleCall_1_0(), semanticObject.getPorts());
 		feeder.finish();
 	}
 	
@@ -143,10 +220,24 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Statement returns Label
+	 *     Label returns Label
+	 *
+	 * Constraint:
+	 *     key_value_pairs+=KV_PAIR_EQUALS+
+	 */
+	protected void sequence_Label(ISerializationContext context, Label semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statement returns Maintainer
 	 *     Maintainer returns Maintainer
 	 *
 	 * Constraint:
-	 *     name=SHELL_FORM
+	 *     name=SHELL_CMD
 	 */
 	protected void sequence_Maintainer(ISerializationContext context, Maintainer semanticObject) {
 		if (errorAcceptor != null) {
@@ -154,13 +245,27 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.MAINTAINER__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMaintainerAccess().getNameSHELL_FORMParserRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getMaintainerAccess().getNameSHELL_CMDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
+	 *     Statement returns Run
+	 *     Run returns Run
+	 *
+	 * Constraint:
+	 *     {Run}
+	 */
+	protected void sequence_Run(ISerializationContext context, Run semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statement returns Volume
 	 *     Volume returns Volume
 	 *
 	 * Constraint:
@@ -173,10 +278,11 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Statement returns Workdir
 	 *     Workdir returns Workdir
 	 *
 	 * Constraint:
-	 *     path=SHELL_FORM
+	 *     path=SHELL_CMD
 	 */
 	protected void sequence_Workdir(ISerializationContext context, Workdir semanticObject) {
 		if (errorAcceptor != null) {
@@ -184,7 +290,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.WORKDIR__PATH));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getWorkdirAccess().getPathSHELL_FORMParserRuleCall_1_0(), semanticObject.getPath());
+		feeder.accept(grammarAccess.getWorkdirAccess().getPathSHELL_CMDTerminalRuleCall_1_0(), semanticObject.getPath());
 		feeder.finish();
 	}
 	

@@ -69,11 +69,16 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.STATEMENT: return createStatement();
       case MyDslPackage.FROM: return createFrom();
       case MyDslPackage.CMD: return createCmd();
+      case MyDslPackage.RUN: return createRun();
       case MyDslPackage.ENTRYPOINT: return createEntrypoint();
       case MyDslPackage.VOLUME: return createVolume();
       case MyDslPackage.MAINTAINER: return createMaintainer();
       case MyDslPackage.EXPOSE: return createExpose();
       case MyDslPackage.WORKDIR: return createWorkdir();
+      case MyDslPackage.ENV: return createEnv();
+      case MyDslPackage.LABEL: return createLabel();
+      case MyDslPackage.ADD: return createAdd();
+      case MyDslPackage.COPY: return createCopy();
       case MyDslPackage.EXEC_FORM: return createEXEC_FORM();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -134,6 +139,18 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
+  public Run createRun()
+  {
+    RunImpl run = new RunImpl();
+    return run;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Entrypoint createEntrypoint()
   {
     EntrypointImpl entrypoint = new EntrypointImpl();
@@ -186,6 +203,54 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     WorkdirImpl workdir = new WorkdirImpl();
     return workdir;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Env createEnv()
+  {
+    EnvImpl env = new EnvImpl();
+    return env;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Label createLabel()
+  {
+    LabelImpl label = new LabelImpl();
+    return label;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Add createAdd()
+  {
+    AddImpl add = new AddImpl();
+    return add;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Copy createCopy()
+  {
+    CopyImpl copy = new CopyImpl();
+    return copy;
   }
 
   /**

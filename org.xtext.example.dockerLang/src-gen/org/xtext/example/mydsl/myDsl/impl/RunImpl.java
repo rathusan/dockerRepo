@@ -6,23 +6,23 @@ package org.xtext.example.mydsl.myDsl.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
-import org.xtext.example.mydsl.myDsl.Volume;
+import org.xtext.example.mydsl.myDsl.Run;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Volume</b></em>'.
+ * An implementation of the model object '<em><b>Run</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class VolumeImpl extends StatementImpl implements Volume
+public class RunImpl extends StatementImpl implements Run
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected VolumeImpl()
+  protected RunImpl()
   {
     super();
   }
@@ -35,7 +35,7 @@ public class VolumeImpl extends StatementImpl implements Volume
   @Override
   protected EClass eStaticClass()
   {
-    return MyDslPackage.Literals.VOLUME;
+    return MyDslPackage.Literals.RUN;
   }
 
-} //VolumeImpl
+} //RunImpl

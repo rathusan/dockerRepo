@@ -16,6 +16,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//From/tag_or_digest"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Cmd"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Run"/>
     <genClasses ecoreClass="MyDsl.ecore#//Entrypoint"/>
     <genClasses ecoreClass="MyDsl.ecore#//Volume"/>
     <genClasses ecoreClass="MyDsl.ecore#//Maintainer">
@@ -26,6 +27,22 @@
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Workdir">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Workdir/path"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Env">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Env/key_value_pairs"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Label">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Label/key_value_pairs"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Add">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Add/chown_options"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Add/file"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Add/directory"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Copy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Copy/chown_options"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Copy/file"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Copy/directory"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//EXEC_FORM">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//EXEC_FORM/executable"/>

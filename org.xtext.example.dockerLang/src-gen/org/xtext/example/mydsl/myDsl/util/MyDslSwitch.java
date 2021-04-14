@@ -100,7 +100,14 @@ public class MyDslSwitch<T> extends Switch<T>
         Cmd cmd = (Cmd)theEObject;
         T result = caseCmd(cmd);
         if (result == null) result = caseStatement(cmd);
-        if (result == null) result = caseEntrypoint(cmd);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.RUN:
+      {
+        Run run = (Run)theEObject;
+        T result = caseRun(run);
+        if (result == null) result = caseStatement(run);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -108,6 +115,7 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Entrypoint entrypoint = (Entrypoint)theEObject;
         T result = caseEntrypoint(entrypoint);
+        if (result == null) result = caseStatement(entrypoint);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -115,6 +123,7 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Volume volume = (Volume)theEObject;
         T result = caseVolume(volume);
+        if (result == null) result = caseStatement(volume);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -122,6 +131,7 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Maintainer maintainer = (Maintainer)theEObject;
         T result = caseMaintainer(maintainer);
+        if (result == null) result = caseStatement(maintainer);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -129,6 +139,7 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Expose expose = (Expose)theEObject;
         T result = caseExpose(expose);
+        if (result == null) result = caseStatement(expose);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -136,6 +147,39 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Workdir workdir = (Workdir)theEObject;
         T result = caseWorkdir(workdir);
+        if (result == null) result = caseStatement(workdir);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.ENV:
+      {
+        Env env = (Env)theEObject;
+        T result = caseEnv(env);
+        if (result == null) result = caseStatement(env);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.LABEL:
+      {
+        Label label = (Label)theEObject;
+        T result = caseLabel(label);
+        if (result == null) result = caseStatement(label);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.ADD:
+      {
+        Add add = (Add)theEObject;
+        T result = caseAdd(add);
+        if (result == null) result = caseStatement(add);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.COPY:
+      {
+        Copy copy = (Copy)theEObject;
+        T result = caseCopy(copy);
+        if (result == null) result = caseStatement(copy);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -144,9 +188,10 @@ public class MyDslSwitch<T> extends Switch<T>
         EXEC_FORM exeC_FORM = (EXEC_FORM)theEObject;
         T result = caseEXEC_FORM(exeC_FORM);
         if (result == null) result = caseCmd(exeC_FORM);
+        if (result == null) result = caseRun(exeC_FORM);
+        if (result == null) result = caseEntrypoint(exeC_FORM);
         if (result == null) result = caseVolume(exeC_FORM);
         if (result == null) result = caseStatement(exeC_FORM);
-        if (result == null) result = caseEntrypoint(exeC_FORM);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -214,6 +259,22 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCmd(Cmd object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Run</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Run</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRun(Run object)
   {
     return null;
   }
@@ -294,6 +355,70 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseWorkdir(Workdir object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Env</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Env</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEnv(Env object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Label</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Label</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLabel(Label object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Add</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Add</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAdd(Add object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Copy</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Copy</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCopy(Copy object)
   {
     return null;
   }

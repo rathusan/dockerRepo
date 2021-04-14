@@ -10,6 +10,10 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
@@ -18,25 +22,66 @@ import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected MyDslGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Add___AsteriskKeyword_3_0_1_or_QuestionMarkKeyword_3_0_0_or___FullStopKeyword_3_1_0_IDTerminalRuleCall_3_1_1____q;
+	protected AbstractElementAlias match_Cmd_Entrypoint_Run_Volume_CMDKeyword_0_or_ENTRYPOINTKeyword_0_or_RUNKeyword_0_or_VOLUMEKeyword_0;
+	protected AbstractElementAlias match_Copy___AsteriskKeyword_3_1_or_QuestionMarkKeyword_3_0__q;
+	protected AbstractElementAlias match_Copy___FullStopKeyword_4_0_IDTerminalRuleCall_4_1__q;
+	protected AbstractElementAlias match_Statement_ONBUILDKeyword_0_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (MyDslGrammarAccess) access;
+		match_Add___AsteriskKeyword_3_0_1_or_QuestionMarkKeyword_3_0_0_or___FullStopKeyword_3_1_0_IDTerminalRuleCall_3_1_1____q = new AlternativeAlias(false, true, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getAddAccess().getFullStopKeyword_3_1_0()), new TokenAlias(false, false, grammarAccess.getAddAccess().getIDTerminalRuleCall_3_1_1())), new TokenAlias(false, false, grammarAccess.getAddAccess().getAsteriskKeyword_3_0_1()), new TokenAlias(false, false, grammarAccess.getAddAccess().getQuestionMarkKeyword_3_0_0()));
+		match_Cmd_Entrypoint_Run_Volume_CMDKeyword_0_or_ENTRYPOINTKeyword_0_or_RUNKeyword_0_or_VOLUMEKeyword_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getCmdAccess().getCMDKeyword_0()), new TokenAlias(false, false, grammarAccess.getEntrypointAccess().getENTRYPOINTKeyword_0()), new TokenAlias(false, false, grammarAccess.getRunAccess().getRUNKeyword_0()), new TokenAlias(false, false, grammarAccess.getVolumeAccess().getVOLUMEKeyword_0()));
+		match_Copy___AsteriskKeyword_3_1_or_QuestionMarkKeyword_3_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getCopyAccess().getAsteriskKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getCopyAccess().getQuestionMarkKeyword_3_0()));
+		match_Copy___FullStopKeyword_4_0_IDTerminalRuleCall_4_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getCopyAccess().getFullStopKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getCopyAccess().getIDTerminalRuleCall_4_1()));
+		match_Statement_ONBUILDKeyword_0_q = new TokenAlias(false, true, grammarAccess.getStatementAccess().getONBUILDKeyword_0());
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getSHELL_FORMRule())
-			return getSHELL_FORMToken(semanticObject, ruleCall, node);
+		if (ruleCall.getRule() == grammarAccess.getCOMMENTRule())
+			return getCOMMENTToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getIDRule())
+			return getIDToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getNLRule())
+			return getNLToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getSHELL_CMDRule())
+			return getSHELL_CMDToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
 	/**
-	 * SHELL_FORM:
-	 * 	SHELL_CMD (CONTINUE_NL SHELL_CMD)*
-	 * ;
+	 * terminal COMMENT: ('#'!('\n'|'\r')*);
 	 */
-	protected String getSHELL_FORMToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getCOMMENTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "#";
+	}
+	
+	/**
+	 * terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+	 */
+	protected String getIDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "";
+	}
+	
+	/**
+	 * terminal NL         : ('\n')+;
+	 */
+	protected String getNLToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "\n";
+	}
+	
+	/**
+	 * terminal SHELL_CMD: (' '|'\t')(!('\n'|'\r'|'\\')|('\\\n'))*;
+	 */
+	protected String getSHELL_CMDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return " ";
@@ -48,8 +93,89 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_Add___AsteriskKeyword_3_0_1_or_QuestionMarkKeyword_3_0_0_or___FullStopKeyword_3_1_0_IDTerminalRuleCall_3_1_1____q.equals(syntax))
+				emit_Add___AsteriskKeyword_3_0_1_or_QuestionMarkKeyword_3_0_0_or___FullStopKeyword_3_1_0_IDTerminalRuleCall_3_1_1____q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Cmd_Entrypoint_Run_Volume_CMDKeyword_0_or_ENTRYPOINTKeyword_0_or_RUNKeyword_0_or_VOLUMEKeyword_0.equals(syntax))
+				emit_Cmd_Entrypoint_Run_Volume_CMDKeyword_0_or_ENTRYPOINTKeyword_0_or_RUNKeyword_0_or_VOLUMEKeyword_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Copy___AsteriskKeyword_3_1_or_QuestionMarkKeyword_3_0__q.equals(syntax))
+				emit_Copy___AsteriskKeyword_3_1_or_QuestionMarkKeyword_3_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Copy___FullStopKeyword_4_0_IDTerminalRuleCall_4_1__q.equals(syntax))
+				emit_Copy___FullStopKeyword_4_0_IDTerminalRuleCall_4_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Statement_ONBUILDKeyword_0_q.equals(syntax))
+				emit_Statement_ONBUILDKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     ('?' | '*' | ('.' ID))?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     file=ID (ambiguity) directory=SHELL_CMD
+	 */
+	protected void emit_Add___AsteriskKeyword_3_0_1_or_QuestionMarkKeyword_3_0_0_or___FullStopKeyword_3_1_0_IDTerminalRuleCall_3_1_1____q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'CMD' | 'RUN' | 'ENTRYPOINT' | 'VOLUME'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) 'ONBUILD '? (ambiguity) ' [' executable=STRING
+	 */
+	protected void emit_Cmd_Entrypoint_Run_Volume_CMDKeyword_0_or_ENTRYPOINTKeyword_0_or_RUNKeyword_0_or_VOLUMEKeyword_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('?' | '*')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     file=ID (ambiguity) ('.' ID)? directory=SHELL_CMD
+	 */
+	protected void emit_Copy___AsteriskKeyword_3_1_or_QuestionMarkKeyword_3_0__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('.' ID)?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     file=ID ('?' | '*')? (ambiguity) directory=SHELL_CMD
+	 */
+	protected void emit_Copy___FullStopKeyword_4_0_IDTerminalRuleCall_4_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'ONBUILD '?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) 'ADD ' chown_options=CHOWN_OPTION
+	 *     (rule start) (ambiguity) 'ADD ' file=ID
+	 *     (rule start) (ambiguity) 'CMD' SHELL_CMD (rule start)
+	 *     (rule start) (ambiguity) 'COPY ' chown_options=CHOWN_OPTION
+	 *     (rule start) (ambiguity) 'COPY ' file=ID
+	 *     (rule start) (ambiguity) 'ENTRYPOINT' SHELL_CMD (rule start)
+	 *     (rule start) (ambiguity) 'ENV ' key_value_pairs+=KV_PAIR_EQUALS
+	 *     (rule start) (ambiguity) 'EXPOSE' ports=SHELL_CMD
+	 *     (rule start) (ambiguity) 'FROM ' name=IMAGE_NAME
+	 *     (rule start) (ambiguity) 'FROM ' platform_option=PLATFORM_OPTION
+	 *     (rule start) (ambiguity) 'LABEL ' key_value_pairs+=KV_PAIR_EQUALS
+	 *     (rule start) (ambiguity) 'MAINTAINER' name=SHELL_CMD
+	 *     (rule start) (ambiguity) 'RUN' SHELL_CMD (rule start)
+	 *     (rule start) (ambiguity) 'VOLUME' SHELL_CMD (rule start)
+	 *     (rule start) (ambiguity) 'WORKDIR' path=SHELL_CMD
+	 *     (rule start) (ambiguity) ('CMD' | 'RUN' | 'ENTRYPOINT' | 'VOLUME') ' [' executable=STRING
+	 *     (rule start) (ambiguity) COMMENT (rule start)
+	 */
+	protected void emit_Statement_ONBUILDKeyword_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

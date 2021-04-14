@@ -3,72 +3,88 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 generate myDsl "http://www.xtext.org/example/DockerLang"
 
 Dockerfile:
-	(statements+=Statement)*
+	(statements+=(Statement)(NL))*
 ;
 
 Statement:
-	From|Cmd|Entrypoint|Volume|Maintainer|Expose|Workdir
+	('ONBUILD '? (From|Cmd|Entrypoint|Volume|Maintainer|Expose|Workdir|Run|Env|Label|Add|Copy)) | COMMENT
 ;
 
 From:
     'FROM ' platform_option=PLATFORM_OPTION? name=IMAGE_NAME tag_or_digest=(IMAGE_TAG|IMAGE_DIGEST)?
 ;
 
-Cmd:
-	'CMD' (EXEC_FORM | {Cmd}SHELL_FORM)
+Cmd: 
+	'CMD' (EXEC_FORM | {Cmd}SHELL_CMD)
+;
+
+Run:
+    'RUN' (EXEC_FORM | {Run}SHELL_CMD)
 ;
 
 Entrypoint:
-    'ENTRYPOINT' (EXEC_FORM | {Cmd}SHELL_FORM)
+    'ENTRYPOINT' (EXEC_FORM | {Entrypoint}SHELL_CMD)
 ;
 
 Volume:
-    'VOLUME' (EXEC_FORM | {Volume}SHELL_FORM)
+    'VOLUME' (EXEC_FORM | {Volume}SHELL_CMD)
 ;
 
 Maintainer:
-	'MAINTAINER' name=SHELL_FORM
+	'MAINTAINER' name=SHELL_CMD
 ;
 
 Expose:
-	'EXPOSE' ports=SHELL_FORM
+	'EXPOSE' ports=SHELL_CMD
 ;
 
 Workdir:
-    'WORKDIR' path=SHELL_FORM
+    'WORKDIR' path=SHELL_CMD
 ;
 
+Env:
+	'ENV ' key_value_pairs+=(KV_PAIR_EQUALS)+
+;
 
+Label:
+	'LABEL ' key_value_pairs+=(KV_PAIR_EQUALS)+
+;
 
+Add:
+	'ADD ' chown_options=CHOWN_OPTION? file=ID(('?'|'*')|('.'ID))? directory=SHELL_CMD
+;
 
+Copy:
+	'COPY ' chown_options=CHOWN_OPTION? file=ID('?'|'*')?('.'ID)? directory=SHELL_CMD
+;
 
 IMAGE_NAME returns ecore::EString:
 	ID('/'ID)*
 ;
 
-IMAGE_TAG:
+IMAGE_TAG returns ecore::EString:
 	':'(ID|INT|STRING)(ID|INT|STRING|'-'|'.')*
 ;
 
-IMAGE_DIGEST:
+IMAGE_DIGEST returns ecore::EString:
 	'@'(ID|INT|STRING)(ID|INT|STRING|'-'|'.')*
 ;
 
-PLATFORM_OPTION:
-	'--platform='IMAGE_NAME
+terminal PLATFORM_OPTION returns ecore::EString:
+	'--platform='(ID|INT)':'((ID|INT|STRING)(ID|INT|STRING|'-'|'.')*)?' '
+;
+
+terminal CHOWN_OPTION returns ecore::EString:
+	'--chown='(ID|INT)':'((ID|INT|STRING)(ID|INT|STRING|'-'|'.')*)?' '
 ;
 
 EXEC_FORM:
 	' ['executable=STRING parameters+=EXEC_FORM_PARAMETER*']'
 ;
 
-SHELL_FORM:
-	SHELL_CMD (CONTINUE_NL SHELL_CMD)*
+terminal KV_PAIR_EQUALS:
+	(ID|STRING)'='(ID|STRING|INT)' '?
 ;
-
-
-
-
 
 terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 terminal INT returns ecore::EInt: ('0'..'9')+;
@@ -78,9 +94,11 @@ terminal STRING:
 		;
 
 terminal CONTINUE_NL: '\\\n';
-terminal WS         : (' '|'\t'|'\r'|'\n')+;
+terminal NL         : ('\n')+;
 
 terminal ANY_OTHER: .;
 terminal EXEC_FORM_PARAMETER: ','STRING;
-terminal SHELL_CMD: (' '|'\t')!('\n'|'\r'|'\\')* ('\r'? '\n')?;
+terminal SHELL_CMD: (' '|'\t')(!('\n'|'\r'|'\\')|('\\\n'))*;
+terminal COMMENT: ('#'!('\n'|'\r')*);
+
 

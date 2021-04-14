@@ -6,14 +6,14 @@ package org.xtext.example.mydsl.myDsl;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Cmd</b></em>'.
+ * A representation of the model object '<em><b>Run</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCmd()
+ * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getRun()
  * @model
  * @generated
  */
-public interface Cmd extends Statement
+public interface Run extends Statement
 {
-} // Cmd
+} // Run

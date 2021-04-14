@@ -10,14 +10,19 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.example.mydsl.myDsl.Add;
 import org.xtext.example.mydsl.myDsl.Cmd;
+import org.xtext.example.mydsl.myDsl.Copy;
 import org.xtext.example.mydsl.myDsl.Dockerfile;
 import org.xtext.example.mydsl.myDsl.Entrypoint;
+import org.xtext.example.mydsl.myDsl.Env;
 import org.xtext.example.mydsl.myDsl.Expose;
 import org.xtext.example.mydsl.myDsl.From;
+import org.xtext.example.mydsl.myDsl.Label;
 import org.xtext.example.mydsl.myDsl.Maintainer;
 import org.xtext.example.mydsl.myDsl.MyDslFactory;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
+import org.xtext.example.mydsl.myDsl.Run;
 import org.xtext.example.mydsl.myDsl.Statement;
 import org.xtext.example.mydsl.myDsl.Volume;
 import org.xtext.example.mydsl.myDsl.Workdir;
@@ -63,6 +68,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass runEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass entrypointEClass = null;
 
   /**
@@ -92,6 +104,34 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass workdirEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass envEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass labelEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass addEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass copyEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -257,6 +297,17 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
+  public EClass getRun()
+  {
+    return runEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getEntrypoint()
   {
     return entrypointEClass;
@@ -345,6 +396,138 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
+  public EClass getEnv()
+  {
+    return envEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEnv_Key_value_pairs()
+  {
+    return (EAttribute)envEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLabel()
+  {
+    return labelEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getLabel_Key_value_pairs()
+  {
+    return (EAttribute)labelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAdd()
+  {
+    return addEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAdd_Chown_options()
+  {
+    return (EAttribute)addEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAdd_File()
+  {
+    return (EAttribute)addEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAdd_Directory()
+  {
+    return (EAttribute)addEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCopy()
+  {
+    return copyEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCopy_Chown_options()
+  {
+    return (EAttribute)copyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCopy_File()
+  {
+    return (EAttribute)copyEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCopy_Directory()
+  {
+    return (EAttribute)copyEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getEXEC_FORM()
   {
     return exeC_FORMEClass;
@@ -415,6 +598,8 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     cmdEClass = createEClass(CMD);
 
+    runEClass = createEClass(RUN);
+
     entrypointEClass = createEClass(ENTRYPOINT);
 
     volumeEClass = createEClass(VOLUME);
@@ -427,6 +612,22 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     workdirEClass = createEClass(WORKDIR);
     createEAttribute(workdirEClass, WORKDIR__PATH);
+
+    envEClass = createEClass(ENV);
+    createEAttribute(envEClass, ENV__KEY_VALUE_PAIRS);
+
+    labelEClass = createEClass(LABEL);
+    createEAttribute(labelEClass, LABEL__KEY_VALUE_PAIRS);
+
+    addEClass = createEClass(ADD);
+    createEAttribute(addEClass, ADD__CHOWN_OPTIONS);
+    createEAttribute(addEClass, ADD__FILE);
+    createEAttribute(addEClass, ADD__DIRECTORY);
+
+    copyEClass = createEClass(COPY);
+    createEAttribute(copyEClass, COPY__CHOWN_OPTIONS);
+    createEAttribute(copyEClass, COPY__FILE);
+    createEAttribute(copyEClass, COPY__DIRECTORY);
 
     exeC_FORMEClass = createEClass(EXEC_FORM);
     createEAttribute(exeC_FORMEClass, EXEC_FORM__EXECUTABLE);
@@ -464,8 +665,18 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     // Add supertypes to classes
     fromEClass.getESuperTypes().add(this.getStatement());
     cmdEClass.getESuperTypes().add(this.getStatement());
-    cmdEClass.getESuperTypes().add(this.getEntrypoint());
+    runEClass.getESuperTypes().add(this.getStatement());
+    entrypointEClass.getESuperTypes().add(this.getStatement());
+    volumeEClass.getESuperTypes().add(this.getStatement());
+    maintainerEClass.getESuperTypes().add(this.getStatement());
+    exposeEClass.getESuperTypes().add(this.getStatement());
+    workdirEClass.getESuperTypes().add(this.getStatement());
+    envEClass.getESuperTypes().add(this.getStatement());
+    labelEClass.getESuperTypes().add(this.getStatement());
+    addEClass.getESuperTypes().add(this.getStatement());
+    copyEClass.getESuperTypes().add(this.getStatement());
     exeC_FORMEClass.getESuperTypes().add(this.getCmd());
+    exeC_FORMEClass.getESuperTypes().add(this.getRun());
     exeC_FORMEClass.getESuperTypes().add(this.getEntrypoint());
     exeC_FORMEClass.getESuperTypes().add(this.getVolume());
 
@@ -482,6 +693,8 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     initEClass(cmdEClass, Cmd.class, "Cmd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(runEClass, Run.class, "Run", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
     initEClass(entrypointEClass, Entrypoint.class, "Entrypoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(volumeEClass, Volume.class, "Volume", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -494,6 +707,22 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     initEClass(workdirEClass, Workdir.class, "Workdir", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getWorkdir_Path(), ecorePackage.getEString(), "path", null, 0, 1, Workdir.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(envEClass, Env.class, "Env", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEnv_Key_value_pairs(), ecorePackage.getEString(), "key_value_pairs", null, 0, -1, Env.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(labelEClass, Label.class, "Label", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLabel_Key_value_pairs(), ecorePackage.getEString(), "key_value_pairs", null, 0, -1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(addEClass, Add.class, "Add", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAdd_Chown_options(), ecorePackage.getEString(), "chown_options", null, 0, 1, Add.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAdd_File(), ecorePackage.getEString(), "file", null, 0, 1, Add.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAdd_Directory(), ecorePackage.getEString(), "directory", null, 0, 1, Add.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(copyEClass, Copy.class, "Copy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCopy_Chown_options(), ecorePackage.getEString(), "chown_options", null, 0, 1, Copy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCopy_File(), ecorePackage.getEString(), "file", null, 0, 1, Copy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCopy_Directory(), ecorePackage.getEString(), "directory", null, 0, 1, Copy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exeC_FORMEClass, org.xtext.example.mydsl.myDsl.EXEC_FORM.class, "EXEC_FORM", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEXEC_FORM_Executable(), ecorePackage.getEString(), "executable", null, 0, 1, org.xtext.example.mydsl.myDsl.EXEC_FORM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

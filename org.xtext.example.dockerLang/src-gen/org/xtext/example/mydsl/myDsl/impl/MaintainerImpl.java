@@ -8,7 +8,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.myDsl.Maintainer;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
@@ -26,7 +25,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  *
  * @generated
  */
-public class MaintainerImpl extends MinimalEObjectImpl.Container implements Maintainer
+public class MaintainerImpl extends StatementImpl implements Maintainer
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.

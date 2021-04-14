@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface EXEC_FORM extends Cmd, Entrypoint, Volume
+public interface EXEC_FORM extends Cmd, Run, Entrypoint, Volume
 {
   /**
    * Returns the value of the '<em><b>Executable</b></em>' attribute.

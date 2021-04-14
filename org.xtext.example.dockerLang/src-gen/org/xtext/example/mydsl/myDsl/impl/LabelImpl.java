@@ -3,56 +3,48 @@
  */
 package org.xtext.example.mydsl.myDsl.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
-import org.xtext.example.mydsl.myDsl.Expose;
+import org.xtext.example.mydsl.myDsl.Label;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Expose</b></em>'.
+ * An implementation of the model object '<em><b>Label</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExposeImpl#getPorts <em>Ports</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.LabelImpl#getKey_value_pairs <em>Key value pairs</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ExposeImpl extends StatementImpl implements Expose
+public class LabelImpl extends StatementImpl implements Label
 {
   /**
-   * The default value of the '{@link #getPorts() <em>Ports</em>}' attribute.
+   * The cached value of the '{@link #getKey_value_pairs() <em>Key value pairs</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPorts()
+   * @see #getKey_value_pairs()
    * @generated
    * @ordered
    */
-  protected static final String PORTS_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getPorts() <em>Ports</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPorts()
-   * @generated
-   * @ordered
-   */
-  protected String ports = PORTS_EDEFAULT;
+  protected EList<String> key_value_pairs;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ExposeImpl()
+  protected LabelImpl()
   {
     super();
   }
@@ -65,7 +57,7 @@ public class ExposeImpl extends StatementImpl implements Expose
   @Override
   protected EClass eStaticClass()
   {
-    return MyDslPackage.Literals.EXPOSE;
+    return MyDslPackage.Literals.LABEL;
   }
 
   /**
@@ -74,23 +66,13 @@ public class ExposeImpl extends StatementImpl implements Expose
    * @generated
    */
   @Override
-  public String getPorts()
+  public EList<String> getKey_value_pairs()
   {
-    return ports;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setPorts(String newPorts)
-  {
-    String oldPorts = ports;
-    ports = newPorts;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPOSE__PORTS, oldPorts, ports));
+    if (key_value_pairs == null)
+    {
+      key_value_pairs = new EDataTypeEList<String>(String.class, this, MyDslPackage.LABEL__KEY_VALUE_PAIRS);
+    }
+    return key_value_pairs;
   }
 
   /**
@@ -103,8 +85,8 @@ public class ExposeImpl extends StatementImpl implements Expose
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPOSE__PORTS:
-        return getPorts();
+      case MyDslPackage.LABEL__KEY_VALUE_PAIRS:
+        return getKey_value_pairs();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -114,13 +96,15 @@ public class ExposeImpl extends StatementImpl implements Expose
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPOSE__PORTS:
-        setPorts((String)newValue);
+      case MyDslPackage.LABEL__KEY_VALUE_PAIRS:
+        getKey_value_pairs().clear();
+        getKey_value_pairs().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +120,8 @@ public class ExposeImpl extends StatementImpl implements Expose
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPOSE__PORTS:
-        setPorts(PORTS_EDEFAULT);
+      case MyDslPackage.LABEL__KEY_VALUE_PAIRS:
+        getKey_value_pairs().clear();
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +137,8 @@ public class ExposeImpl extends StatementImpl implements Expose
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPOSE__PORTS:
-        return PORTS_EDEFAULT == null ? ports != null : !PORTS_EDEFAULT.equals(ports);
+      case MyDslPackage.LABEL__KEY_VALUE_PAIRS:
+        return key_value_pairs != null && !key_value_pairs.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -170,10 +154,10 @@ public class ExposeImpl extends StatementImpl implements Expose
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (ports: ");
-    result.append(ports);
+    result.append(" (key_value_pairs: ");
+    result.append(key_value_pairs);
     result.append(')');
     return result.toString();
   }
 
-} //ExposeImpl
+} //LabelImpl

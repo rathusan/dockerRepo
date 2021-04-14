@@ -60,6 +60,15 @@ public interface MyDslFactory extends EFactory
   Cmd createCmd();
 
   /**
+   * Returns a new object of class '<em>Run</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Run</em>'.
+   * @generated
+   */
+  Run createRun();
+
+  /**
    * Returns a new object of class '<em>Entrypoint</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -103,6 +112,42 @@ public interface MyDslFactory extends EFactory
    * @generated
    */
   Workdir createWorkdir();
+
+  /**
+   * Returns a new object of class '<em>Env</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Env</em>'.
+   * @generated
+   */
+  Env createEnv();
+
+  /**
+   * Returns a new object of class '<em>Label</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Label</em>'.
+   * @generated
+   */
+  Label createLabel();
+
+  /**
+   * Returns a new object of class '<em>Add</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Add</em>'.
+   * @generated
+   */
+  Add createAdd();
+
+  /**
+   * Returns a new object of class '<em>Copy</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Copy</em>'.
+   * @generated
+   */
+  Copy createCopy();
 
   /**
    * Returns a new object of class '<em>EXEC FORM</em>'.
