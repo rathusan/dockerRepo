@@ -50,7 +50,7 @@ import org.xtext.example.mydsl.serializer.MyDslSemanticSequencer;
 import org.xtext.example.mydsl.serializer.MyDslSyntacticSequencer;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 import org.xtext.example.mydsl.validation.MyDslConfigurableIssueCodesProvider;
-import org.xtext.example.mydsl.validation.MyDslValidator;
+import org.xtext.example.mydsl.validation.MyDslValidatorXtend;
 
 /**
  * Manual modifications go to {@link MyDslRuntimeModule}.
@@ -139,8 +139,8 @@ public abstract class AbstractMyDslRuntimeModule extends DefaultRuntimeModule {
 	
 	// contributed by org.eclipse.xtext.xtext.generator.validation.ValidatorFragment2
 	@SingletonBinding(eager=true)
-	public Class<? extends MyDslValidator> bindMyDslValidator() {
-		return MyDslValidator.class;
+	public Class<? extends MyDslValidatorXtend> bindMyDslValidator() {
+		return MyDslValidatorXtend.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.validation.ValidatorFragment2
