@@ -96,13 +96,22 @@ public interface MyDslPackage extends EPackage
   int STATEMENT = 1;
 
   /**
+   * The feature id for the '<em><b>Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__STATEMENT = 0;
+
+  /**
    * The number of structural features of the '<em>Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT_FEATURE_COUNT = 0;
+  int STATEMENT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.FromImpl <em>From</em>}' class.
@@ -121,7 +130,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FROM__PLATFORM_OPTION = STATEMENT_FEATURE_COUNT + 0;
+  int FROM__PLATFORM_OPTION = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -130,7 +139,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FROM__NAME = STATEMENT_FEATURE_COUNT + 1;
+  int FROM__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Tag or digest</b></em>' attribute.
@@ -139,7 +148,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FROM__TAG_OR_DIGEST = STATEMENT_FEATURE_COUNT + 2;
+  int FROM__TAG_OR_DIGEST = 2;
 
   /**
    * The number of structural features of the '<em>From</em>' class.
@@ -148,7 +157,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FROM_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
+  int FROM_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.CmdImpl <em>Cmd</em>}' class.
@@ -167,7 +176,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CMD_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
+  int CMD_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.RunImpl <em>Run</em>}' class.
@@ -186,7 +195,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RUN_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
+  int RUN_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.EntrypointImpl <em>Entrypoint</em>}' class.
@@ -205,7 +214,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENTRYPOINT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
+  int ENTRYPOINT_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.VolumeImpl <em>Volume</em>}' class.
@@ -224,7 +233,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VOLUME_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
+  int VOLUME_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.MaintainerImpl <em>Maintainer</em>}' class.
@@ -243,7 +252,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAINTAINER__NAME = STATEMENT_FEATURE_COUNT + 0;
+  int MAINTAINER__NAME = 0;
 
   /**
    * The number of structural features of the '<em>Maintainer</em>' class.
@@ -252,7 +261,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAINTAINER_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int MAINTAINER_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ExposeImpl <em>Expose</em>}' class.
@@ -271,7 +280,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPOSE__PORTS = STATEMENT_FEATURE_COUNT + 0;
+  int EXPOSE__PORTS = 0;
 
   /**
    * The number of structural features of the '<em>Expose</em>' class.
@@ -280,7 +289,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPOSE_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int EXPOSE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.WorkdirImpl <em>Workdir</em>}' class.
@@ -299,7 +308,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORKDIR__PATH = STATEMENT_FEATURE_COUNT + 0;
+  int WORKDIR__PATH = 0;
 
   /**
    * The number of structural features of the '<em>Workdir</em>' class.
@@ -308,7 +317,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORKDIR_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int WORKDIR_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.EnvImpl <em>Env</em>}' class.
@@ -327,7 +336,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENV__KEY_VALUE_PAIRS = STATEMENT_FEATURE_COUNT + 0;
+  int ENV__KEY_VALUE_PAIRS = 0;
 
   /**
    * The number of structural features of the '<em>Env</em>' class.
@@ -336,7 +345,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENV_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int ENV_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.LabelImpl <em>Label</em>}' class.
@@ -355,7 +364,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LABEL__KEY_VALUE_PAIRS = STATEMENT_FEATURE_COUNT + 0;
+  int LABEL__KEY_VALUE_PAIRS = 0;
 
   /**
    * The number of structural features of the '<em>Label</em>' class.
@@ -364,7 +373,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LABEL_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int LABEL_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.AddImpl <em>Add</em>}' class.
@@ -383,7 +392,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADD__CHOWN_OPTIONS = STATEMENT_FEATURE_COUNT + 0;
+  int ADD__CHOWN_OPTIONS = 0;
 
   /**
    * The feature id for the '<em><b>File</b></em>' attribute.
@@ -392,7 +401,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADD__FILE = STATEMENT_FEATURE_COUNT + 1;
+  int ADD__FILE = 1;
 
   /**
    * The feature id for the '<em><b>Directory</b></em>' attribute.
@@ -401,7 +410,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADD__DIRECTORY = STATEMENT_FEATURE_COUNT + 2;
+  int ADD__DIRECTORY = 2;
 
   /**
    * The number of structural features of the '<em>Add</em>' class.
@@ -410,7 +419,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADD_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
+  int ADD_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.CopyImpl <em>Copy</em>}' class.
@@ -429,7 +438,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COPY__CHOWN_OPTIONS = STATEMENT_FEATURE_COUNT + 0;
+  int COPY__CHOWN_OPTIONS = 0;
 
   /**
    * The feature id for the '<em><b>File</b></em>' attribute.
@@ -438,7 +447,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COPY__FILE = STATEMENT_FEATURE_COUNT + 1;
+  int COPY__FILE = 1;
 
   /**
    * The feature id for the '<em><b>Directory</b></em>' attribute.
@@ -447,7 +456,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COPY__DIRECTORY = STATEMENT_FEATURE_COUNT + 2;
+  int COPY__DIRECTORY = 2;
 
   /**
    * The number of structural features of the '<em>Copy</em>' class.
@@ -456,7 +465,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COPY_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
+  int COPY_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.EXEC_FORMImpl <em>EXEC FORM</em>}' class.
@@ -526,6 +535,17 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EClass getStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Statement#getStatement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Statement</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Statement#getStatement()
+   * @see #getStatement()
+   * @generated
+   */
+  EReference getStatement_Statement();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.From <em>From</em>}'.
@@ -883,6 +903,14 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EClass STATEMENT = eINSTANCE.getStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Statement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMENT__STATEMENT = eINSTANCE.getStatement_Statement();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.FromImpl <em>From</em>}' class.

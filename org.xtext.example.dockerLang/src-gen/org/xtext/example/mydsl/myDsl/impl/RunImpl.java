@@ -5,6 +5,8 @@ package org.xtext.example.mydsl.myDsl.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Run;
 
@@ -15,7 +17,7 @@ import org.xtext.example.mydsl.myDsl.Run;
  *
  * @generated
  */
-public class RunImpl extends StatementImpl implements Run
+public class RunImpl extends MinimalEObjectImpl.Container implements Run
 {
   /**
    * <!-- begin-user-doc -->

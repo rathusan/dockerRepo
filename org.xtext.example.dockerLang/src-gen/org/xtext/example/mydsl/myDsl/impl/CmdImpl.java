@@ -5,6 +5,8 @@ package org.xtext.example.mydsl.myDsl.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.xtext.example.mydsl.myDsl.Cmd;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 
@@ -15,7 +17,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  *
  * @generated
  */
-public class CmdImpl extends StatementImpl implements Cmd
+public class CmdImpl extends MinimalEObjectImpl.Container implements Cmd
 {
   /**
    * <!-- begin-user-doc -->

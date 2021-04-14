@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Workdir;
@@ -25,7 +26,7 @@ import org.xtext.example.mydsl.myDsl.Workdir;
  *
  * @generated
  */
-public class WorkdirImpl extends StatementImpl implements Workdir
+public class WorkdirImpl extends MinimalEObjectImpl.Container implements Workdir
 {
   /**
    * The default value of the '{@link #getPath() <em>Path</em>}' attribute.

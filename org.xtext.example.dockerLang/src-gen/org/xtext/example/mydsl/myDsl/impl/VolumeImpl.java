@@ -5,6 +5,8 @@ package org.xtext.example.mydsl.myDsl.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Volume;
 
@@ -15,7 +17,7 @@ import org.xtext.example.mydsl.myDsl.Volume;
  *
  * @generated
  */
-public class VolumeImpl extends StatementImpl implements Volume
+public class VolumeImpl extends MinimalEObjectImpl.Container implements Volume
 {
   /**
    * <!-- begin-user-doc -->

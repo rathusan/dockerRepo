@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.myDsl.From;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
@@ -27,7 +28,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  *
  * @generated
  */
-public class FromImpl extends StatementImpl implements From
+public class FromImpl extends MinimalEObjectImpl.Container implements From
 {
   /**
    * The default value of the '{@link #getPlatform_option() <em>Platform option</em>}' attribute.

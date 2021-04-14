@@ -242,6 +242,17 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
+  public EReference getStatement_Statement()
+  {
+    return (EReference)statementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getFrom()
   {
     return fromEClass;
@@ -590,6 +601,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEReference(dockerfileEClass, DOCKERFILE__STATEMENTS);
 
     statementEClass = createEClass(STATEMENT);
+    createEReference(statementEClass, STATEMENT__STATEMENT);
 
     fromEClass = createEClass(FROM);
     createEAttribute(fromEClass, FROM__PLATFORM_OPTION);
@@ -663,18 +675,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    fromEClass.getESuperTypes().add(this.getStatement());
-    cmdEClass.getESuperTypes().add(this.getStatement());
-    runEClass.getESuperTypes().add(this.getStatement());
-    entrypointEClass.getESuperTypes().add(this.getStatement());
-    volumeEClass.getESuperTypes().add(this.getStatement());
-    maintainerEClass.getESuperTypes().add(this.getStatement());
-    exposeEClass.getESuperTypes().add(this.getStatement());
-    workdirEClass.getESuperTypes().add(this.getStatement());
-    envEClass.getESuperTypes().add(this.getStatement());
-    labelEClass.getESuperTypes().add(this.getStatement());
-    addEClass.getESuperTypes().add(this.getStatement());
-    copyEClass.getESuperTypes().add(this.getStatement());
     exeC_FORMEClass.getESuperTypes().add(this.getCmd());
     exeC_FORMEClass.getESuperTypes().add(this.getRun());
     exeC_FORMEClass.getESuperTypes().add(this.getEntrypoint());
@@ -685,6 +685,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getDockerfile_Statements(), this.getStatement(), null, "statements", null, 0, -1, Dockerfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getStatement_Statement(), ecorePackage.getEObject(), null, "statement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fromEClass, From.class, "From", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFrom_Platform_option(), ecorePackage.getEString(), "platform_option", null, 0, 1, From.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

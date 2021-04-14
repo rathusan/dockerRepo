@@ -31,7 +31,8 @@ public class MyDslParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, MyDslGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getStatementAccess().getAlternatives_1(), "rule__Statement__Alternatives_1");
+			builder.put(grammarAccess.getStatementAccess().getAlternatives(), "rule__Statement__Alternatives");
+			builder.put(grammarAccess.getStatementAccess().getStatementAlternatives_0_1_0(), "rule__Statement__StatementAlternatives_0_1_0");
 			builder.put(grammarAccess.getFromAccess().getTag_or_digestAlternatives_3_0(), "rule__From__Tag_or_digestAlternatives_3_0");
 			builder.put(grammarAccess.getCmdAccess().getAlternatives_1(), "rule__Cmd__Alternatives_1");
 			builder.put(grammarAccess.getRunAccess().getAlternatives_1(), "rule__Run__Alternatives_1");
@@ -45,7 +46,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getIMAGE_DIGESTAccess().getAlternatives_1(), "rule__IMAGE_DIGEST__Alternatives_1");
 			builder.put(grammarAccess.getIMAGE_DIGESTAccess().getAlternatives_2(), "rule__IMAGE_DIGEST__Alternatives_2");
 			builder.put(grammarAccess.getDockerfileAccess().getGroup(), "rule__Dockerfile__Group__0");
-			builder.put(grammarAccess.getStatementAccess().getGroup(), "rule__Statement__Group__0");
+			builder.put(grammarAccess.getStatementAccess().getGroup_0(), "rule__Statement__Group_0__0");
 			builder.put(grammarAccess.getFromAccess().getGroup(), "rule__From__Group__0");
 			builder.put(grammarAccess.getCmdAccess().getGroup(), "rule__Cmd__Group__0");
 			builder.put(grammarAccess.getCmdAccess().getGroup_1_1(), "rule__Cmd__Group_1_1__0");
@@ -70,6 +71,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getIMAGE_DIGESTAccess().getGroup(), "rule__IMAGE_DIGEST__Group__0");
 			builder.put(grammarAccess.getEXEC_FORMAccess().getGroup(), "rule__EXEC_FORM__Group__0");
 			builder.put(grammarAccess.getDockerfileAccess().getStatementsAssignment_0(), "rule__Dockerfile__StatementsAssignment_0");
+			builder.put(grammarAccess.getStatementAccess().getStatementAssignment_0_1(), "rule__Statement__StatementAssignment_0_1");
 			builder.put(grammarAccess.getFromAccess().getPlatform_optionAssignment_1(), "rule__From__Platform_optionAssignment_1");
 			builder.put(grammarAccess.getFromAccess().getNameAssignment_2(), "rule__From__NameAssignment_2");
 			builder.put(grammarAccess.getFromAccess().getTag_or_digestAssignment_3(), "rule__From__Tag_or_digestAssignment_3");

@@ -3,6 +3,7 @@
  */
 package org.xtext.example.mydsl.myDsl;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +23,7 @@ package org.xtext.example.mydsl.myDsl;
  * @model
  * @generated
  */
-public interface From extends Statement
+public interface From extends EObject
 {
   /**
    * Returns the value of the '<em><b>Platform option</b></em>' attribute.

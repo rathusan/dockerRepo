@@ -9,7 +9,9 @@
     <genClasses ecoreClass="MyDsl.ecore#//Dockerfile">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Dockerfile/statements"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Statement"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Statement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Statement/statement"/>
+    </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//From">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//From/platform_option"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//From/name"/>

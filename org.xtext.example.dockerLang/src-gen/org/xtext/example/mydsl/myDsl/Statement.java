@@ -10,6 +10,12 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Statement</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getStatement <em>Statement</em>}</li>
+ * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement()
  * @model
@@ -17,4 +23,26 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Statement extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Statement</em>' containment reference.
+   * @see #setStatement(EObject)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement_Statement()
+   * @model containment="true"
+   * @generated
+   */
+  EObject getStatement();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Statement#getStatement <em>Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Statement</em>' containment reference.
+   * @see #getStatement()
+   * @generated
+   */
+  void setStatement(EObject value);
+
 } // Statement

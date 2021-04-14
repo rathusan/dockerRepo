@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.myDsl.Copy;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
@@ -27,7 +28,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  *
  * @generated
  */
-public class CopyImpl extends StatementImpl implements Copy
+public class CopyImpl extends MinimalEObjectImpl.Container implements Copy
 {
   /**
    * The default value of the '{@link #getChown_options() <em>Chown options</em>}' attribute.

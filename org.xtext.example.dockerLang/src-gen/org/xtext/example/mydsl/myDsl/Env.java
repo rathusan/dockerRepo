@@ -5,6 +5,8 @@ package org.xtext.example.mydsl.myDsl;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Env</b></em>'.
@@ -21,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Env extends Statement
+public interface Env extends EObject
 {
   /**
    * Returns the value of the '<em><b>Key value pairs</b></em>' attribute list.

@@ -7,15 +7,15 @@ Dockerfile:
 ;
 
 Statement:
-	('ONBUILD '? (From|Cmd|Entrypoint|Volume|Maintainer|Expose|Workdir|Run|Env|Label|Add|Copy)) | COMMENT
+	('ONBUILD '? statement=(From|Cmd|Entrypoint|Volume|Maintainer|Expose|Workdir|Run|Env|Label|Add|Copy)) | COMMENT
 ;
 
 From:
-    'FROM ' platform_option=PLATFORM_OPTION? name=IMAGE_NAME tag_or_digest=(IMAGE_TAG|IMAGE_DIGEST)?
+   	key='FROM ' platform_option=PLATFORM_OPTION? name=IMAGE_NAME tag_or_digest=(IMAGE_TAG|IMAGE_DIGEST)?
 ;
 
 Cmd: 
-	'CMD' (EXEC_FORM | {Cmd}SHELL_CMD)
+	key='CMD'(EXEC_FORM |  cmd={Cmd}SHELL_CMD)
 ;
 
 Run:
@@ -93,12 +93,10 @@ terminal STRING:
 			"'" ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|"'") )* "'"
 		;
 
-terminal CONTINUE_NL: '\\\n';
-terminal NL         : ('\n')+;
+terminal NL         : ('\n' | '\r')+;
 
-terminal ANY_OTHER: .;
 terminal EXEC_FORM_PARAMETER: ','STRING;
-terminal SHELL_CMD: (' '|'\t')(!('\n'|'\r'|'\\')|('\\\n'))*;
+terminal SHELL_CMD: (' '|'\t')(!('\n'|'\r'|'\\')|('\\'('\n'|'\r\n')))*;
 terminal COMMENT: ('#'!('\n'|'\r')*);
 
 

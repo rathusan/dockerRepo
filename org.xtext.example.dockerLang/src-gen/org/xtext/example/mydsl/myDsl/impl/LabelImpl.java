@@ -9,6 +9,8 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import org.xtext.example.mydsl.myDsl.Label;
@@ -27,7 +29,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  *
  * @generated
  */
-public class LabelImpl extends StatementImpl implements Label
+public class LabelImpl extends MinimalEObjectImpl.Container implements Label
 {
   /**
    * The cached value of the '{@link #getKey_value_pairs() <em>Key value pairs</em>}' attribute list.

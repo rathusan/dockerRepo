@@ -27,6 +27,7 @@ import org.xtext.example.mydsl.myDsl.Label;
 import org.xtext.example.mydsl.myDsl.Maintainer;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Run;
+import org.xtext.example.mydsl.myDsl.Statement;
 import org.xtext.example.mydsl.myDsl.Volume;
 import org.xtext.example.mydsl.myDsl.Workdir;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
@@ -81,6 +82,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.RUN:
 				sequence_Run(context, (Run) semanticObject); 
 				return; 
+			case MyDslPackage.STATEMENT:
+				sequence_Statement(context, (Statement) semanticObject); 
+				return; 
 			case MyDslPackage.VOLUME:
 				sequence_Volume(context, (Volume) semanticObject); 
 				return; 
@@ -94,7 +98,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Add
 	 *     Add returns Add
 	 *
 	 * Constraint:
@@ -107,7 +110,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Cmd
 	 *     Cmd returns Cmd
 	 *
 	 * Constraint:
@@ -120,7 +122,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Copy
 	 *     Copy returns Copy
 	 *
 	 * Constraint:
@@ -145,7 +146,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns EXEC_FORM
 	 *     Cmd returns EXEC_FORM
 	 *     Run returns EXEC_FORM
 	 *     Entrypoint returns EXEC_FORM
@@ -162,7 +162,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Entrypoint
 	 *     Entrypoint returns Entrypoint
 	 *
 	 * Constraint:
@@ -175,7 +174,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Env
 	 *     Env returns Env
 	 *
 	 * Constraint:
@@ -188,7 +186,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Expose
 	 *     Expose returns Expose
 	 *
 	 * Constraint:
@@ -207,7 +204,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns From
 	 *     From returns From
 	 *
 	 * Constraint:
@@ -220,7 +216,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Label
 	 *     Label returns Label
 	 *
 	 * Constraint:
@@ -233,7 +228,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Maintainer
 	 *     Maintainer returns Maintainer
 	 *
 	 * Constraint:
@@ -252,7 +246,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Run
 	 *     Run returns Run
 	 *
 	 * Constraint:
@@ -265,7 +258,31 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Volume
+	 *     Statement returns Statement
+	 *
+	 * Constraint:
+	 *     (
+	 *         statement=From | 
+	 *         statement=Cmd | 
+	 *         statement=Entrypoint | 
+	 *         statement=Volume | 
+	 *         statement=Maintainer | 
+	 *         statement=Expose | 
+	 *         statement=Workdir | 
+	 *         statement=Run | 
+	 *         statement=Env | 
+	 *         statement=Label | 
+	 *         statement=Add | 
+	 *         statement=Copy
+	 *     )
+	 */
+	protected void sequence_Statement(ISerializationContext context, Statement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Volume returns Volume
 	 *
 	 * Constraint:
@@ -278,7 +295,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Workdir
 	 *     Workdir returns Workdir
 	 *
 	 * Constraint:
