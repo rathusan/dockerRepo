@@ -1,0 +1,20 @@
+# XPECT_SETUP dockerJUnit.JUnitClass END_SETUP
+FROM ubuntu:latest
+RUN apt-get update && \
+apt-get install -y make nasm && \
+rm -rf /var/lib/apt/lists/*
+
+WORKDIR /usr/src/hello
+COPY k /usr/src/hello
+
+RUN make clean hello test
+
+CMD ["./hello"]
+ENTRYPOINT ["hello"]
+
+EXPOSE 2000
+VOLUME c:/hello
+
+ADD source destination
+MAINTAINER SvenDowideit@home.org.au
+ONBUILD CMD command parameter

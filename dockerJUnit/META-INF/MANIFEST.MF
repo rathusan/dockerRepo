@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DockerJUnit
+Bundle-SymbolicName: dockerJUnit
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: dockerJUnit
+Bundle-RequiredExecutionEnvironment: JavaSE-10
+Require-Bundle: org.xtext.example.dockerLang;bundle-version="1.0.0",
+ org.xtext.example.dockerLang.ui;bundle-version="1.0.0",
+ org.eclipse.xpect.xtext.lib;bundle-version="0.2.0"
