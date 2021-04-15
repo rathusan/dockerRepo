@@ -3,6 +3,8 @@
 
 2) Next, run the file as "Generate artificats" and run the eviroment on "Java SE 10 - 10.0.2"
 
-3) Genereate any missing folders (there shouldn't be any, but incase, create new folders that are said to create in the compiler
+3) Create any missing folders manaully (there shouldn't be any, but incase, create new folders that are said to create in the compiler)
+
+4) Create a new Java project and also create a new file in the src folder generated with the extension for the language is "dockerlang".
 
 4) To access the JUnitTests File, go into the "dockerRepo" file from the pull, and copy the "dockerJUnit" folder into the IDE.
