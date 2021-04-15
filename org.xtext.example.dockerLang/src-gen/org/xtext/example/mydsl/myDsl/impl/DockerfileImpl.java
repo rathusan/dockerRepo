@@ -18,8 +18,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.mydsl.myDsl.Dockerfile;
+import org.xtext.example.mydsl.myDsl.Instruction;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
-import org.xtext.example.mydsl.myDsl.Statement;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,7 +44,7 @@ public class DockerfileImpl extends MinimalEObjectImpl.Container implements Dock
    * @generated
    * @ordered
    */
-  protected EList<Statement> statements;
+  protected EList<Instruction> statements;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,11 +73,11 @@ public class DockerfileImpl extends MinimalEObjectImpl.Container implements Dock
    * @generated
    */
   @Override
-  public EList<Statement> getStatements()
+  public EList<Instruction> getStatements()
   {
     if (statements == null)
     {
-      statements = new EObjectContainmentEList<Statement>(Statement.class, this, MyDslPackage.DOCKERFILE__STATEMENTS);
+      statements = new EObjectContainmentEList<Instruction>(Instruction.class, this, MyDslPackage.DOCKERFILE__STATEMENTS);
     }
     return statements;
   }
@@ -127,7 +127,7 @@ public class DockerfileImpl extends MinimalEObjectImpl.Container implements Dock
     {
       case MyDslPackage.DOCKERFILE__STATEMENTS:
         getStatements().clear();
-        getStatements().addAll((Collection<? extends Statement>)newValue);
+        getStatements().addAll((Collection<? extends Instruction>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

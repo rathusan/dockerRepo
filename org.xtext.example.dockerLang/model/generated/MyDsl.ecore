@@ -3,49 +3,29 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="myDsl" nsURI="http://www.xtext.org/example/DockerLang" nsPrefix="myDsl">
   <eClassifiers xsi:type="ecore:EClass" name="Dockerfile">
     <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1"
-        eType="#//Statement" containment="true"/>
+        eType="#//Instruction" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Statement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="statement" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+  <eClassifiers xsi:type="ecore:EClass" name="Instruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statement" eType="#//Statement"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="From">
+  <eClassifiers xsi:type="ecore:EClass" name="Statement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="platform_option" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tag_or_digest" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Cmd"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Run"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Entrypoint"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Volume"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Maintainer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Expose">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exec_form" eType="#//EXEC_FORM"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="shell_form" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ports" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Workdir">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Env">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key_value_pairs" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Label">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key_value_pairs" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Add">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="chown_options" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="directory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Copy">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chown_options" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="directory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EXEC_FORM" eSuperTypes="#//Cmd #//Run #//Entrypoint #//Volume">
+  <eClassifiers xsi:type="ecore:EClass" name="EXEC_FORM">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="executable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameters" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

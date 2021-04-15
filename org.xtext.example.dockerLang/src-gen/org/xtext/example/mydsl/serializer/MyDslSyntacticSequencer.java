@@ -25,7 +25,6 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Add___AsteriskKeyword_3_0_1_or_QuestionMarkKeyword_3_0_0_or___FullStopKeyword_3_1_0_IDTerminalRuleCall_3_1_1____q;
 	protected AbstractElementAlias match_Copy___AsteriskKeyword_3_1_or_QuestionMarkKeyword_3_0__q;
 	protected AbstractElementAlias match_Copy___FullStopKeyword_4_0_IDTerminalRuleCall_4_1__q;
-	protected AbstractElementAlias match_Statement_ONBUILDKeyword_0_0_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -33,29 +32,15 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Add___AsteriskKeyword_3_0_1_or_QuestionMarkKeyword_3_0_0_or___FullStopKeyword_3_1_0_IDTerminalRuleCall_3_1_1____q = new AlternativeAlias(false, true, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getAddAccess().getFullStopKeyword_3_1_0()), new TokenAlias(false, false, grammarAccess.getAddAccess().getIDTerminalRuleCall_3_1_1())), new TokenAlias(false, false, grammarAccess.getAddAccess().getAsteriskKeyword_3_0_1()), new TokenAlias(false, false, grammarAccess.getAddAccess().getQuestionMarkKeyword_3_0_0()));
 		match_Copy___AsteriskKeyword_3_1_or_QuestionMarkKeyword_3_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getCopyAccess().getAsteriskKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getCopyAccess().getQuestionMarkKeyword_3_0()));
 		match_Copy___FullStopKeyword_4_0_IDTerminalRuleCall_4_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getCopyAccess().getFullStopKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getCopyAccess().getIDTerminalRuleCall_4_1()));
-		match_Statement_ONBUILDKeyword_0_0_q = new TokenAlias(false, true, grammarAccess.getStatementAccess().getONBUILDKeyword_0_0());
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getCOMMENTRule())
-			return getCOMMENTToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getIDRule())
+		if (ruleCall.getRule() == grammarAccess.getIDRule())
 			return getIDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getNLRule())
 			return getNLToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getSHELL_CMDRule())
-			return getSHELL_CMDToken(semanticObject, ruleCall, node);
 		return "";
-	}
-	
-	/**
-	 * terminal COMMENT: ('#'!('\n'|'\r')*);
-	 */
-	protected String getCOMMENTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "#";
 	}
 	
 	/**
@@ -76,15 +61,6 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		return "\n";
 	}
 	
-	/**
-	 * terminal SHELL_CMD: (' '|'\t')(!('\n'|'\r'|'\\')|('\\'('\n'|'\r\n')))*;
-	 */
-	protected String getSHELL_CMDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return " ";
-	}
-	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
 		if (transition.getAmbiguousSyntaxes().isEmpty()) return;
@@ -97,8 +73,6 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Copy___AsteriskKeyword_3_1_or_QuestionMarkKeyword_3_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Copy___FullStopKeyword_4_0_IDTerminalRuleCall_4_1__q.equals(syntax))
 				emit_Copy___FullStopKeyword_4_0_IDTerminalRuleCall_4_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Statement_ONBUILDKeyword_0_0_q.equals(syntax))
-				emit_Statement_ONBUILDKeyword_0_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -133,28 +107,6 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     file=ID ('?' | '*')? (ambiguity) directory=SHELL_CMD
 	 */
 	protected void emit_Copy___FullStopKeyword_4_0_IDTerminalRuleCall_4_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'ONBUILD '?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) statement=Add
-	 *     (rule start) (ambiguity) statement=Cmd
-	 *     (rule start) (ambiguity) statement=Copy
-	 *     (rule start) (ambiguity) statement=Entrypoint
-	 *     (rule start) (ambiguity) statement=Env
-	 *     (rule start) (ambiguity) statement=Expose
-	 *     (rule start) (ambiguity) statement=From
-	 *     (rule start) (ambiguity) statement=Label
-	 *     (rule start) (ambiguity) statement=Maintainer
-	 *     (rule start) (ambiguity) statement=Run
-	 *     (rule start) (ambiguity) statement=Volume
-	 *     (rule start) (ambiguity) statement=Workdir
-	 */
-	protected void emit_Statement_ONBUILDKeyword_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

@@ -31,8 +31,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, MyDslGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getStatementAccess().getAlternatives(), "rule__Statement__Alternatives");
-			builder.put(grammarAccess.getStatementAccess().getStatementAlternatives_0_1_0(), "rule__Statement__StatementAlternatives_0_1_0");
+			builder.put(grammarAccess.getInstructionAccess().getStatementAlternatives_0(), "rule__Instruction__StatementAlternatives_0");
 			builder.put(grammarAccess.getFromAccess().getTag_or_digestAlternatives_3_0(), "rule__From__Tag_or_digestAlternatives_3_0");
 			builder.put(grammarAccess.getCmdAccess().getAlternatives_1(), "rule__Cmd__Alternatives_1");
 			builder.put(grammarAccess.getRunAccess().getAlternatives_1(), "rule__Run__Alternatives_1");
@@ -46,16 +45,11 @@ public class MyDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getIMAGE_DIGESTAccess().getAlternatives_1(), "rule__IMAGE_DIGEST__Alternatives_1");
 			builder.put(grammarAccess.getIMAGE_DIGESTAccess().getAlternatives_2(), "rule__IMAGE_DIGEST__Alternatives_2");
 			builder.put(grammarAccess.getDockerfileAccess().getGroup(), "rule__Dockerfile__Group__0");
-			builder.put(grammarAccess.getStatementAccess().getGroup_0(), "rule__Statement__Group_0__0");
 			builder.put(grammarAccess.getFromAccess().getGroup(), "rule__From__Group__0");
 			builder.put(grammarAccess.getCmdAccess().getGroup(), "rule__Cmd__Group__0");
-			builder.put(grammarAccess.getCmdAccess().getGroup_1_1(), "rule__Cmd__Group_1_1__0");
 			builder.put(grammarAccess.getRunAccess().getGroup(), "rule__Run__Group__0");
-			builder.put(grammarAccess.getRunAccess().getGroup_1_1(), "rule__Run__Group_1_1__0");
 			builder.put(grammarAccess.getEntrypointAccess().getGroup(), "rule__Entrypoint__Group__0");
-			builder.put(grammarAccess.getEntrypointAccess().getGroup_1_1(), "rule__Entrypoint__Group_1_1__0");
 			builder.put(grammarAccess.getVolumeAccess().getGroup(), "rule__Volume__Group__0");
-			builder.put(grammarAccess.getVolumeAccess().getGroup_1_1(), "rule__Volume__Group_1_1__0");
 			builder.put(grammarAccess.getMaintainerAccess().getGroup(), "rule__Maintainer__Group__0");
 			builder.put(grammarAccess.getExposeAccess().getGroup(), "rule__Expose__Group__0");
 			builder.put(grammarAccess.getWorkdirAccess().getGroup(), "rule__Workdir__Group__0");
@@ -71,18 +65,38 @@ public class MyDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getIMAGE_DIGESTAccess().getGroup(), "rule__IMAGE_DIGEST__Group__0");
 			builder.put(grammarAccess.getEXEC_FORMAccess().getGroup(), "rule__EXEC_FORM__Group__0");
 			builder.put(grammarAccess.getDockerfileAccess().getStatementsAssignment_0(), "rule__Dockerfile__StatementsAssignment_0");
-			builder.put(grammarAccess.getStatementAccess().getStatementAssignment_0_1(), "rule__Statement__StatementAssignment_0_1");
+			builder.put(grammarAccess.getInstructionAccess().getStatementAssignment(), "rule__Instruction__StatementAssignment");
+			builder.put(grammarAccess.getFromAccess().getKeyAssignment_0(), "rule__From__KeyAssignment_0");
 			builder.put(grammarAccess.getFromAccess().getPlatform_optionAssignment_1(), "rule__From__Platform_optionAssignment_1");
 			builder.put(grammarAccess.getFromAccess().getNameAssignment_2(), "rule__From__NameAssignment_2");
 			builder.put(grammarAccess.getFromAccess().getTag_or_digestAssignment_3(), "rule__From__Tag_or_digestAssignment_3");
+			builder.put(grammarAccess.getCmdAccess().getKeyAssignment_0(), "rule__Cmd__KeyAssignment_0");
+			builder.put(grammarAccess.getCmdAccess().getExec_formAssignment_1_0(), "rule__Cmd__Exec_formAssignment_1_0");
+			builder.put(grammarAccess.getCmdAccess().getShell_formAssignment_1_1(), "rule__Cmd__Shell_formAssignment_1_1");
+			builder.put(grammarAccess.getRunAccess().getKeyAssignment_0(), "rule__Run__KeyAssignment_0");
+			builder.put(grammarAccess.getRunAccess().getExec_formAssignment_1_0(), "rule__Run__Exec_formAssignment_1_0");
+			builder.put(grammarAccess.getRunAccess().getShell_formAssignment_1_1(), "rule__Run__Shell_formAssignment_1_1");
+			builder.put(grammarAccess.getEntrypointAccess().getKeyAssignment_0(), "rule__Entrypoint__KeyAssignment_0");
+			builder.put(grammarAccess.getEntrypointAccess().getExec_formAssignment_1_0(), "rule__Entrypoint__Exec_formAssignment_1_0");
+			builder.put(grammarAccess.getEntrypointAccess().getShell_formAssignment_1_1(), "rule__Entrypoint__Shell_formAssignment_1_1");
+			builder.put(grammarAccess.getVolumeAccess().getKeyAssignment_0(), "rule__Volume__KeyAssignment_0");
+			builder.put(grammarAccess.getVolumeAccess().getExec_formAssignment_1_0(), "rule__Volume__Exec_formAssignment_1_0");
+			builder.put(grammarAccess.getVolumeAccess().getShell_formAssignment_1_1(), "rule__Volume__Shell_formAssignment_1_1");
+			builder.put(grammarAccess.getMaintainerAccess().getKeyAssignment_0(), "rule__Maintainer__KeyAssignment_0");
 			builder.put(grammarAccess.getMaintainerAccess().getNameAssignment_1(), "rule__Maintainer__NameAssignment_1");
+			builder.put(grammarAccess.getExposeAccess().getKeyAssignment_0(), "rule__Expose__KeyAssignment_0");
 			builder.put(grammarAccess.getExposeAccess().getPortsAssignment_1(), "rule__Expose__PortsAssignment_1");
+			builder.put(grammarAccess.getWorkdirAccess().getKeyAssignment_0(), "rule__Workdir__KeyAssignment_0");
 			builder.put(grammarAccess.getWorkdirAccess().getPathAssignment_1(), "rule__Workdir__PathAssignment_1");
+			builder.put(grammarAccess.getEnvAccess().getKeyAssignment_0(), "rule__Env__KeyAssignment_0");
 			builder.put(grammarAccess.getEnvAccess().getKey_value_pairsAssignment_1(), "rule__Env__Key_value_pairsAssignment_1");
+			builder.put(grammarAccess.getLabelAccess().getKeyAssignment_0(), "rule__Label__KeyAssignment_0");
 			builder.put(grammarAccess.getLabelAccess().getKey_value_pairsAssignment_1(), "rule__Label__Key_value_pairsAssignment_1");
+			builder.put(grammarAccess.getAddAccess().getKeyAssignment_0(), "rule__Add__KeyAssignment_0");
 			builder.put(grammarAccess.getAddAccess().getChown_optionsAssignment_1(), "rule__Add__Chown_optionsAssignment_1");
 			builder.put(grammarAccess.getAddAccess().getFileAssignment_2(), "rule__Add__FileAssignment_2");
 			builder.put(grammarAccess.getAddAccess().getDirectoryAssignment_4(), "rule__Add__DirectoryAssignment_4");
+			builder.put(grammarAccess.getCopyAccess().getKeyAssignment_0(), "rule__Copy__KeyAssignment_0");
 			builder.put(grammarAccess.getCopyAccess().getChown_optionsAssignment_1(), "rule__Copy__Chown_optionsAssignment_1");
 			builder.put(grammarAccess.getCopyAccess().getFileAssignment_2(), "rule__Copy__FileAssignment_2");
 			builder.put(grammarAccess.getCopyAccess().getDirectoryAssignment_5(), "rule__Copy__DirectoryAssignment_5");

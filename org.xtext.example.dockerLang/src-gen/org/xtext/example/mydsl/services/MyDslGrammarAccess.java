@@ -6,7 +6,6 @@ package org.xtext.example.mydsl.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
-import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
@@ -26,111 +25,93 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Dockerfile");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cStatementsAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cStatementsStatementParserRuleCall_0_0 = (RuleCall)cStatementsAssignment_0.eContents().get(0);
+		private final RuleCall cStatementsInstructionParserRuleCall_0_0 = (RuleCall)cStatementsAssignment_0.eContents().get(0);
 		private final RuleCall cNLTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
 		//Dockerfile:
-		//	(statements+=Statement NL)*;
+		//	(statements+=Instruction NL)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(statements+=Statement NL)*
+		//(statements+=Instruction NL)*
 		public Group getGroup() { return cGroup; }
 		
-		//statements+=Statement
+		//statements+=Instruction
 		public Assignment getStatementsAssignment_0() { return cStatementsAssignment_0; }
 		
-		//Statement
-		public RuleCall getStatementsStatementParserRuleCall_0_0() { return cStatementsStatementParserRuleCall_0_0; }
+		//Instruction
+		public RuleCall getStatementsInstructionParserRuleCall_0_0() { return cStatementsInstructionParserRuleCall_0_0; }
 		
 		//NL
 		public RuleCall getNLTerminalRuleCall_1() { return cNLTerminalRuleCall_1; }
 	}
-	public class StatementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Statement");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cONBUILDKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Assignment cStatementAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final Alternatives cStatementAlternatives_0_1_0 = (Alternatives)cStatementAssignment_0_1.eContents().get(0);
-		private final RuleCall cStatementFromParserRuleCall_0_1_0_0 = (RuleCall)cStatementAlternatives_0_1_0.eContents().get(0);
-		private final RuleCall cStatementCmdParserRuleCall_0_1_0_1 = (RuleCall)cStatementAlternatives_0_1_0.eContents().get(1);
-		private final RuleCall cStatementEntrypointParserRuleCall_0_1_0_2 = (RuleCall)cStatementAlternatives_0_1_0.eContents().get(2);
-		private final RuleCall cStatementVolumeParserRuleCall_0_1_0_3 = (RuleCall)cStatementAlternatives_0_1_0.eContents().get(3);
-		private final RuleCall cStatementMaintainerParserRuleCall_0_1_0_4 = (RuleCall)cStatementAlternatives_0_1_0.eContents().get(4);
-		private final RuleCall cStatementExposeParserRuleCall_0_1_0_5 = (RuleCall)cStatementAlternatives_0_1_0.eContents().get(5);
-		private final RuleCall cStatementWorkdirParserRuleCall_0_1_0_6 = (RuleCall)cStatementAlternatives_0_1_0.eContents().get(6);
-		private final RuleCall cStatementRunParserRuleCall_0_1_0_7 = (RuleCall)cStatementAlternatives_0_1_0.eContents().get(7);
-		private final RuleCall cStatementEnvParserRuleCall_0_1_0_8 = (RuleCall)cStatementAlternatives_0_1_0.eContents().get(8);
-		private final RuleCall cStatementLabelParserRuleCall_0_1_0_9 = (RuleCall)cStatementAlternatives_0_1_0.eContents().get(9);
-		private final RuleCall cStatementAddParserRuleCall_0_1_0_10 = (RuleCall)cStatementAlternatives_0_1_0.eContents().get(10);
-		private final RuleCall cStatementCopyParserRuleCall_0_1_0_11 = (RuleCall)cStatementAlternatives_0_1_0.eContents().get(11);
-		private final RuleCall cCOMMENTTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+	public class InstructionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Instruction");
+		private final Assignment cStatementAssignment = (Assignment)rule.eContents().get(1);
+		private final Alternatives cStatementAlternatives_0 = (Alternatives)cStatementAssignment.eContents().get(0);
+		private final RuleCall cStatementFromParserRuleCall_0_0 = (RuleCall)cStatementAlternatives_0.eContents().get(0);
+		private final RuleCall cStatementCmdParserRuleCall_0_1 = (RuleCall)cStatementAlternatives_0.eContents().get(1);
+		private final RuleCall cStatementEntrypointParserRuleCall_0_2 = (RuleCall)cStatementAlternatives_0.eContents().get(2);
+		private final RuleCall cStatementVolumeParserRuleCall_0_3 = (RuleCall)cStatementAlternatives_0.eContents().get(3);
+		private final RuleCall cStatementMaintainerParserRuleCall_0_4 = (RuleCall)cStatementAlternatives_0.eContents().get(4);
+		private final RuleCall cStatementExposeParserRuleCall_0_5 = (RuleCall)cStatementAlternatives_0.eContents().get(5);
+		private final RuleCall cStatementWorkdirParserRuleCall_0_6 = (RuleCall)cStatementAlternatives_0.eContents().get(6);
+		private final RuleCall cStatementRunParserRuleCall_0_7 = (RuleCall)cStatementAlternatives_0.eContents().get(7);
+		private final RuleCall cStatementEnvParserRuleCall_0_8 = (RuleCall)cStatementAlternatives_0.eContents().get(8);
+		private final RuleCall cStatementLabelParserRuleCall_0_9 = (RuleCall)cStatementAlternatives_0.eContents().get(9);
+		private final RuleCall cStatementAddParserRuleCall_0_10 = (RuleCall)cStatementAlternatives_0.eContents().get(10);
+		private final RuleCall cStatementCopyParserRuleCall_0_11 = (RuleCall)cStatementAlternatives_0.eContents().get(11);
 		
-		//Statement:
-		//	'ONBUILD '? statement=(From | Cmd | Entrypoint | Volume | Maintainer | Expose | Workdir | Run | Env | Label | Add |
-		//	Copy) | COMMENT;
+		//Instruction:
+		//	statement=(From | Cmd | Entrypoint | Volume | Maintainer | Expose | Workdir | Run | Env | Label | Add | Copy);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ONBUILD '? statement=(From | Cmd | Entrypoint | Volume | Maintainer | Expose | Workdir | Run | Env | Label | Add |
-		//Copy) | COMMENT
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'ONBUILD '? statement=(From | Cmd | Entrypoint | Volume | Maintainer | Expose | Workdir | Run | Env | Label | Add |
-		//Copy)
-		public Group getGroup_0() { return cGroup_0; }
-		
-		//'ONBUILD '?
-		public Keyword getONBUILDKeyword_0_0() { return cONBUILDKeyword_0_0; }
-		
 		//statement=(From | Cmd | Entrypoint | Volume | Maintainer | Expose | Workdir | Run | Env | Label | Add | Copy)
-		public Assignment getStatementAssignment_0_1() { return cStatementAssignment_0_1; }
+		public Assignment getStatementAssignment() { return cStatementAssignment; }
 		
 		//(From | Cmd | Entrypoint | Volume | Maintainer | Expose | Workdir | Run | Env | Label | Add | Copy)
-		public Alternatives getStatementAlternatives_0_1_0() { return cStatementAlternatives_0_1_0; }
+		public Alternatives getStatementAlternatives_0() { return cStatementAlternatives_0; }
 		
 		//From
-		public RuleCall getStatementFromParserRuleCall_0_1_0_0() { return cStatementFromParserRuleCall_0_1_0_0; }
+		public RuleCall getStatementFromParserRuleCall_0_0() { return cStatementFromParserRuleCall_0_0; }
 		
 		//Cmd
-		public RuleCall getStatementCmdParserRuleCall_0_1_0_1() { return cStatementCmdParserRuleCall_0_1_0_1; }
+		public RuleCall getStatementCmdParserRuleCall_0_1() { return cStatementCmdParserRuleCall_0_1; }
 		
 		//Entrypoint
-		public RuleCall getStatementEntrypointParserRuleCall_0_1_0_2() { return cStatementEntrypointParserRuleCall_0_1_0_2; }
+		public RuleCall getStatementEntrypointParserRuleCall_0_2() { return cStatementEntrypointParserRuleCall_0_2; }
 		
 		//Volume
-		public RuleCall getStatementVolumeParserRuleCall_0_1_0_3() { return cStatementVolumeParserRuleCall_0_1_0_3; }
+		public RuleCall getStatementVolumeParserRuleCall_0_3() { return cStatementVolumeParserRuleCall_0_3; }
 		
 		//Maintainer
-		public RuleCall getStatementMaintainerParserRuleCall_0_1_0_4() { return cStatementMaintainerParserRuleCall_0_1_0_4; }
+		public RuleCall getStatementMaintainerParserRuleCall_0_4() { return cStatementMaintainerParserRuleCall_0_4; }
 		
 		//Expose
-		public RuleCall getStatementExposeParserRuleCall_0_1_0_5() { return cStatementExposeParserRuleCall_0_1_0_5; }
+		public RuleCall getStatementExposeParserRuleCall_0_5() { return cStatementExposeParserRuleCall_0_5; }
 		
 		//Workdir
-		public RuleCall getStatementWorkdirParserRuleCall_0_1_0_6() { return cStatementWorkdirParserRuleCall_0_1_0_6; }
+		public RuleCall getStatementWorkdirParserRuleCall_0_6() { return cStatementWorkdirParserRuleCall_0_6; }
 		
 		//Run
-		public RuleCall getStatementRunParserRuleCall_0_1_0_7() { return cStatementRunParserRuleCall_0_1_0_7; }
+		public RuleCall getStatementRunParserRuleCall_0_7() { return cStatementRunParserRuleCall_0_7; }
 		
 		//Env
-		public RuleCall getStatementEnvParserRuleCall_0_1_0_8() { return cStatementEnvParserRuleCall_0_1_0_8; }
+		public RuleCall getStatementEnvParserRuleCall_0_8() { return cStatementEnvParserRuleCall_0_8; }
 		
 		//Label
-		public RuleCall getStatementLabelParserRuleCall_0_1_0_9() { return cStatementLabelParserRuleCall_0_1_0_9; }
+		public RuleCall getStatementLabelParserRuleCall_0_9() { return cStatementLabelParserRuleCall_0_9; }
 		
 		//Add
-		public RuleCall getStatementAddParserRuleCall_0_1_0_10() { return cStatementAddParserRuleCall_0_1_0_10; }
+		public RuleCall getStatementAddParserRuleCall_0_10() { return cStatementAddParserRuleCall_0_10; }
 		
 		//Copy
-		public RuleCall getStatementCopyParserRuleCall_0_1_0_11() { return cStatementCopyParserRuleCall_0_1_0_11; }
-		
-		//COMMENT
-		public RuleCall getCOMMENTTerminalRuleCall_1() { return cCOMMENTTerminalRuleCall_1; }
+		public RuleCall getStatementCopyParserRuleCall_0_11() { return cStatementCopyParserRuleCall_0_11; }
 	}
 	public class FromElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.From");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cFROMKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cKeyFROMKeyword_0_0 = (Keyword)cKeyAssignment_0.eContents().get(0);
 		private final Assignment cPlatform_optionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cPlatform_optionPLATFORM_OPTIONTerminalRuleCall_1_0 = (RuleCall)cPlatform_optionAssignment_1.eContents().get(0);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
@@ -140,15 +121,18 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTag_or_digestIMAGE_TAGParserRuleCall_3_0_0 = (RuleCall)cTag_or_digestAlternatives_3_0.eContents().get(0);
 		private final RuleCall cTag_or_digestIMAGE_DIGESTParserRuleCall_3_0_1 = (RuleCall)cTag_or_digestAlternatives_3_0.eContents().get(1);
 		
-		//From:
-		//	'FROM ' platform_option=PLATFORM_OPTION? name=IMAGE_NAME tag_or_digest=(IMAGE_TAG | IMAGE_DIGEST)?;
+		//From Statement:
+		//	key='FROM ' platform_option=PLATFORM_OPTION? name=IMAGE_NAME tag_or_digest=(IMAGE_TAG | IMAGE_DIGEST)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'FROM ' platform_option=PLATFORM_OPTION? name=IMAGE_NAME tag_or_digest=(IMAGE_TAG | IMAGE_DIGEST)?
+		//key='FROM ' platform_option=PLATFORM_OPTION? name=IMAGE_NAME tag_or_digest=(IMAGE_TAG | IMAGE_DIGEST)?
 		public Group getGroup() { return cGroup; }
 		
+		//key='FROM '
+		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
+		
 		//'FROM '
-		public Keyword getFROMKeyword_0() { return cFROMKeyword_0; }
+		public Keyword getKeyFROMKeyword_0_0() { return cKeyFROMKeyword_0_0; }
 		
 		//platform_option=PLATFORM_OPTION?
 		public Assignment getPlatform_optionAssignment_1() { return cPlatform_optionAssignment_1; }
@@ -177,159 +161,179 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class CmdElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Cmd");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cCMDKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cKeyCMDKeyword_0_0 = (Keyword)cKeyAssignment_0.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final RuleCall cEXEC_FORMParserRuleCall_1_0 = (RuleCall)cAlternatives_1.eContents().get(0);
-		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
-		private final Action cCmdAction_1_1_0 = (Action)cGroup_1_1.eContents().get(0);
-		private final RuleCall cSHELL_CMDTerminalRuleCall_1_1_1 = (RuleCall)cGroup_1_1.eContents().get(1);
+		private final Assignment cExec_formAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cExec_formEXEC_FORMParserRuleCall_1_0_0 = (RuleCall)cExec_formAssignment_1_0.eContents().get(0);
+		private final Assignment cShell_formAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cShell_formSHELL_CMDTerminalRuleCall_1_1_0 = (RuleCall)cShell_formAssignment_1_1.eContents().get(0);
 		
-		//Cmd:
-		//	'CMD' (EXEC_FORM | {Cmd} SHELL_CMD);
+		//Cmd Statement:
+		//	key='CMD' (exec_form=EXEC_FORM | shell_form=SHELL_CMD);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'CMD' (EXEC_FORM | {Cmd} SHELL_CMD)
+		//key='CMD' (exec_form=EXEC_FORM | shell_form=SHELL_CMD)
 		public Group getGroup() { return cGroup; }
 		
-		//'CMD'
-		public Keyword getCMDKeyword_0() { return cCMDKeyword_0; }
+		//key='CMD'
+		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
 		
-		//(EXEC_FORM | {Cmd} SHELL_CMD)
+		//'CMD'
+		public Keyword getKeyCMDKeyword_0_0() { return cKeyCMDKeyword_0_0; }
+		
+		//(exec_form=EXEC_FORM | shell_form=SHELL_CMD)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
+		//exec_form=EXEC_FORM
+		public Assignment getExec_formAssignment_1_0() { return cExec_formAssignment_1_0; }
+		
 		//EXEC_FORM
-		public RuleCall getEXEC_FORMParserRuleCall_1_0() { return cEXEC_FORMParserRuleCall_1_0; }
+		public RuleCall getExec_formEXEC_FORMParserRuleCall_1_0_0() { return cExec_formEXEC_FORMParserRuleCall_1_0_0; }
 		
-		//{Cmd} SHELL_CMD
-		public Group getGroup_1_1() { return cGroup_1_1; }
-		
-		//{Cmd}
-		public Action getCmdAction_1_1_0() { return cCmdAction_1_1_0; }
+		//shell_form=SHELL_CMD
+		public Assignment getShell_formAssignment_1_1() { return cShell_formAssignment_1_1; }
 		
 		//SHELL_CMD
-		public RuleCall getSHELL_CMDTerminalRuleCall_1_1_1() { return cSHELL_CMDTerminalRuleCall_1_1_1; }
+		public RuleCall getShell_formSHELL_CMDTerminalRuleCall_1_1_0() { return cShell_formSHELL_CMDTerminalRuleCall_1_1_0; }
 	}
 	public class RunElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Run");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cRUNKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cKeyRUNKeyword_0_0 = (Keyword)cKeyAssignment_0.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final RuleCall cEXEC_FORMParserRuleCall_1_0 = (RuleCall)cAlternatives_1.eContents().get(0);
-		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
-		private final Action cRunAction_1_1_0 = (Action)cGroup_1_1.eContents().get(0);
-		private final RuleCall cSHELL_CMDTerminalRuleCall_1_1_1 = (RuleCall)cGroup_1_1.eContents().get(1);
+		private final Assignment cExec_formAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cExec_formEXEC_FORMParserRuleCall_1_0_0 = (RuleCall)cExec_formAssignment_1_0.eContents().get(0);
+		private final Assignment cShell_formAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cShell_formSHELL_CMDTerminalRuleCall_1_1_0 = (RuleCall)cShell_formAssignment_1_1.eContents().get(0);
 		
-		//Run:
-		//	'RUN' (EXEC_FORM | {Run} SHELL_CMD);
+		//Run Statement:
+		//	key='RUN' (exec_form=EXEC_FORM | shell_form=SHELL_CMD);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'RUN' (EXEC_FORM | {Run} SHELL_CMD)
+		//key='RUN' (exec_form=EXEC_FORM | shell_form=SHELL_CMD)
 		public Group getGroup() { return cGroup; }
 		
-		//'RUN'
-		public Keyword getRUNKeyword_0() { return cRUNKeyword_0; }
+		//key='RUN'
+		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
 		
-		//(EXEC_FORM | {Run} SHELL_CMD)
+		//'RUN'
+		public Keyword getKeyRUNKeyword_0_0() { return cKeyRUNKeyword_0_0; }
+		
+		//(exec_form=EXEC_FORM | shell_form=SHELL_CMD)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
+		//exec_form=EXEC_FORM
+		public Assignment getExec_formAssignment_1_0() { return cExec_formAssignment_1_0; }
+		
 		//EXEC_FORM
-		public RuleCall getEXEC_FORMParserRuleCall_1_0() { return cEXEC_FORMParserRuleCall_1_0; }
+		public RuleCall getExec_formEXEC_FORMParserRuleCall_1_0_0() { return cExec_formEXEC_FORMParserRuleCall_1_0_0; }
 		
-		//{Run} SHELL_CMD
-		public Group getGroup_1_1() { return cGroup_1_1; }
-		
-		//{Run}
-		public Action getRunAction_1_1_0() { return cRunAction_1_1_0; }
+		//shell_form=SHELL_CMD
+		public Assignment getShell_formAssignment_1_1() { return cShell_formAssignment_1_1; }
 		
 		//SHELL_CMD
-		public RuleCall getSHELL_CMDTerminalRuleCall_1_1_1() { return cSHELL_CMDTerminalRuleCall_1_1_1; }
+		public RuleCall getShell_formSHELL_CMDTerminalRuleCall_1_1_0() { return cShell_formSHELL_CMDTerminalRuleCall_1_1_0; }
 	}
 	public class EntrypointElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Entrypoint");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cENTRYPOINTKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cKeyENTRYPOINTKeyword_0_0 = (Keyword)cKeyAssignment_0.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final RuleCall cEXEC_FORMParserRuleCall_1_0 = (RuleCall)cAlternatives_1.eContents().get(0);
-		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
-		private final Action cEntrypointAction_1_1_0 = (Action)cGroup_1_1.eContents().get(0);
-		private final RuleCall cSHELL_CMDTerminalRuleCall_1_1_1 = (RuleCall)cGroup_1_1.eContents().get(1);
+		private final Assignment cExec_formAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cExec_formEXEC_FORMParserRuleCall_1_0_0 = (RuleCall)cExec_formAssignment_1_0.eContents().get(0);
+		private final Assignment cShell_formAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cShell_formSHELL_CMDTerminalRuleCall_1_1_0 = (RuleCall)cShell_formAssignment_1_1.eContents().get(0);
 		
-		//Entrypoint:
-		//	'ENTRYPOINT' (EXEC_FORM | {Entrypoint} SHELL_CMD);
+		//Entrypoint Statement:
+		//	key='ENTRYPOINT' (exec_form=EXEC_FORM | shell_form=SHELL_CMD);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ENTRYPOINT' (EXEC_FORM | {Entrypoint} SHELL_CMD)
+		//key='ENTRYPOINT' (exec_form=EXEC_FORM | shell_form=SHELL_CMD)
 		public Group getGroup() { return cGroup; }
 		
-		//'ENTRYPOINT'
-		public Keyword getENTRYPOINTKeyword_0() { return cENTRYPOINTKeyword_0; }
+		//key='ENTRYPOINT'
+		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
 		
-		//(EXEC_FORM | {Entrypoint} SHELL_CMD)
+		//'ENTRYPOINT'
+		public Keyword getKeyENTRYPOINTKeyword_0_0() { return cKeyENTRYPOINTKeyword_0_0; }
+		
+		//(exec_form=EXEC_FORM | shell_form=SHELL_CMD)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
+		//exec_form=EXEC_FORM
+		public Assignment getExec_formAssignment_1_0() { return cExec_formAssignment_1_0; }
+		
 		//EXEC_FORM
-		public RuleCall getEXEC_FORMParserRuleCall_1_0() { return cEXEC_FORMParserRuleCall_1_0; }
+		public RuleCall getExec_formEXEC_FORMParserRuleCall_1_0_0() { return cExec_formEXEC_FORMParserRuleCall_1_0_0; }
 		
-		//{Entrypoint} SHELL_CMD
-		public Group getGroup_1_1() { return cGroup_1_1; }
-		
-		//{Entrypoint}
-		public Action getEntrypointAction_1_1_0() { return cEntrypointAction_1_1_0; }
+		//shell_form=SHELL_CMD
+		public Assignment getShell_formAssignment_1_1() { return cShell_formAssignment_1_1; }
 		
 		//SHELL_CMD
-		public RuleCall getSHELL_CMDTerminalRuleCall_1_1_1() { return cSHELL_CMDTerminalRuleCall_1_1_1; }
+		public RuleCall getShell_formSHELL_CMDTerminalRuleCall_1_1_0() { return cShell_formSHELL_CMDTerminalRuleCall_1_1_0; }
 	}
 	public class VolumeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Volume");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cVOLUMEKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cKeyVOLUMEKeyword_0_0 = (Keyword)cKeyAssignment_0.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final RuleCall cEXEC_FORMParserRuleCall_1_0 = (RuleCall)cAlternatives_1.eContents().get(0);
-		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
-		private final Action cVolumeAction_1_1_0 = (Action)cGroup_1_1.eContents().get(0);
-		private final RuleCall cSHELL_CMDTerminalRuleCall_1_1_1 = (RuleCall)cGroup_1_1.eContents().get(1);
+		private final Assignment cExec_formAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cExec_formEXEC_FORMParserRuleCall_1_0_0 = (RuleCall)cExec_formAssignment_1_0.eContents().get(0);
+		private final Assignment cShell_formAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cShell_formSHELL_CMDTerminalRuleCall_1_1_0 = (RuleCall)cShell_formAssignment_1_1.eContents().get(0);
 		
-		//Volume:
-		//	'VOLUME' (EXEC_FORM | {Volume} SHELL_CMD);
+		//Volume Statement:
+		//	key='VOLUME' (exec_form=EXEC_FORM | shell_form=SHELL_CMD);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'VOLUME' (EXEC_FORM | {Volume} SHELL_CMD)
+		//key='VOLUME' (exec_form=EXEC_FORM | shell_form=SHELL_CMD)
 		public Group getGroup() { return cGroup; }
 		
-		//'VOLUME'
-		public Keyword getVOLUMEKeyword_0() { return cVOLUMEKeyword_0; }
+		//key='VOLUME'
+		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
 		
-		//(EXEC_FORM | {Volume} SHELL_CMD)
+		//'VOLUME'
+		public Keyword getKeyVOLUMEKeyword_0_0() { return cKeyVOLUMEKeyword_0_0; }
+		
+		//(exec_form=EXEC_FORM | shell_form=SHELL_CMD)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
+		//exec_form=EXEC_FORM
+		public Assignment getExec_formAssignment_1_0() { return cExec_formAssignment_1_0; }
+		
 		//EXEC_FORM
-		public RuleCall getEXEC_FORMParserRuleCall_1_0() { return cEXEC_FORMParserRuleCall_1_0; }
+		public RuleCall getExec_formEXEC_FORMParserRuleCall_1_0_0() { return cExec_formEXEC_FORMParserRuleCall_1_0_0; }
 		
-		//{Volume} SHELL_CMD
-		public Group getGroup_1_1() { return cGroup_1_1; }
-		
-		//{Volume}
-		public Action getVolumeAction_1_1_0() { return cVolumeAction_1_1_0; }
+		//shell_form=SHELL_CMD
+		public Assignment getShell_formAssignment_1_1() { return cShell_formAssignment_1_1; }
 		
 		//SHELL_CMD
-		public RuleCall getSHELL_CMDTerminalRuleCall_1_1_1() { return cSHELL_CMDTerminalRuleCall_1_1_1; }
+		public RuleCall getShell_formSHELL_CMDTerminalRuleCall_1_1_0() { return cShell_formSHELL_CMDTerminalRuleCall_1_1_0; }
 	}
 	public class MaintainerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Maintainer");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cMAINTAINERKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cKeyMAINTAINERKeyword_0_0 = (Keyword)cKeyAssignment_0.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameSHELL_CMDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
-		//Maintainer:
-		//	'MAINTAINER' name=SHELL_CMD;
+		//Maintainer Statement:
+		//	key='MAINTAINER' name=SHELL_CMD;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'MAINTAINER' name=SHELL_CMD
+		//key='MAINTAINER' name=SHELL_CMD
 		public Group getGroup() { return cGroup; }
 		
+		//key='MAINTAINER'
+		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
+		
 		//'MAINTAINER'
-		public Keyword getMAINTAINERKeyword_0() { return cMAINTAINERKeyword_0; }
+		public Keyword getKeyMAINTAINERKeyword_0_0() { return cKeyMAINTAINERKeyword_0_0; }
 		
 		//name=SHELL_CMD
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -340,19 +344,23 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class ExposeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Expose");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cEXPOSEKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cKeyEXPOSEKeyword_0_0 = (Keyword)cKeyAssignment_0.eContents().get(0);
 		private final Assignment cPortsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cPortsSHELL_CMDTerminalRuleCall_1_0 = (RuleCall)cPortsAssignment_1.eContents().get(0);
 		
-		//Expose:
-		//	'EXPOSE' ports=SHELL_CMD;
+		//Expose Statement:
+		//	key='EXPOSE' ports=SHELL_CMD;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'EXPOSE' ports=SHELL_CMD
+		//key='EXPOSE' ports=SHELL_CMD
 		public Group getGroup() { return cGroup; }
 		
+		//key='EXPOSE'
+		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
+		
 		//'EXPOSE'
-		public Keyword getEXPOSEKeyword_0() { return cEXPOSEKeyword_0; }
+		public Keyword getKeyEXPOSEKeyword_0_0() { return cKeyEXPOSEKeyword_0_0; }
 		
 		//ports=SHELL_CMD
 		public Assignment getPortsAssignment_1() { return cPortsAssignment_1; }
@@ -363,19 +371,23 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class WorkdirElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Workdir");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cWORKDIRKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cKeyWORKDIRKeyword_0_0 = (Keyword)cKeyAssignment_0.eContents().get(0);
 		private final Assignment cPathAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cPathSHELL_CMDTerminalRuleCall_1_0 = (RuleCall)cPathAssignment_1.eContents().get(0);
 		
-		//Workdir:
-		//	'WORKDIR' path=SHELL_CMD;
+		//Workdir Statement:
+		//	key='WORKDIR' path=SHELL_CMD;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'WORKDIR' path=SHELL_CMD
+		//key='WORKDIR' path=SHELL_CMD
 		public Group getGroup() { return cGroup; }
 		
+		//key='WORKDIR'
+		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
+		
 		//'WORKDIR'
-		public Keyword getWORKDIRKeyword_0() { return cWORKDIRKeyword_0; }
+		public Keyword getKeyWORKDIRKeyword_0_0() { return cKeyWORKDIRKeyword_0_0; }
 		
 		//path=SHELL_CMD
 		public Assignment getPathAssignment_1() { return cPathAssignment_1; }
@@ -386,19 +398,23 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class EnvElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Env");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cENVKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cKeyENVKeyword_0_0 = (Keyword)cKeyAssignment_0.eContents().get(0);
 		private final Assignment cKey_value_pairsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cKey_value_pairsKV_PAIR_EQUALSTerminalRuleCall_1_0 = (RuleCall)cKey_value_pairsAssignment_1.eContents().get(0);
 		
-		//Env:
-		//	'ENV ' key_value_pairs+=KV_PAIR_EQUALS+;
+		//Env Statement:
+		//	key='ENV ' key_value_pairs+=KV_PAIR_EQUALS+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ENV ' key_value_pairs+=KV_PAIR_EQUALS+
+		//key='ENV ' key_value_pairs+=KV_PAIR_EQUALS+
 		public Group getGroup() { return cGroup; }
 		
+		//key='ENV '
+		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
+		
 		//'ENV '
-		public Keyword getENVKeyword_0() { return cENVKeyword_0; }
+		public Keyword getKeyENVKeyword_0_0() { return cKeyENVKeyword_0_0; }
 		
 		//key_value_pairs+=KV_PAIR_EQUALS+
 		public Assignment getKey_value_pairsAssignment_1() { return cKey_value_pairsAssignment_1; }
@@ -409,19 +425,23 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class LabelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Label");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLABELKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cKeyLABELKeyword_0_0 = (Keyword)cKeyAssignment_0.eContents().get(0);
 		private final Assignment cKey_value_pairsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cKey_value_pairsKV_PAIR_EQUALSTerminalRuleCall_1_0 = (RuleCall)cKey_value_pairsAssignment_1.eContents().get(0);
 		
-		//Label:
-		//	'LABEL ' key_value_pairs+=KV_PAIR_EQUALS+;
+		//Label Statement:
+		//	key='LABEL ' key_value_pairs+=KV_PAIR_EQUALS+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'LABEL ' key_value_pairs+=KV_PAIR_EQUALS+
+		//key='LABEL ' key_value_pairs+=KV_PAIR_EQUALS+
 		public Group getGroup() { return cGroup; }
 		
+		//key='LABEL '
+		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
+		
 		//'LABEL '
-		public Keyword getLABELKeyword_0() { return cLABELKeyword_0; }
+		public Keyword getKeyLABELKeyword_0_0() { return cKeyLABELKeyword_0_0; }
 		
 		//key_value_pairs+=KV_PAIR_EQUALS+
 		public Assignment getKey_value_pairsAssignment_1() { return cKey_value_pairsAssignment_1; }
@@ -432,7 +452,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class AddElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Add");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cADDKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cKeyADDKeyword_0_0 = (Keyword)cKeyAssignment_0.eContents().get(0);
 		private final Assignment cChown_optionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cChown_optionsCHOWN_OPTIONTerminalRuleCall_1_0 = (RuleCall)cChown_optionsAssignment_1.eContents().get(0);
 		private final Assignment cFileAssignment_2 = (Assignment)cGroup.eContents().get(2);
@@ -447,15 +468,18 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDirectoryAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cDirectorySHELL_CMDTerminalRuleCall_4_0 = (RuleCall)cDirectoryAssignment_4.eContents().get(0);
 		
-		//Add:
-		//	'ADD ' chown_options=CHOWN_OPTION? file=ID (('?' | '*') | '.' ID)? directory=SHELL_CMD;
+		//Add Statement:
+		//	key='ADD ' chown_options=CHOWN_OPTION? file=ID (('?' | '*') | '.' ID)? directory=SHELL_CMD;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ADD ' chown_options=CHOWN_OPTION? file=ID (('?' | '*') | '.' ID)? directory=SHELL_CMD
+		//key='ADD ' chown_options=CHOWN_OPTION? file=ID (('?' | '*') | '.' ID)? directory=SHELL_CMD
 		public Group getGroup() { return cGroup; }
 		
+		//key='ADD '
+		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
+		
 		//'ADD '
-		public Keyword getADDKeyword_0() { return cADDKeyword_0; }
+		public Keyword getKeyADDKeyword_0_0() { return cKeyADDKeyword_0_0; }
 		
 		//chown_options=CHOWN_OPTION?
 		public Assignment getChown_optionsAssignment_1() { return cChown_optionsAssignment_1; }
@@ -499,7 +523,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class CopyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Copy");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cCOPYKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cKeyCOPYKeyword_0_0 = (Keyword)cKeyAssignment_0.eContents().get(0);
 		private final Assignment cChown_optionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cChown_optionsCHOWN_OPTIONTerminalRuleCall_1_0 = (RuleCall)cChown_optionsAssignment_1.eContents().get(0);
 		private final Assignment cFileAssignment_2 = (Assignment)cGroup.eContents().get(2);
@@ -513,15 +538,18 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDirectoryAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cDirectorySHELL_CMDTerminalRuleCall_5_0 = (RuleCall)cDirectoryAssignment_5.eContents().get(0);
 		
-		//Copy:
-		//	'COPY ' chown_options=CHOWN_OPTION? file=ID ('?' | '*')? ('.' ID)? directory=SHELL_CMD;
+		//Copy Statement:
+		//	key='COPY ' chown_options=CHOWN_OPTION? file=ID ('?' | '*')? ('.' ID)? directory=SHELL_CMD;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'COPY ' chown_options=CHOWN_OPTION? file=ID ('?' | '*')? ('.' ID)? directory=SHELL_CMD
+		//key='COPY ' chown_options=CHOWN_OPTION? file=ID ('?' | '*')? ('.' ID)? directory=SHELL_CMD
 		public Group getGroup() { return cGroup; }
 		
+		//key='COPY '
+		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
+		
 		//'COPY '
-		public Keyword getCOPYKeyword_0() { return cCOPYKeyword_0; }
+		public Keyword getKeyCOPYKeyword_0_0() { return cKeyCOPYKeyword_0_0; }
 		
 		//chown_options=CHOWN_OPTION?
 		public Assignment getChown_optionsAssignment_1() { return cChown_optionsAssignment_1; }
@@ -734,7 +762,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
 	private final DockerfileElements pDockerfile;
-	private final StatementElements pStatement;
+	private final InstructionElements pInstruction;
 	private final FromElements pFrom;
 	private final CmdElements pCmd;
 	private final RunElements pRun;
@@ -768,7 +796,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	public MyDslGrammarAccess(GrammarProvider grammarProvider) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.pDockerfile = new DockerfileElements();
-		this.pStatement = new StatementElements();
+		this.pInstruction = new InstructionElements();
 		this.pFrom = new FromElements();
 		this.pCmd = new CmdElements();
 		this.pRun = new RunElements();
@@ -821,7 +849,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Dockerfile:
-	//	(statements+=Statement NL)*;
+	//	(statements+=Instruction NL)*;
 	public DockerfileElements getDockerfileAccess() {
 		return pDockerfile;
 	}
@@ -830,19 +858,18 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getDockerfileAccess().getRule();
 	}
 	
-	//Statement:
-	//	'ONBUILD '? statement=(From | Cmd | Entrypoint | Volume | Maintainer | Expose | Workdir | Run | Env | Label | Add |
-	//	Copy) | COMMENT;
-	public StatementElements getStatementAccess() {
-		return pStatement;
+	//Instruction:
+	//	statement=(From | Cmd | Entrypoint | Volume | Maintainer | Expose | Workdir | Run | Env | Label | Add | Copy);
+	public InstructionElements getInstructionAccess() {
+		return pInstruction;
 	}
 	
-	public ParserRule getStatementRule() {
-		return getStatementAccess().getRule();
+	public ParserRule getInstructionRule() {
+		return getInstructionAccess().getRule();
 	}
 	
-	//From:
-	//	'FROM ' platform_option=PLATFORM_OPTION? name=IMAGE_NAME tag_or_digest=(IMAGE_TAG | IMAGE_DIGEST)?;
+	//From Statement:
+	//	key='FROM ' platform_option=PLATFORM_OPTION? name=IMAGE_NAME tag_or_digest=(IMAGE_TAG | IMAGE_DIGEST)?;
 	public FromElements getFromAccess() {
 		return pFrom;
 	}
@@ -851,8 +878,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getFromAccess().getRule();
 	}
 	
-	//Cmd:
-	//	'CMD' (EXEC_FORM | {Cmd} SHELL_CMD);
+	//Cmd Statement:
+	//	key='CMD' (exec_form=EXEC_FORM | shell_form=SHELL_CMD);
 	public CmdElements getCmdAccess() {
 		return pCmd;
 	}
@@ -861,8 +888,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getCmdAccess().getRule();
 	}
 	
-	//Run:
-	//	'RUN' (EXEC_FORM | {Run} SHELL_CMD);
+	//Run Statement:
+	//	key='RUN' (exec_form=EXEC_FORM | shell_form=SHELL_CMD);
 	public RunElements getRunAccess() {
 		return pRun;
 	}
@@ -871,8 +898,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getRunAccess().getRule();
 	}
 	
-	//Entrypoint:
-	//	'ENTRYPOINT' (EXEC_FORM | {Entrypoint} SHELL_CMD);
+	//Entrypoint Statement:
+	//	key='ENTRYPOINT' (exec_form=EXEC_FORM | shell_form=SHELL_CMD);
 	public EntrypointElements getEntrypointAccess() {
 		return pEntrypoint;
 	}
@@ -881,8 +908,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getEntrypointAccess().getRule();
 	}
 	
-	//Volume:
-	//	'VOLUME' (EXEC_FORM | {Volume} SHELL_CMD);
+	//Volume Statement:
+	//	key='VOLUME' (exec_form=EXEC_FORM | shell_form=SHELL_CMD);
 	public VolumeElements getVolumeAccess() {
 		return pVolume;
 	}
@@ -891,8 +918,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getVolumeAccess().getRule();
 	}
 	
-	//Maintainer:
-	//	'MAINTAINER' name=SHELL_CMD;
+	//Maintainer Statement:
+	//	key='MAINTAINER' name=SHELL_CMD;
 	public MaintainerElements getMaintainerAccess() {
 		return pMaintainer;
 	}
@@ -901,8 +928,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getMaintainerAccess().getRule();
 	}
 	
-	//Expose:
-	//	'EXPOSE' ports=SHELL_CMD;
+	//Expose Statement:
+	//	key='EXPOSE' ports=SHELL_CMD;
 	public ExposeElements getExposeAccess() {
 		return pExpose;
 	}
@@ -911,8 +938,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getExposeAccess().getRule();
 	}
 	
-	//Workdir:
-	//	'WORKDIR' path=SHELL_CMD;
+	//Workdir Statement:
+	//	key='WORKDIR' path=SHELL_CMD;
 	public WorkdirElements getWorkdirAccess() {
 		return pWorkdir;
 	}
@@ -921,8 +948,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getWorkdirAccess().getRule();
 	}
 	
-	//Env:
-	//	'ENV ' key_value_pairs+=KV_PAIR_EQUALS+;
+	//Env Statement:
+	//	key='ENV ' key_value_pairs+=KV_PAIR_EQUALS+;
 	public EnvElements getEnvAccess() {
 		return pEnv;
 	}
@@ -931,8 +958,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getEnvAccess().getRule();
 	}
 	
-	//Label:
-	//	'LABEL ' key_value_pairs+=KV_PAIR_EQUALS+;
+	//Label Statement:
+	//	key='LABEL ' key_value_pairs+=KV_PAIR_EQUALS+;
 	public LabelElements getLabelAccess() {
 		return pLabel;
 	}
@@ -941,8 +968,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getLabelAccess().getRule();
 	}
 	
-	//Add:
-	//	'ADD ' chown_options=CHOWN_OPTION? file=ID (('?' | '*') | '.' ID)? directory=SHELL_CMD;
+	//Add Statement:
+	//	key='ADD ' chown_options=CHOWN_OPTION? file=ID (('?' | '*') | '.' ID)? directory=SHELL_CMD;
 	public AddElements getAddAccess() {
 		return pAdd;
 	}
@@ -951,8 +978,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getAddAccess().getRule();
 	}
 	
-	//Copy:
-	//	'COPY ' chown_options=CHOWN_OPTION? file=ID ('?' | '*')? ('.' ID)? directory=SHELL_CMD;
+	//Copy Statement:
+	//	key='COPY ' chown_options=CHOWN_OPTION? file=ID ('?' | '*')? ('.' ID)? directory=SHELL_CMD;
 	public CopyElements getCopyAccess() {
 		return pCopy;
 	}

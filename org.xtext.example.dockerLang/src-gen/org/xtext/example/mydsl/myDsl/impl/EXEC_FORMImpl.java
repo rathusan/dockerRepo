@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
@@ -32,7 +33,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  *
  * @generated
  */
-public class EXEC_FORMImpl extends CmdImpl implements EXEC_FORM
+public class EXEC_FORMImpl extends MinimalEObjectImpl.Container implements EXEC_FORM
 {
   /**
    * The default value of the '{@link #getExecutable() <em>Executable</em>}' attribute.

@@ -33,6 +33,15 @@ public interface MyDslFactory extends EFactory
   Dockerfile createDockerfile();
 
   /**
+   * Returns a new object of class '<em>Instruction</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Instruction</em>'.
+   * @generated
+   */
+  Instruction createInstruction();
+
+  /**
    * Returns a new object of class '<em>Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -40,114 +49,6 @@ public interface MyDslFactory extends EFactory
    * @generated
    */
   Statement createStatement();
-
-  /**
-   * Returns a new object of class '<em>From</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>From</em>'.
-   * @generated
-   */
-  From createFrom();
-
-  /**
-   * Returns a new object of class '<em>Cmd</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Cmd</em>'.
-   * @generated
-   */
-  Cmd createCmd();
-
-  /**
-   * Returns a new object of class '<em>Run</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Run</em>'.
-   * @generated
-   */
-  Run createRun();
-
-  /**
-   * Returns a new object of class '<em>Entrypoint</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Entrypoint</em>'.
-   * @generated
-   */
-  Entrypoint createEntrypoint();
-
-  /**
-   * Returns a new object of class '<em>Volume</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Volume</em>'.
-   * @generated
-   */
-  Volume createVolume();
-
-  /**
-   * Returns a new object of class '<em>Maintainer</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Maintainer</em>'.
-   * @generated
-   */
-  Maintainer createMaintainer();
-
-  /**
-   * Returns a new object of class '<em>Expose</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expose</em>'.
-   * @generated
-   */
-  Expose createExpose();
-
-  /**
-   * Returns a new object of class '<em>Workdir</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Workdir</em>'.
-   * @generated
-   */
-  Workdir createWorkdir();
-
-  /**
-   * Returns a new object of class '<em>Env</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Env</em>'.
-   * @generated
-   */
-  Env createEnv();
-
-  /**
-   * Returns a new object of class '<em>Label</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Label</em>'.
-   * @generated
-   */
-  Label createLabel();
-
-  /**
-   * Returns a new object of class '<em>Add</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Add</em>'.
-   * @generated
-   */
-  Add createAdd();
-
-  /**
-   * Returns a new object of class '<em>Copy</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Copy</em>'.
-   * @generated
-   */
-  Copy createCopy();
 
   /**
    * Returns a new object of class '<em>EXEC FORM</em>'.

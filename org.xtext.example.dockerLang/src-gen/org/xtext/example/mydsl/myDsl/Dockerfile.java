@@ -27,7 +27,7 @@ public interface Dockerfile extends EObject
 {
   /**
    * Returns the value of the '<em><b>Statements</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.Statement}.
+   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.Instruction}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Statements</em>' containment reference list.
@@ -35,6 +35,6 @@ public interface Dockerfile extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Statement> getStatements();
+  EList<Instruction> getStatements();
 
 } // Dockerfile

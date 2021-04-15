@@ -66,19 +66,8 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
     switch (eClass.getClassifierID())
     {
       case MyDslPackage.DOCKERFILE: return createDockerfile();
+      case MyDslPackage.INSTRUCTION: return createInstruction();
       case MyDslPackage.STATEMENT: return createStatement();
-      case MyDslPackage.FROM: return createFrom();
-      case MyDslPackage.CMD: return createCmd();
-      case MyDslPackage.RUN: return createRun();
-      case MyDslPackage.ENTRYPOINT: return createEntrypoint();
-      case MyDslPackage.VOLUME: return createVolume();
-      case MyDslPackage.MAINTAINER: return createMaintainer();
-      case MyDslPackage.EXPOSE: return createExpose();
-      case MyDslPackage.WORKDIR: return createWorkdir();
-      case MyDslPackage.ENV: return createEnv();
-      case MyDslPackage.LABEL: return createLabel();
-      case MyDslPackage.ADD: return createAdd();
-      case MyDslPackage.COPY: return createCopy();
       case MyDslPackage.EXEC_FORM: return createEXEC_FORM();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -103,154 +92,22 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
+  public Instruction createInstruction()
+  {
+    InstructionImpl instruction = new InstructionImpl();
+    return instruction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Statement createStatement()
   {
     StatementImpl statement = new StatementImpl();
     return statement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public From createFrom()
-  {
-    FromImpl from = new FromImpl();
-    return from;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Cmd createCmd()
-  {
-    CmdImpl cmd = new CmdImpl();
-    return cmd;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Run createRun()
-  {
-    RunImpl run = new RunImpl();
-    return run;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Entrypoint createEntrypoint()
-  {
-    EntrypointImpl entrypoint = new EntrypointImpl();
-    return entrypoint;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Volume createVolume()
-  {
-    VolumeImpl volume = new VolumeImpl();
-    return volume;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Maintainer createMaintainer()
-  {
-    MaintainerImpl maintainer = new MaintainerImpl();
-    return maintainer;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Expose createExpose()
-  {
-    ExposeImpl expose = new ExposeImpl();
-    return expose;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Workdir createWorkdir()
-  {
-    WorkdirImpl workdir = new WorkdirImpl();
-    return workdir;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Env createEnv()
-  {
-    EnvImpl env = new EnvImpl();
-    return env;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Label createLabel()
-  {
-    LabelImpl label = new LabelImpl();
-    return label;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Add createAdd()
-  {
-    AddImpl add = new AddImpl();
-    return add;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Copy createCopy()
-  {
-    CopyImpl copy = new CopyImpl();
-    return copy;
   }
 
   /**

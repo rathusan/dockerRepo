@@ -3,16 +3,22 @@
  */
 package org.xtext.example.mydsl.myDsl.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+
+import org.xtext.example.mydsl.myDsl.EXEC_FORM;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Statement;
 
@@ -24,7 +30,18 @@ import org.xtext.example.mydsl.myDsl.Statement;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getStatement <em>Statement</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getKey <em>Key</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getPlatform_option <em>Platform option</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getTag_or_digest <em>Tag or digest</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getExec_form <em>Exec form</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getShell_form <em>Shell form</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getPorts <em>Ports</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getKey_value_pairs <em>Key value pairs</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getChown_options <em>Chown options</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getFile <em>File</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getDirectory <em>Directory</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,14 +49,224 @@ import org.xtext.example.mydsl.myDsl.Statement;
 public class StatementImpl extends MinimalEObjectImpl.Container implements Statement
 {
   /**
-   * The cached value of the '{@link #getStatement() <em>Statement</em>}' containment reference.
+   * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStatement()
+   * @see #getKey()
    * @generated
    * @ordered
    */
-  protected EObject statement;
+  protected static final String KEY_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getKey() <em>Key</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getKey()
+   * @generated
+   * @ordered
+   */
+  protected String key = KEY_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getPlatform_option() <em>Platform option</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPlatform_option()
+   * @generated
+   * @ordered
+   */
+  protected static final String PLATFORM_OPTION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getPlatform_option() <em>Platform option</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPlatform_option()
+   * @generated
+   * @ordered
+   */
+  protected String platform_option = PLATFORM_OPTION_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getTag_or_digest() <em>Tag or digest</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTag_or_digest()
+   * @generated
+   * @ordered
+   */
+  protected static final String TAG_OR_DIGEST_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getTag_or_digest() <em>Tag or digest</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTag_or_digest()
+   * @generated
+   * @ordered
+   */
+  protected String tag_or_digest = TAG_OR_DIGEST_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getExec_form() <em>Exec form</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExec_form()
+   * @generated
+   * @ordered
+   */
+  protected EXEC_FORM exec_form;
+
+  /**
+   * The default value of the '{@link #getShell_form() <em>Shell form</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getShell_form()
+   * @generated
+   * @ordered
+   */
+  protected static final String SHELL_FORM_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getShell_form() <em>Shell form</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getShell_form()
+   * @generated
+   * @ordered
+   */
+  protected String shell_form = SHELL_FORM_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getPorts() <em>Ports</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPorts()
+   * @generated
+   * @ordered
+   */
+  protected static final String PORTS_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getPorts() <em>Ports</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPorts()
+   * @generated
+   * @ordered
+   */
+  protected String ports = PORTS_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPath()
+   * @generated
+   * @ordered
+   */
+  protected static final String PATH_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPath()
+   * @generated
+   * @ordered
+   */
+  protected String path = PATH_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getKey_value_pairs() <em>Key value pairs</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getKey_value_pairs()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> key_value_pairs;
+
+  /**
+   * The default value of the '{@link #getChown_options() <em>Chown options</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getChown_options()
+   * @generated
+   * @ordered
+   */
+  protected static final String CHOWN_OPTIONS_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getChown_options() <em>Chown options</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getChown_options()
+   * @generated
+   * @ordered
+   */
+  protected String chown_options = CHOWN_OPTIONS_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getFile() <em>File</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFile()
+   * @generated
+   * @ordered
+   */
+  protected static final String FILE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getFile() <em>File</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFile()
+   * @generated
+   * @ordered
+   */
+  protected String file = FILE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getDirectory() <em>Directory</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDirectory()
+   * @generated
+   * @ordered
+   */
+  protected static final String DIRECTORY_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDirectory() <em>Directory</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDirectory()
+   * @generated
+   * @ordered
+   */
+  protected String directory = DIRECTORY_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -68,9 +295,9 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * @generated
    */
   @Override
-  public EObject getStatement()
+  public String getKey()
   {
-    return statement;
+    return key;
   }
 
   /**
@@ -78,13 +305,113 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetStatement(EObject newStatement, NotificationChain msgs)
+  @Override
+  public void setKey(String newKey)
   {
-    EObject oldStatement = statement;
-    statement = newStatement;
+    String oldKey = key;
+    key = newKey;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__KEY, oldKey, key));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getPlatform_option()
+  {
+    return platform_option;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setPlatform_option(String newPlatform_option)
+  {
+    String oldPlatform_option = platform_option;
+    platform_option = newPlatform_option;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__PLATFORM_OPTION, oldPlatform_option, platform_option));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getTag_or_digest()
+  {
+    return tag_or_digest;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setTag_or_digest(String newTag_or_digest)
+  {
+    String oldTag_or_digest = tag_or_digest;
+    tag_or_digest = newTag_or_digest;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__TAG_OR_DIGEST, oldTag_or_digest, tag_or_digest));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EXEC_FORM getExec_form()
+  {
+    return exec_form;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExec_form(EXEC_FORM newExec_form, NotificationChain msgs)
+  {
+    EXEC_FORM oldExec_form = exec_form;
+    exec_form = newExec_form;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__STATEMENT, oldStatement, newStatement);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__EXEC_FORM, oldExec_form, newExec_form);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -96,20 +423,185 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * @generated
    */
   @Override
-  public void setStatement(EObject newStatement)
+  public void setExec_form(EXEC_FORM newExec_form)
   {
-    if (newStatement != statement)
+    if (newExec_form != exec_form)
     {
       NotificationChain msgs = null;
-      if (statement != null)
-        msgs = ((InternalEObject)statement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__STATEMENT, null, msgs);
-      if (newStatement != null)
-        msgs = ((InternalEObject)newStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__STATEMENT, null, msgs);
-      msgs = basicSetStatement(newStatement, msgs);
+      if (exec_form != null)
+        msgs = ((InternalEObject)exec_form).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__EXEC_FORM, null, msgs);
+      if (newExec_form != null)
+        msgs = ((InternalEObject)newExec_form).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__EXEC_FORM, null, msgs);
+      msgs = basicSetExec_form(newExec_form, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__STATEMENT, newStatement, newStatement));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__EXEC_FORM, newExec_form, newExec_form));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getShell_form()
+  {
+    return shell_form;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setShell_form(String newShell_form)
+  {
+    String oldShell_form = shell_form;
+    shell_form = newShell_form;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__SHELL_FORM, oldShell_form, shell_form));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getPorts()
+  {
+    return ports;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setPorts(String newPorts)
+  {
+    String oldPorts = ports;
+    ports = newPorts;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__PORTS, oldPorts, ports));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getPath()
+  {
+    return path;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setPath(String newPath)
+  {
+    String oldPath = path;
+    path = newPath;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__PATH, oldPath, path));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getKey_value_pairs()
+  {
+    if (key_value_pairs == null)
+    {
+      key_value_pairs = new EDataTypeEList<String>(String.class, this, MyDslPackage.STATEMENT__KEY_VALUE_PAIRS);
+    }
+    return key_value_pairs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getChown_options()
+  {
+    return chown_options;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setChown_options(String newChown_options)
+  {
+    String oldChown_options = chown_options;
+    chown_options = newChown_options;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__CHOWN_OPTIONS, oldChown_options, chown_options));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getFile()
+  {
+    return file;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setFile(String newFile)
+  {
+    String oldFile = file;
+    file = newFile;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__FILE, oldFile, file));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getDirectory()
+  {
+    return directory;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setDirectory(String newDirectory)
+  {
+    String oldDirectory = directory;
+    directory = newDirectory;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__DIRECTORY, oldDirectory, directory));
   }
 
   /**
@@ -122,8 +614,8 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case MyDslPackage.STATEMENT__STATEMENT:
-        return basicSetStatement(null, msgs);
+      case MyDslPackage.STATEMENT__EXEC_FORM:
+        return basicSetExec_form(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -138,8 +630,30 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case MyDslPackage.STATEMENT__STATEMENT:
-        return getStatement();
+      case MyDslPackage.STATEMENT__KEY:
+        return getKey();
+      case MyDslPackage.STATEMENT__PLATFORM_OPTION:
+        return getPlatform_option();
+      case MyDslPackage.STATEMENT__NAME:
+        return getName();
+      case MyDslPackage.STATEMENT__TAG_OR_DIGEST:
+        return getTag_or_digest();
+      case MyDslPackage.STATEMENT__EXEC_FORM:
+        return getExec_form();
+      case MyDslPackage.STATEMENT__SHELL_FORM:
+        return getShell_form();
+      case MyDslPackage.STATEMENT__PORTS:
+        return getPorts();
+      case MyDslPackage.STATEMENT__PATH:
+        return getPath();
+      case MyDslPackage.STATEMENT__KEY_VALUE_PAIRS:
+        return getKey_value_pairs();
+      case MyDslPackage.STATEMENT__CHOWN_OPTIONS:
+        return getChown_options();
+      case MyDslPackage.STATEMENT__FILE:
+        return getFile();
+      case MyDslPackage.STATEMENT__DIRECTORY:
+        return getDirectory();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -149,13 +663,48 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case MyDslPackage.STATEMENT__STATEMENT:
-        setStatement((EObject)newValue);
+      case MyDslPackage.STATEMENT__KEY:
+        setKey((String)newValue);
+        return;
+      case MyDslPackage.STATEMENT__PLATFORM_OPTION:
+        setPlatform_option((String)newValue);
+        return;
+      case MyDslPackage.STATEMENT__NAME:
+        setName((String)newValue);
+        return;
+      case MyDslPackage.STATEMENT__TAG_OR_DIGEST:
+        setTag_or_digest((String)newValue);
+        return;
+      case MyDslPackage.STATEMENT__EXEC_FORM:
+        setExec_form((EXEC_FORM)newValue);
+        return;
+      case MyDslPackage.STATEMENT__SHELL_FORM:
+        setShell_form((String)newValue);
+        return;
+      case MyDslPackage.STATEMENT__PORTS:
+        setPorts((String)newValue);
+        return;
+      case MyDslPackage.STATEMENT__PATH:
+        setPath((String)newValue);
+        return;
+      case MyDslPackage.STATEMENT__KEY_VALUE_PAIRS:
+        getKey_value_pairs().clear();
+        getKey_value_pairs().addAll((Collection<? extends String>)newValue);
+        return;
+      case MyDslPackage.STATEMENT__CHOWN_OPTIONS:
+        setChown_options((String)newValue);
+        return;
+      case MyDslPackage.STATEMENT__FILE:
+        setFile((String)newValue);
+        return;
+      case MyDslPackage.STATEMENT__DIRECTORY:
+        setDirectory((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,8 +720,41 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case MyDslPackage.STATEMENT__STATEMENT:
-        setStatement((EObject)null);
+      case MyDslPackage.STATEMENT__KEY:
+        setKey(KEY_EDEFAULT);
+        return;
+      case MyDslPackage.STATEMENT__PLATFORM_OPTION:
+        setPlatform_option(PLATFORM_OPTION_EDEFAULT);
+        return;
+      case MyDslPackage.STATEMENT__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case MyDslPackage.STATEMENT__TAG_OR_DIGEST:
+        setTag_or_digest(TAG_OR_DIGEST_EDEFAULT);
+        return;
+      case MyDslPackage.STATEMENT__EXEC_FORM:
+        setExec_form((EXEC_FORM)null);
+        return;
+      case MyDslPackage.STATEMENT__SHELL_FORM:
+        setShell_form(SHELL_FORM_EDEFAULT);
+        return;
+      case MyDslPackage.STATEMENT__PORTS:
+        setPorts(PORTS_EDEFAULT);
+        return;
+      case MyDslPackage.STATEMENT__PATH:
+        setPath(PATH_EDEFAULT);
+        return;
+      case MyDslPackage.STATEMENT__KEY_VALUE_PAIRS:
+        getKey_value_pairs().clear();
+        return;
+      case MyDslPackage.STATEMENT__CHOWN_OPTIONS:
+        setChown_options(CHOWN_OPTIONS_EDEFAULT);
+        return;
+      case MyDslPackage.STATEMENT__FILE:
+        setFile(FILE_EDEFAULT);
+        return;
+      case MyDslPackage.STATEMENT__DIRECTORY:
+        setDirectory(DIRECTORY_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -188,10 +770,69 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case MyDslPackage.STATEMENT__STATEMENT:
-        return statement != null;
+      case MyDslPackage.STATEMENT__KEY:
+        return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
+      case MyDslPackage.STATEMENT__PLATFORM_OPTION:
+        return PLATFORM_OPTION_EDEFAULT == null ? platform_option != null : !PLATFORM_OPTION_EDEFAULT.equals(platform_option);
+      case MyDslPackage.STATEMENT__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case MyDslPackage.STATEMENT__TAG_OR_DIGEST:
+        return TAG_OR_DIGEST_EDEFAULT == null ? tag_or_digest != null : !TAG_OR_DIGEST_EDEFAULT.equals(tag_or_digest);
+      case MyDslPackage.STATEMENT__EXEC_FORM:
+        return exec_form != null;
+      case MyDslPackage.STATEMENT__SHELL_FORM:
+        return SHELL_FORM_EDEFAULT == null ? shell_form != null : !SHELL_FORM_EDEFAULT.equals(shell_form);
+      case MyDslPackage.STATEMENT__PORTS:
+        return PORTS_EDEFAULT == null ? ports != null : !PORTS_EDEFAULT.equals(ports);
+      case MyDslPackage.STATEMENT__PATH:
+        return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
+      case MyDslPackage.STATEMENT__KEY_VALUE_PAIRS:
+        return key_value_pairs != null && !key_value_pairs.isEmpty();
+      case MyDslPackage.STATEMENT__CHOWN_OPTIONS:
+        return CHOWN_OPTIONS_EDEFAULT == null ? chown_options != null : !CHOWN_OPTIONS_EDEFAULT.equals(chown_options);
+      case MyDslPackage.STATEMENT__FILE:
+        return FILE_EDEFAULT == null ? file != null : !FILE_EDEFAULT.equals(file);
+      case MyDslPackage.STATEMENT__DIRECTORY:
+        return DIRECTORY_EDEFAULT == null ? directory != null : !DIRECTORY_EDEFAULT.equals(directory);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (key: ");
+    result.append(key);
+    result.append(", platform_option: ");
+    result.append(platform_option);
+    result.append(", name: ");
+    result.append(name);
+    result.append(", tag_or_digest: ");
+    result.append(tag_or_digest);
+    result.append(", shell_form: ");
+    result.append(shell_form);
+    result.append(", ports: ");
+    result.append(ports);
+    result.append(", path: ");
+    result.append(path);
+    result.append(", key_value_pairs: ");
+    result.append(key_value_pairs);
+    result.append(", chown_options: ");
+    result.append(chown_options);
+    result.append(", file: ");
+    result.append(file);
+    result.append(", directory: ");
+    result.append(directory);
+    result.append(')');
+    return result.toString();
   }
 
 } //StatementImpl

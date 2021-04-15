@@ -3,59 +3,59 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 generate myDsl "http://www.xtext.org/example/DockerLang"
 
 Dockerfile:
-	(statements+=(Statement)(NL))*
+	(statements+=(Instruction)(NL))*
 ;
 
-Statement:
-	('ONBUILD '? statement=(From|Cmd|Entrypoint|Volume|Maintainer|Expose|Workdir|Run|Env|Label|Add|Copy)) | COMMENT
+Instruction:
+	statement=(From|Cmd|Entrypoint|Volume|Maintainer|Expose|Workdir|Run|Env|Label|Add|Copy)
 ;
 
-From:
+From returns Statement:
    	key='FROM ' platform_option=PLATFORM_OPTION? name=IMAGE_NAME tag_or_digest=(IMAGE_TAG|IMAGE_DIGEST)?
 ;
 
-Cmd: 
-	key='CMD'(EXEC_FORM |  cmd={Cmd}SHELL_CMD)
+Cmd returns Statement: 
+	key='CMD' (exec_form=EXEC_FORM | shell_form=SHELL_CMD)
 ;
 
-Run:
-    'RUN' (EXEC_FORM | {Run}SHELL_CMD)
+Run returns Statement:
+    key='RUN' (exec_form=EXEC_FORM | shell_form=SHELL_CMD)
 ;
 
-Entrypoint:
-    'ENTRYPOINT' (EXEC_FORM | {Entrypoint}SHELL_CMD)
+Entrypoint returns Statement:
+    key='ENTRYPOINT' (exec_form=EXEC_FORM | shell_form=SHELL_CMD)
 ;
 
-Volume:
-    'VOLUME' (EXEC_FORM | {Volume}SHELL_CMD)
+Volume returns Statement:
+    key='VOLUME' (exec_form=EXEC_FORM | shell_form=SHELL_CMD)
 ;
 
-Maintainer:
-	'MAINTAINER' name=SHELL_CMD
+Maintainer returns Statement:
+	key='MAINTAINER' name=SHELL_CMD
 ;
 
-Expose:
-	'EXPOSE' ports=SHELL_CMD
+Expose returns Statement:
+	key='EXPOSE' ports=SHELL_CMD
 ;
 
-Workdir:
-    'WORKDIR' path=SHELL_CMD
+Workdir returns Statement:
+    key='WORKDIR' path=SHELL_CMD
 ;
 
-Env:
-	'ENV ' key_value_pairs+=(KV_PAIR_EQUALS)+
+Env returns Statement:
+	key='ENV ' key_value_pairs+=(KV_PAIR_EQUALS)+
 ;
 
-Label:
-	'LABEL ' key_value_pairs+=(KV_PAIR_EQUALS)+
+Label returns Statement:
+	key='LABEL ' key_value_pairs+=(KV_PAIR_EQUALS)+
 ;
 
-Add:
-	'ADD ' chown_options=CHOWN_OPTION? file=ID(('?'|'*')|('.'ID))? directory=SHELL_CMD
+Add returns Statement:
+	key='ADD ' chown_options=CHOWN_OPTION? file=ID(('?'|'*')|('.'ID))? directory=SHELL_CMD
 ;
 
-Copy:
-	'COPY ' chown_options=CHOWN_OPTION? file=ID('?'|'*')?('.'ID)? directory=SHELL_CMD
+Copy returns Statement:
+	key='COPY ' chown_options=CHOWN_OPTION? file=ID('?'|'*')?('.'ID)? directory=SHELL_CMD
 ;
 
 IMAGE_NAME returns ecore::EString:

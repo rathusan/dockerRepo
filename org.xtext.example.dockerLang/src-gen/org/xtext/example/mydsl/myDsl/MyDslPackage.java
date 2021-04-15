@@ -86,14 +86,14 @@ public interface MyDslPackage extends EPackage
   int DOCKERFILE_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl <em>Statement</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.InstructionImpl <em>Instruction</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.StatementImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getStatement()
+   * @see org.xtext.example.mydsl.myDsl.impl.InstructionImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getInstruction()
    * @generated
    */
-  int STATEMENT = 1;
+  int INSTRUCTION = 1;
 
   /**
    * The feature id for the '<em><b>Statement</b></em>' containment reference.
@@ -102,26 +102,35 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__STATEMENT = 0;
+  int INSTRUCTION__STATEMENT = 0;
 
   /**
-   * The number of structural features of the '<em>Statement</em>' class.
+   * The number of structural features of the '<em>Instruction</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT_FEATURE_COUNT = 1;
+  int INSTRUCTION_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.FromImpl <em>From</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl <em>Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.FromImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFrom()
+   * @see org.xtext.example.mydsl.myDsl.impl.StatementImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getStatement()
    * @generated
    */
-  int FROM = 2;
+  int STATEMENT = 2;
+
+  /**
+   * The feature id for the '<em><b>Key</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__KEY = 0;
 
   /**
    * The feature id for the '<em><b>Platform option</b></em>' attribute.
@@ -130,7 +139,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FROM__PLATFORM_OPTION = 0;
+  int STATEMENT__PLATFORM_OPTION = 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -139,7 +148,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FROM__NAME = 1;
+  int STATEMENT__NAME = 2;
 
   /**
    * The feature id for the '<em><b>Tag or digest</b></em>' attribute.
@@ -148,130 +157,25 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FROM__TAG_OR_DIGEST = 2;
+  int STATEMENT__TAG_OR_DIGEST = 3;
 
   /**
-   * The number of structural features of the '<em>From</em>' class.
+   * The feature id for the '<em><b>Exec form</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FROM_FEATURE_COUNT = 3;
+  int STATEMENT__EXEC_FORM = 4;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.CmdImpl <em>Cmd</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.CmdImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCmd()
-   * @generated
-   */
-  int CMD = 3;
-
-  /**
-   * The number of structural features of the '<em>Cmd</em>' class.
+   * The feature id for the '<em><b>Shell form</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CMD_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.RunImpl <em>Run</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.RunImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getRun()
-   * @generated
-   */
-  int RUN = 4;
-
-  /**
-   * The number of structural features of the '<em>Run</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RUN_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.EntrypointImpl <em>Entrypoint</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.EntrypointImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getEntrypoint()
-   * @generated
-   */
-  int ENTRYPOINT = 5;
-
-  /**
-   * The number of structural features of the '<em>Entrypoint</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENTRYPOINT_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.VolumeImpl <em>Volume</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.VolumeImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getVolume()
-   * @generated
-   */
-  int VOLUME = 6;
-
-  /**
-   * The number of structural features of the '<em>Volume</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VOLUME_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.MaintainerImpl <em>Maintainer</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.MaintainerImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getMaintainer()
-   * @generated
-   */
-  int MAINTAINER = 7;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAINTAINER__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Maintainer</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAINTAINER_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ExposeImpl <em>Expose</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.ExposeImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExpose()
-   * @generated
-   */
-  int EXPOSE = 8;
+  int STATEMENT__SHELL_FORM = 5;
 
   /**
    * The feature id for the '<em><b>Ports</b></em>' attribute.
@@ -280,26 +184,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPOSE__PORTS = 0;
-
-  /**
-   * The number of structural features of the '<em>Expose</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPOSE_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.WorkdirImpl <em>Workdir</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.WorkdirImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getWorkdir()
-   * @generated
-   */
-  int WORKDIR = 9;
+  int STATEMENT__PORTS = 6;
 
   /**
    * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -308,26 +193,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORKDIR__PATH = 0;
-
-  /**
-   * The number of structural features of the '<em>Workdir</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WORKDIR_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.EnvImpl <em>Env</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.EnvImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getEnv()
-   * @generated
-   */
-  int ENV = 10;
+  int STATEMENT__PATH = 7;
 
   /**
    * The feature id for the '<em><b>Key value pairs</b></em>' attribute list.
@@ -336,54 +202,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENV__KEY_VALUE_PAIRS = 0;
-
-  /**
-   * The number of structural features of the '<em>Env</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENV_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.LabelImpl <em>Label</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.LabelImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLabel()
-   * @generated
-   */
-  int LABEL = 11;
-
-  /**
-   * The feature id for the '<em><b>Key value pairs</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABEL__KEY_VALUE_PAIRS = 0;
-
-  /**
-   * The number of structural features of the '<em>Label</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABEL_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.AddImpl <em>Add</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.AddImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getAdd()
-   * @generated
-   */
-  int ADD = 12;
+  int STATEMENT__KEY_VALUE_PAIRS = 8;
 
   /**
    * The feature id for the '<em><b>Chown options</b></em>' attribute.
@@ -392,7 +211,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADD__CHOWN_OPTIONS = 0;
+  int STATEMENT__CHOWN_OPTIONS = 9;
 
   /**
    * The feature id for the '<em><b>File</b></em>' attribute.
@@ -401,7 +220,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADD__FILE = 1;
+  int STATEMENT__FILE = 10;
 
   /**
    * The feature id for the '<em><b>Directory</b></em>' attribute.
@@ -410,62 +229,16 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADD__DIRECTORY = 2;
+  int STATEMENT__DIRECTORY = 11;
 
   /**
-   * The number of structural features of the '<em>Add</em>' class.
+   * The number of structural features of the '<em>Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADD_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.CopyImpl <em>Copy</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.CopyImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCopy()
-   * @generated
-   */
-  int COPY = 13;
-
-  /**
-   * The feature id for the '<em><b>Chown options</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COPY__CHOWN_OPTIONS = 0;
-
-  /**
-   * The feature id for the '<em><b>File</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COPY__FILE = 1;
-
-  /**
-   * The feature id for the '<em><b>Directory</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COPY__DIRECTORY = 2;
-
-  /**
-   * The number of structural features of the '<em>Copy</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COPY_FEATURE_COUNT = 3;
+  int STATEMENT_FEATURE_COUNT = 12;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.EXEC_FORMImpl <em>EXEC FORM</em>}' class.
@@ -475,7 +248,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getEXEC_FORM()
    * @generated
    */
-  int EXEC_FORM = 14;
+  int EXEC_FORM = 3;
 
   /**
    * The feature id for the '<em><b>Executable</b></em>' attribute.
@@ -484,7 +257,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXEC_FORM__EXECUTABLE = CMD_FEATURE_COUNT + 0;
+  int EXEC_FORM__EXECUTABLE = 0;
 
   /**
    * The feature id for the '<em><b>Parameters</b></em>' attribute list.
@@ -493,7 +266,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXEC_FORM__PARAMETERS = CMD_FEATURE_COUNT + 1;
+  int EXEC_FORM__PARAMETERS = 1;
 
   /**
    * The number of structural features of the '<em>EXEC FORM</em>' class.
@@ -502,7 +275,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXEC_FORM_FEATURE_COUNT = CMD_FEATURE_COUNT + 2;
+  int EXEC_FORM_FEATURE_COUNT = 2;
 
 
   /**
@@ -527,6 +300,27 @@ public interface MyDslPackage extends EPackage
   EReference getDockerfile_Statements();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Instruction <em>Instruction</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Instruction</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Instruction
+   * @generated
+   */
+  EClass getInstruction();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Instruction#getStatement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Statement</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Instruction#getStatement()
+   * @see #getInstruction()
+   * @generated
+   */
+  EReference getInstruction_Statement();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Statement <em>Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -537,289 +331,136 @@ public interface MyDslPackage extends EPackage
   EClass getStatement();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Statement#getStatement <em>Statement</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Statement#getKey <em>Key</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Statement</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Statement#getStatement()
+   * @return the meta object for the attribute '<em>Key</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Statement#getKey()
    * @see #getStatement()
    * @generated
    */
-  EReference getStatement_Statement();
+  EAttribute getStatement_Key();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.From <em>From</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>From</em>'.
-   * @see org.xtext.example.mydsl.myDsl.From
-   * @generated
-   */
-  EClass getFrom();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.From#getPlatform_option <em>Platform option</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Statement#getPlatform_option <em>Platform option</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Platform option</em>'.
-   * @see org.xtext.example.mydsl.myDsl.From#getPlatform_option()
-   * @see #getFrom()
+   * @see org.xtext.example.mydsl.myDsl.Statement#getPlatform_option()
+   * @see #getStatement()
    * @generated
    */
-  EAttribute getFrom_Platform_option();
+  EAttribute getStatement_Platform_option();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.From#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Statement#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.From#getName()
-   * @see #getFrom()
+   * @see org.xtext.example.mydsl.myDsl.Statement#getName()
+   * @see #getStatement()
    * @generated
    */
-  EAttribute getFrom_Name();
+  EAttribute getStatement_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.From#getTag_or_digest <em>Tag or digest</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Statement#getTag_or_digest <em>Tag or digest</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Tag or digest</em>'.
-   * @see org.xtext.example.mydsl.myDsl.From#getTag_or_digest()
-   * @see #getFrom()
+   * @see org.xtext.example.mydsl.myDsl.Statement#getTag_or_digest()
+   * @see #getStatement()
    * @generated
    */
-  EAttribute getFrom_Tag_or_digest();
+  EAttribute getStatement_Tag_or_digest();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Cmd <em>Cmd</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Statement#getExec_form <em>Exec form</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Cmd</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Cmd
+   * @return the meta object for the containment reference '<em>Exec form</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Statement#getExec_form()
+   * @see #getStatement()
    * @generated
    */
-  EClass getCmd();
+  EReference getStatement_Exec_form();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Run <em>Run</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Statement#getShell_form <em>Shell form</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Run</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Run
+   * @return the meta object for the attribute '<em>Shell form</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Statement#getShell_form()
+   * @see #getStatement()
    * @generated
    */
-  EClass getRun();
+  EAttribute getStatement_Shell_form();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Entrypoint <em>Entrypoint</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Entrypoint</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Entrypoint
-   * @generated
-   */
-  EClass getEntrypoint();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Volume <em>Volume</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Volume</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Volume
-   * @generated
-   */
-  EClass getVolume();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Maintainer <em>Maintainer</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Maintainer</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Maintainer
-   * @generated
-   */
-  EClass getMaintainer();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Maintainer#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Maintainer#getName()
-   * @see #getMaintainer()
-   * @generated
-   */
-  EAttribute getMaintainer_Name();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Expose <em>Expose</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Expose</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Expose
-   * @generated
-   */
-  EClass getExpose();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Expose#getPorts <em>Ports</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Statement#getPorts <em>Ports</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Ports</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Expose#getPorts()
-   * @see #getExpose()
+   * @see org.xtext.example.mydsl.myDsl.Statement#getPorts()
+   * @see #getStatement()
    * @generated
    */
-  EAttribute getExpose_Ports();
+  EAttribute getStatement_Ports();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Workdir <em>Workdir</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Workdir</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Workdir
-   * @generated
-   */
-  EClass getWorkdir();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Workdir#getPath <em>Path</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Statement#getPath <em>Path</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Path</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Workdir#getPath()
-   * @see #getWorkdir()
+   * @see org.xtext.example.mydsl.myDsl.Statement#getPath()
+   * @see #getStatement()
    * @generated
    */
-  EAttribute getWorkdir_Path();
+  EAttribute getStatement_Path();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Env <em>Env</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Env</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Env
-   * @generated
-   */
-  EClass getEnv();
-
-  /**
-   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.Env#getKey_value_pairs <em>Key value pairs</em>}'.
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.Statement#getKey_value_pairs <em>Key value pairs</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute list '<em>Key value pairs</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Env#getKey_value_pairs()
-   * @see #getEnv()
+   * @see org.xtext.example.mydsl.myDsl.Statement#getKey_value_pairs()
+   * @see #getStatement()
    * @generated
    */
-  EAttribute getEnv_Key_value_pairs();
+  EAttribute getStatement_Key_value_pairs();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Label <em>Label</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Label</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Label
-   * @generated
-   */
-  EClass getLabel();
-
-  /**
-   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.Label#getKey_value_pairs <em>Key value pairs</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Key value pairs</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Label#getKey_value_pairs()
-   * @see #getLabel()
-   * @generated
-   */
-  EAttribute getLabel_Key_value_pairs();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Add <em>Add</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Add</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Add
-   * @generated
-   */
-  EClass getAdd();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Add#getChown_options <em>Chown options</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Statement#getChown_options <em>Chown options</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Chown options</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Add#getChown_options()
-   * @see #getAdd()
+   * @see org.xtext.example.mydsl.myDsl.Statement#getChown_options()
+   * @see #getStatement()
    * @generated
    */
-  EAttribute getAdd_Chown_options();
+  EAttribute getStatement_Chown_options();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Add#getFile <em>File</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Statement#getFile <em>File</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>File</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Add#getFile()
-   * @see #getAdd()
+   * @see org.xtext.example.mydsl.myDsl.Statement#getFile()
+   * @see #getStatement()
    * @generated
    */
-  EAttribute getAdd_File();
+  EAttribute getStatement_File();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Add#getDirectory <em>Directory</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Statement#getDirectory <em>Directory</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Directory</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Add#getDirectory()
-   * @see #getAdd()
+   * @see org.xtext.example.mydsl.myDsl.Statement#getDirectory()
+   * @see #getStatement()
    * @generated
    */
-  EAttribute getAdd_Directory();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Copy <em>Copy</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Copy</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Copy
-   * @generated
-   */
-  EClass getCopy();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Copy#getChown_options <em>Chown options</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Chown options</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Copy#getChown_options()
-   * @see #getCopy()
-   * @generated
-   */
-  EAttribute getCopy_Chown_options();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Copy#getFile <em>File</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>File</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Copy#getFile()
-   * @see #getCopy()
-   * @generated
-   */
-  EAttribute getCopy_File();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Copy#getDirectory <em>Directory</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Directory</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Copy#getDirectory()
-   * @see #getCopy()
-   * @generated
-   */
-  EAttribute getCopy_Directory();
+  EAttribute getStatement_Directory();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.EXEC_FORM <em>EXEC FORM</em>}'.
@@ -895,6 +536,24 @@ public interface MyDslPackage extends EPackage
     EReference DOCKERFILE__STATEMENTS = eINSTANCE.getDockerfile_Statements();
 
     /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.InstructionImpl <em>Instruction</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.InstructionImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getInstruction()
+     * @generated
+     */
+    EClass INSTRUCTION = eINSTANCE.getInstruction();
+
+    /**
+     * The meta object literal for the '<em><b>Statement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INSTRUCTION__STATEMENT = eINSTANCE.getInstruction_Statement();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl <em>Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -905,22 +564,12 @@ public interface MyDslPackage extends EPackage
     EClass STATEMENT = eINSTANCE.getStatement();
 
     /**
-     * The meta object literal for the '<em><b>Statement</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STATEMENT__STATEMENT = eINSTANCE.getStatement_Statement();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.FromImpl <em>From</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.FromImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFrom()
-     * @generated
-     */
-    EClass FROM = eINSTANCE.getFrom();
+    EAttribute STATEMENT__KEY = eINSTANCE.getStatement_Key();
 
     /**
      * The meta object literal for the '<em><b>Platform option</b></em>' attribute feature.
@@ -928,7 +577,7 @@ public interface MyDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FROM__PLATFORM_OPTION = eINSTANCE.getFrom_Platform_option();
+    EAttribute STATEMENT__PLATFORM_OPTION = eINSTANCE.getStatement_Platform_option();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -936,7 +585,7 @@ public interface MyDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FROM__NAME = eINSTANCE.getFrom_Name();
+    EAttribute STATEMENT__NAME = eINSTANCE.getStatement_Name();
 
     /**
      * The meta object literal for the '<em><b>Tag or digest</b></em>' attribute feature.
@@ -944,75 +593,23 @@ public interface MyDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FROM__TAG_OR_DIGEST = eINSTANCE.getFrom_Tag_or_digest();
+    EAttribute STATEMENT__TAG_OR_DIGEST = eINSTANCE.getStatement_Tag_or_digest();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.CmdImpl <em>Cmd</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.CmdImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCmd()
-     * @generated
-     */
-    EClass CMD = eINSTANCE.getCmd();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.RunImpl <em>Run</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.RunImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getRun()
-     * @generated
-     */
-    EClass RUN = eINSTANCE.getRun();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.EntrypointImpl <em>Entrypoint</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.EntrypointImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getEntrypoint()
-     * @generated
-     */
-    EClass ENTRYPOINT = eINSTANCE.getEntrypoint();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.VolumeImpl <em>Volume</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.VolumeImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getVolume()
-     * @generated
-     */
-    EClass VOLUME = eINSTANCE.getVolume();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.MaintainerImpl <em>Maintainer</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.MaintainerImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getMaintainer()
-     * @generated
-     */
-    EClass MAINTAINER = eINSTANCE.getMaintainer();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Exec form</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MAINTAINER__NAME = eINSTANCE.getMaintainer_Name();
+    EReference STATEMENT__EXEC_FORM = eINSTANCE.getStatement_Exec_form();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ExposeImpl <em>Expose</em>}' class.
+     * The meta object literal for the '<em><b>Shell form</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.ExposeImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExpose()
      * @generated
      */
-    EClass EXPOSE = eINSTANCE.getExpose();
+    EAttribute STATEMENT__SHELL_FORM = eINSTANCE.getStatement_Shell_form();
 
     /**
      * The meta object literal for the '<em><b>Ports</b></em>' attribute feature.
@@ -1020,17 +617,7 @@ public interface MyDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXPOSE__PORTS = eINSTANCE.getExpose_Ports();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.WorkdirImpl <em>Workdir</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.WorkdirImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getWorkdir()
-     * @generated
-     */
-    EClass WORKDIR = eINSTANCE.getWorkdir();
+    EAttribute STATEMENT__PORTS = eINSTANCE.getStatement_Ports();
 
     /**
      * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
@@ -1038,17 +625,7 @@ public interface MyDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute WORKDIR__PATH = eINSTANCE.getWorkdir_Path();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.EnvImpl <em>Env</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.EnvImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getEnv()
-     * @generated
-     */
-    EClass ENV = eINSTANCE.getEnv();
+    EAttribute STATEMENT__PATH = eINSTANCE.getStatement_Path();
 
     /**
      * The meta object literal for the '<em><b>Key value pairs</b></em>' attribute list feature.
@@ -1056,35 +633,7 @@ public interface MyDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ENV__KEY_VALUE_PAIRS = eINSTANCE.getEnv_Key_value_pairs();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.LabelImpl <em>Label</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.LabelImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLabel()
-     * @generated
-     */
-    EClass LABEL = eINSTANCE.getLabel();
-
-    /**
-     * The meta object literal for the '<em><b>Key value pairs</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute LABEL__KEY_VALUE_PAIRS = eINSTANCE.getLabel_Key_value_pairs();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.AddImpl <em>Add</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.AddImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getAdd()
-     * @generated
-     */
-    EClass ADD = eINSTANCE.getAdd();
+    EAttribute STATEMENT__KEY_VALUE_PAIRS = eINSTANCE.getStatement_Key_value_pairs();
 
     /**
      * The meta object literal for the '<em><b>Chown options</b></em>' attribute feature.
@@ -1092,7 +641,7 @@ public interface MyDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ADD__CHOWN_OPTIONS = eINSTANCE.getAdd_Chown_options();
+    EAttribute STATEMENT__CHOWN_OPTIONS = eINSTANCE.getStatement_Chown_options();
 
     /**
      * The meta object literal for the '<em><b>File</b></em>' attribute feature.
@@ -1100,7 +649,7 @@ public interface MyDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ADD__FILE = eINSTANCE.getAdd_File();
+    EAttribute STATEMENT__FILE = eINSTANCE.getStatement_File();
 
     /**
      * The meta object literal for the '<em><b>Directory</b></em>' attribute feature.
@@ -1108,41 +657,7 @@ public interface MyDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ADD__DIRECTORY = eINSTANCE.getAdd_Directory();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.CopyImpl <em>Copy</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.CopyImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCopy()
-     * @generated
-     */
-    EClass COPY = eINSTANCE.getCopy();
-
-    /**
-     * The meta object literal for the '<em><b>Chown options</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COPY__CHOWN_OPTIONS = eINSTANCE.getCopy_Chown_options();
-
-    /**
-     * The meta object literal for the '<em><b>File</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COPY__FILE = eINSTANCE.getCopy_File();
-
-    /**
-     * The meta object literal for the '<em><b>Directory</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COPY__DIRECTORY = eINSTANCE.getCopy_Directory();
+    EAttribute STATEMENT__DIRECTORY = eINSTANCE.getStatement_Directory();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.EXEC_FORMImpl <em>EXEC FORM</em>}' class.

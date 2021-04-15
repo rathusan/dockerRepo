@@ -3,6 +3,8 @@
  */
 package org.xtext.example.mydsl.myDsl;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,7 +16,18 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getStatement <em>Statement</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getKey <em>Key</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getPlatform_option <em>Platform option</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getTag_or_digest <em>Tag or digest</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getExec_form <em>Exec form</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getShell_form <em>Shell form</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getPorts <em>Ports</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getPath <em>Path</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getKey_value_pairs <em>Key value pairs</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getChown_options <em>Chown options</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getFile <em>File</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getDirectory <em>Directory</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement()
@@ -24,25 +37,257 @@ import org.eclipse.emf.ecore.EObject;
 public interface Statement extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Statement</b></em>' containment reference.
+   * Returns the value of the '<em><b>Key</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Statement</em>' containment reference.
-   * @see #setStatement(EObject)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement_Statement()
+   * @return the value of the '<em>Key</em>' attribute.
+   * @see #setKey(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement_Key()
+   * @model
+   * @generated
+   */
+  String getKey();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Statement#getKey <em>Key</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Key</em>' attribute.
+   * @see #getKey()
+   * @generated
+   */
+  void setKey(String value);
+
+  /**
+   * Returns the value of the '<em><b>Platform option</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Platform option</em>' attribute.
+   * @see #setPlatform_option(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement_Platform_option()
+   * @model
+   * @generated
+   */
+  String getPlatform_option();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Statement#getPlatform_option <em>Platform option</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Platform option</em>' attribute.
+   * @see #getPlatform_option()
+   * @generated
+   */
+  void setPlatform_option(String value);
+
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Statement#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Tag or digest</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Tag or digest</em>' attribute.
+   * @see #setTag_or_digest(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement_Tag_or_digest()
+   * @model
+   * @generated
+   */
+  String getTag_or_digest();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Statement#getTag_or_digest <em>Tag or digest</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Tag or digest</em>' attribute.
+   * @see #getTag_or_digest()
+   * @generated
+   */
+  void setTag_or_digest(String value);
+
+  /**
+   * Returns the value of the '<em><b>Exec form</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Exec form</em>' containment reference.
+   * @see #setExec_form(EXEC_FORM)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement_Exec_form()
    * @model containment="true"
    * @generated
    */
-  EObject getStatement();
+  EXEC_FORM getExec_form();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Statement#getStatement <em>Statement</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Statement#getExec_form <em>Exec form</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Statement</em>' containment reference.
-   * @see #getStatement()
+   * @param value the new value of the '<em>Exec form</em>' containment reference.
+   * @see #getExec_form()
    * @generated
    */
-  void setStatement(EObject value);
+  void setExec_form(EXEC_FORM value);
+
+  /**
+   * Returns the value of the '<em><b>Shell form</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Shell form</em>' attribute.
+   * @see #setShell_form(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement_Shell_form()
+   * @model
+   * @generated
+   */
+  String getShell_form();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Statement#getShell_form <em>Shell form</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Shell form</em>' attribute.
+   * @see #getShell_form()
+   * @generated
+   */
+  void setShell_form(String value);
+
+  /**
+   * Returns the value of the '<em><b>Ports</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ports</em>' attribute.
+   * @see #setPorts(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement_Ports()
+   * @model
+   * @generated
+   */
+  String getPorts();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Statement#getPorts <em>Ports</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ports</em>' attribute.
+   * @see #getPorts()
+   * @generated
+   */
+  void setPorts(String value);
+
+  /**
+   * Returns the value of the '<em><b>Path</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Path</em>' attribute.
+   * @see #setPath(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement_Path()
+   * @model
+   * @generated
+   */
+  String getPath();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Statement#getPath <em>Path</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Path</em>' attribute.
+   * @see #getPath()
+   * @generated
+   */
+  void setPath(String value);
+
+  /**
+   * Returns the value of the '<em><b>Key value pairs</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Key value pairs</em>' attribute list.
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement_Key_value_pairs()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getKey_value_pairs();
+
+  /**
+   * Returns the value of the '<em><b>Chown options</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Chown options</em>' attribute.
+   * @see #setChown_options(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement_Chown_options()
+   * @model
+   * @generated
+   */
+  String getChown_options();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Statement#getChown_options <em>Chown options</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Chown options</em>' attribute.
+   * @see #getChown_options()
+   * @generated
+   */
+  void setChown_options(String value);
+
+  /**
+   * Returns the value of the '<em><b>File</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>File</em>' attribute.
+   * @see #setFile(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement_File()
+   * @model
+   * @generated
+   */
+  String getFile();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Statement#getFile <em>File</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>File</em>' attribute.
+   * @see #getFile()
+   * @generated
+   */
+  void setFile(String value);
+
+  /**
+   * Returns the value of the '<em><b>Directory</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Directory</em>' attribute.
+   * @see #setDirectory(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement_Directory()
+   * @model
+   * @generated
+   */
+  String getDirectory();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Statement#getDirectory <em>Directory</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Directory</em>' attribute.
+   * @see #getDirectory()
+   * @generated
+   */
+  void setDirectory(String value);
 
 } // Statement
