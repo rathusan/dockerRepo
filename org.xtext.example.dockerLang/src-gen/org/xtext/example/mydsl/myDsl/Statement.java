@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getChown_options <em>Chown options</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getFile <em>File</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getDirectory <em>Directory</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getStatement <em>Statement</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement()
@@ -289,5 +290,27 @@ public interface Statement extends EObject
    * @generated
    */
   void setDirectory(String value);
+
+  /**
+   * Returns the value of the '<em><b>Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Statement</em>' containment reference.
+   * @see #setStatement(Instruction)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement_Statement()
+   * @model containment="true"
+   * @generated
+   */
+  Instruction getStatement();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Statement#getStatement <em>Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Statement</em>' containment reference.
+   * @see #getStatement()
+   * @generated
+   */
+  void setStatement(Instruction value);
 
 } // Statement

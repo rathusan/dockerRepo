@@ -2,3 +2,7 @@
 /.MyDslStandaloneSetup.java._trace
 /.AbstractMyDslRuntimeModule.java._trace
 /.MyDslStandaloneSetupGenerated.java._trace
+/.MyDslRuntimeModule.xtendbin
+/.MyDslStandaloneSetup.xtendbin
+/MyDslRuntimeModule.java
+/MyDslStandaloneSetup.java

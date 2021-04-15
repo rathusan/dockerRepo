@@ -23,26 +23,46 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class DockerfileElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Dockerfile");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cStatementsAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cStatementsInstructionParserRuleCall_0_0 = (RuleCall)cStatementsAssignment_0.eContents().get(0);
-		private final RuleCall cNLTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Assignment cStatementsAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final RuleCall cStatementsInstructionParserRuleCall_0_0_0 = (RuleCall)cStatementsAssignment_0_0.eContents().get(0);
+		private final RuleCall cNLTerminalRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cCommentsAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cCommentsCOMMENTTerminalRuleCall_1_0_0 = (RuleCall)cCommentsAssignment_1_0.eContents().get(0);
+		private final RuleCall cNLTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
 		//Dockerfile:
-		//	(statements+=Instruction NL)*;
+		//	(statements+=Instruction NL | comments+=COMMENT NL)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(statements+=Instruction NL)*
-		public Group getGroup() { return cGroup; }
+		//(statements+=Instruction NL | comments+=COMMENT NL)*
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//statements+=Instruction NL
+		public Group getGroup_0() { return cGroup_0; }
 		
 		//statements+=Instruction
-		public Assignment getStatementsAssignment_0() { return cStatementsAssignment_0; }
+		public Assignment getStatementsAssignment_0_0() { return cStatementsAssignment_0_0; }
 		
 		//Instruction
-		public RuleCall getStatementsInstructionParserRuleCall_0_0() { return cStatementsInstructionParserRuleCall_0_0; }
+		public RuleCall getStatementsInstructionParserRuleCall_0_0_0() { return cStatementsInstructionParserRuleCall_0_0_0; }
 		
 		//NL
-		public RuleCall getNLTerminalRuleCall_1() { return cNLTerminalRuleCall_1; }
+		public RuleCall getNLTerminalRuleCall_0_1() { return cNLTerminalRuleCall_0_1; }
+		
+		//comments+=COMMENT NL
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//comments+=COMMENT
+		public Assignment getCommentsAssignment_1_0() { return cCommentsAssignment_1_0; }
+		
+		//COMMENT
+		public RuleCall getCommentsCOMMENTTerminalRuleCall_1_0_0() { return cCommentsCOMMENTTerminalRuleCall_1_0_0; }
+		
+		//NL
+		public RuleCall getNLTerminalRuleCall_1_1() { return cNLTerminalRuleCall_1_1; }
 	}
 	public class InstructionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Instruction");
@@ -60,15 +80,17 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cStatementLabelParserRuleCall_0_9 = (RuleCall)cStatementAlternatives_0.eContents().get(9);
 		private final RuleCall cStatementAddParserRuleCall_0_10 = (RuleCall)cStatementAlternatives_0.eContents().get(10);
 		private final RuleCall cStatementCopyParserRuleCall_0_11 = (RuleCall)cStatementAlternatives_0.eContents().get(11);
+		private final RuleCall cStatementOnbuildParserRuleCall_0_12 = (RuleCall)cStatementAlternatives_0.eContents().get(12);
 		
 		//Instruction:
-		//	statement=(From | Cmd | Entrypoint | Volume | Maintainer | Expose | Workdir | Run | Env | Label | Add | Copy);
+		//	statement=(From | Cmd | Entrypoint | Volume | Maintainer | Expose | Workdir | Run | Env | Label | Add | Copy |
+		//	Onbuild);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//statement=(From | Cmd | Entrypoint | Volume | Maintainer | Expose | Workdir | Run | Env | Label | Add | Copy)
+		//statement=(From | Cmd | Entrypoint | Volume | Maintainer | Expose | Workdir | Run | Env | Label | Add | Copy | Onbuild)
 		public Assignment getStatementAssignment() { return cStatementAssignment; }
 		
-		//(From | Cmd | Entrypoint | Volume | Maintainer | Expose | Workdir | Run | Env | Label | Add | Copy)
+		//(From | Cmd | Entrypoint | Volume | Maintainer | Expose | Workdir | Run | Env | Label | Add | Copy | Onbuild)
 		public Alternatives getStatementAlternatives_0() { return cStatementAlternatives_0; }
 		
 		//From
@@ -106,6 +128,9 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Copy
 		public RuleCall getStatementCopyParserRuleCall_0_11() { return cStatementCopyParserRuleCall_0_11; }
+		
+		//Onbuild
+		public RuleCall getStatementOnbuildParserRuleCall_0_12() { return cStatementOnbuildParserRuleCall_0_12; }
 	}
 	public class FromElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.From");
@@ -587,6 +612,33 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//SHELL_CMD
 		public RuleCall getDirectorySHELL_CMDTerminalRuleCall_5_0() { return cDirectorySHELL_CMDTerminalRuleCall_5_0; }
 	}
+	public class OnbuildElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Onbuild");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cKeyONBUILDKeyword_0_0 = (Keyword)cKeyAssignment_0.eContents().get(0);
+		private final Assignment cStatementAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cStatementInstructionParserRuleCall_1_0 = (RuleCall)cStatementAssignment_1.eContents().get(0);
+		
+		//Onbuild Statement:
+		//	key='ONBUILD ' statement=Instruction;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//key='ONBUILD ' statement=Instruction
+		public Group getGroup() { return cGroup; }
+		
+		//key='ONBUILD '
+		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
+		
+		//'ONBUILD '
+		public Keyword getKeyONBUILDKeyword_0_0() { return cKeyONBUILDKeyword_0_0; }
+		
+		//statement=Instruction
+		public Assignment getStatementAssignment_1() { return cStatementAssignment_1; }
+		
+		//Instruction
+		public RuleCall getStatementInstructionParserRuleCall_1_0() { return cStatementInstructionParserRuleCall_1_0; }
+	}
 	public class IMAGE_NAMEElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.IMAGE_NAME");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -775,6 +827,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final LabelElements pLabel;
 	private final AddElements pAdd;
 	private final CopyElements pCopy;
+	private final OnbuildElements pOnbuild;
 	private final IMAGE_NAMEElements pIMAGE_NAME;
 	private final IMAGE_TAGElements pIMAGE_TAG;
 	private final IMAGE_DIGESTElements pIMAGE_DIGEST;
@@ -809,6 +862,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pLabel = new LabelElements();
 		this.pAdd = new AddElements();
 		this.pCopy = new CopyElements();
+		this.pOnbuild = new OnbuildElements();
 		this.pIMAGE_NAME = new IMAGE_NAMEElements();
 		this.pIMAGE_TAG = new IMAGE_TAGElements();
 		this.pIMAGE_DIGEST = new IMAGE_DIGESTElements();
@@ -849,7 +903,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Dockerfile:
-	//	(statements+=Instruction NL)*;
+	//	(statements+=Instruction NL | comments+=COMMENT NL)*;
 	public DockerfileElements getDockerfileAccess() {
 		return pDockerfile;
 	}
@@ -859,7 +913,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Instruction:
-	//	statement=(From | Cmd | Entrypoint | Volume | Maintainer | Expose | Workdir | Run | Env | Label | Add | Copy);
+	//	statement=(From | Cmd | Entrypoint | Volume | Maintainer | Expose | Workdir | Run | Env | Label | Add | Copy |
+	//	Onbuild);
 	public InstructionElements getInstructionAccess() {
 		return pInstruction;
 	}
@@ -986,6 +1041,16 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getCopyRule() {
 		return getCopyAccess().getRule();
+	}
+	
+	//Onbuild Statement:
+	//	key='ONBUILD ' statement=Instruction;
+	public OnbuildElements getOnbuildAccess() {
+		return pOnbuild;
+	}
+	
+	public ParserRule getOnbuildRule() {
+		return getOnbuildAccess().getRule();
 	}
 	
 	//IMAGE_NAME:

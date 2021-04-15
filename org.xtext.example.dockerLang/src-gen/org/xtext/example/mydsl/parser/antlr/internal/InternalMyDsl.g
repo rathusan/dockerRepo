@@ -78,27 +78,54 @@ ruleDockerfile returns [EObject current=null]
 	(
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getDockerfileAccess().getStatementsInstructionParserRuleCall_0_0());
-				}
-				lv_statements_0_0=ruleInstruction
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDockerfileRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getDockerfileAccess().getStatementsInstructionParserRuleCall_0_0_0());
 					}
-					add(
-						$current,
-						"statements",
-						lv_statements_0_0,
-						"org.xtext.example.mydsl.MyDsl.Instruction");
-					afterParserOrEnumRuleCall();
-				}
+					lv_statements_0_0=ruleInstruction
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDockerfileRule());
+						}
+						add(
+							$current,
+							"statements",
+							lv_statements_0_0,
+							"org.xtext.example.mydsl.MyDsl.Instruction");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
+			this_NL_1=RULE_NL
+			{
+				newLeafNode(this_NL_1, grammarAccess.getDockerfileAccess().getNLTerminalRuleCall_0_1());
+			}
 		)
-		this_NL_1=RULE_NL
-		{
-			newLeafNode(this_NL_1, grammarAccess.getDockerfileAccess().getNLTerminalRuleCall_1());
-		}
+		    |
+		(
+			(
+				(
+					lv_comments_2_0=RULE_COMMENT
+					{
+						newLeafNode(lv_comments_2_0, grammarAccess.getDockerfileAccess().getCommentsCOMMENTTerminalRuleCall_1_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getDockerfileRule());
+						}
+						addWithLastConsumed(
+							$current,
+							"comments",
+							lv_comments_2_0,
+							"org.xtext.example.mydsl.MyDsl.COMMENT");
+					}
+				)
+			)
+			this_NL_3=RULE_NL
+			{
+				newLeafNode(this_NL_3, grammarAccess.getDockerfileAccess().getNLTerminalRuleCall_1_1());
+			}
+		)
 	)*
 ;
 
@@ -309,6 +336,22 @@ ruleInstruction returns [EObject current=null]
 						"statement",
 						lv_statement_0_12,
 						"org.xtext.example.mydsl.MyDsl.Copy");
+					afterParserOrEnumRuleCall();
+				}
+				    |
+				{
+					newCompositeNode(grammarAccess.getInstructionAccess().getStatementOnbuildParserRuleCall_0_12());
+				}
+				lv_statement_0_13=ruleOnbuild
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getInstructionRule());
+					}
+					set(
+						$current,
+						"statement",
+						lv_statement_0_13,
+						"org.xtext.example.mydsl.MyDsl.Onbuild");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -1183,6 +1226,58 @@ ruleCopy returns [EObject current=null]
 						"directory",
 						lv_directory_7_0,
 						"org.xtext.example.mydsl.MyDsl.SHELL_CMD");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleOnbuild
+entryRuleOnbuild returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getOnbuildRule()); }
+	iv_ruleOnbuild=ruleOnbuild
+	{ $current=$iv_ruleOnbuild.current; }
+	EOF;
+
+// Rule Onbuild
+ruleOnbuild returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_key_0_0='ONBUILD '
+				{
+					newLeafNode(lv_key_0_0, grammarAccess.getOnbuildAccess().getKeyONBUILDKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getOnbuildRule());
+					}
+					setWithLastConsumed($current, "key", lv_key_0_0, "ONBUILD ");
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getOnbuildAccess().getStatementInstructionParserRuleCall_1_0());
+				}
+				lv_statement_1_0=ruleInstruction
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getOnbuildRule());
+					}
+					set(
+						$current,
+						"statement",
+						lv_statement_1_0,
+						"org.xtext.example.mydsl.MyDsl.Instruction");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)

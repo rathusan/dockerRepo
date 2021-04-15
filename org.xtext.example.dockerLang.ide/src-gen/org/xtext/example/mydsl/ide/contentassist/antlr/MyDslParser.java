@@ -31,6 +31,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, MyDslGrammarAccess grammarAccess) {
+			builder.put(grammarAccess.getDockerfileAccess().getAlternatives(), "rule__Dockerfile__Alternatives");
 			builder.put(grammarAccess.getInstructionAccess().getStatementAlternatives_0(), "rule__Instruction__StatementAlternatives_0");
 			builder.put(grammarAccess.getFromAccess().getTag_or_digestAlternatives_3_0(), "rule__From__Tag_or_digestAlternatives_3_0");
 			builder.put(grammarAccess.getCmdAccess().getAlternatives_1(), "rule__Cmd__Alternatives_1");
@@ -44,7 +45,8 @@ public class MyDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getIMAGE_TAGAccess().getAlternatives_2(), "rule__IMAGE_TAG__Alternatives_2");
 			builder.put(grammarAccess.getIMAGE_DIGESTAccess().getAlternatives_1(), "rule__IMAGE_DIGEST__Alternatives_1");
 			builder.put(grammarAccess.getIMAGE_DIGESTAccess().getAlternatives_2(), "rule__IMAGE_DIGEST__Alternatives_2");
-			builder.put(grammarAccess.getDockerfileAccess().getGroup(), "rule__Dockerfile__Group__0");
+			builder.put(grammarAccess.getDockerfileAccess().getGroup_0(), "rule__Dockerfile__Group_0__0");
+			builder.put(grammarAccess.getDockerfileAccess().getGroup_1(), "rule__Dockerfile__Group_1__0");
 			builder.put(grammarAccess.getFromAccess().getGroup(), "rule__From__Group__0");
 			builder.put(grammarAccess.getCmdAccess().getGroup(), "rule__Cmd__Group__0");
 			builder.put(grammarAccess.getRunAccess().getGroup(), "rule__Run__Group__0");
@@ -59,12 +61,14 @@ public class MyDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAddAccess().getGroup_3_1(), "rule__Add__Group_3_1__0");
 			builder.put(grammarAccess.getCopyAccess().getGroup(), "rule__Copy__Group__0");
 			builder.put(grammarAccess.getCopyAccess().getGroup_4(), "rule__Copy__Group_4__0");
+			builder.put(grammarAccess.getOnbuildAccess().getGroup(), "rule__Onbuild__Group__0");
 			builder.put(grammarAccess.getIMAGE_NAMEAccess().getGroup(), "rule__IMAGE_NAME__Group__0");
 			builder.put(grammarAccess.getIMAGE_NAMEAccess().getGroup_1(), "rule__IMAGE_NAME__Group_1__0");
 			builder.put(grammarAccess.getIMAGE_TAGAccess().getGroup(), "rule__IMAGE_TAG__Group__0");
 			builder.put(grammarAccess.getIMAGE_DIGESTAccess().getGroup(), "rule__IMAGE_DIGEST__Group__0");
 			builder.put(grammarAccess.getEXEC_FORMAccess().getGroup(), "rule__EXEC_FORM__Group__0");
-			builder.put(grammarAccess.getDockerfileAccess().getStatementsAssignment_0(), "rule__Dockerfile__StatementsAssignment_0");
+			builder.put(grammarAccess.getDockerfileAccess().getStatementsAssignment_0_0(), "rule__Dockerfile__StatementsAssignment_0_0");
+			builder.put(grammarAccess.getDockerfileAccess().getCommentsAssignment_1_0(), "rule__Dockerfile__CommentsAssignment_1_0");
 			builder.put(grammarAccess.getInstructionAccess().getStatementAssignment(), "rule__Instruction__StatementAssignment");
 			builder.put(grammarAccess.getFromAccess().getKeyAssignment_0(), "rule__From__KeyAssignment_0");
 			builder.put(grammarAccess.getFromAccess().getPlatform_optionAssignment_1(), "rule__From__Platform_optionAssignment_1");
@@ -100,6 +104,8 @@ public class MyDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getCopyAccess().getChown_optionsAssignment_1(), "rule__Copy__Chown_optionsAssignment_1");
 			builder.put(grammarAccess.getCopyAccess().getFileAssignment_2(), "rule__Copy__FileAssignment_2");
 			builder.put(grammarAccess.getCopyAccess().getDirectoryAssignment_5(), "rule__Copy__DirectoryAssignment_5");
+			builder.put(grammarAccess.getOnbuildAccess().getKeyAssignment_0(), "rule__Onbuild__KeyAssignment_0");
+			builder.put(grammarAccess.getOnbuildAccess().getStatementAssignment_1(), "rule__Onbuild__StatementAssignment_1");
 			builder.put(grammarAccess.getEXEC_FORMAccess().getExecutableAssignment_1(), "rule__EXEC_FORM__ExecutableAssignment_1");
 			builder.put(grammarAccess.getEXEC_FORMAccess().getParametersAssignment_2(), "rule__EXEC_FORM__ParametersAssignment_2");
 		}

@@ -77,13 +77,22 @@ public interface MyDslPackage extends EPackage
   int DOCKERFILE__STATEMENTS = 0;
 
   /**
+   * The feature id for the '<em><b>Comments</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOCKERFILE__COMMENTS = 1;
+
+  /**
    * The number of structural features of the '<em>Dockerfile</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOCKERFILE_FEATURE_COUNT = 1;
+  int DOCKERFILE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.InstructionImpl <em>Instruction</em>}' class.
@@ -232,13 +241,22 @@ public interface MyDslPackage extends EPackage
   int STATEMENT__DIRECTORY = 11;
 
   /**
+   * The feature id for the '<em><b>Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__STATEMENT = 12;
+
+  /**
    * The number of structural features of the '<em>Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT_FEATURE_COUNT = 12;
+  int STATEMENT_FEATURE_COUNT = 13;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.EXEC_FORMImpl <em>EXEC FORM</em>}' class.
@@ -298,6 +316,17 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EReference getDockerfile_Statements();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.Dockerfile#getComments <em>Comments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Comments</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Dockerfile#getComments()
+   * @see #getDockerfile()
+   * @generated
+   */
+  EAttribute getDockerfile_Comments();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Instruction <em>Instruction</em>}'.
@@ -463,6 +492,17 @@ public interface MyDslPackage extends EPackage
   EAttribute getStatement_Directory();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Statement#getStatement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Statement</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Statement#getStatement()
+   * @see #getStatement()
+   * @generated
+   */
+  EReference getStatement_Statement();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.EXEC_FORM <em>EXEC FORM</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -534,6 +574,14 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EReference DOCKERFILE__STATEMENTS = eINSTANCE.getDockerfile_Statements();
+
+    /**
+     * The meta object literal for the '<em><b>Comments</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DOCKERFILE__COMMENTS = eINSTANCE.getDockerfile_Comments();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.InstructionImpl <em>Instruction</em>}' class.
@@ -658,6 +706,14 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EAttribute STATEMENT__DIRECTORY = eINSTANCE.getStatement_Directory();
+
+    /**
+     * The meta object literal for the '<em><b>Statement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMENT__STATEMENT = eINSTANCE.getStatement_Statement();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.EXEC_FORMImpl <em>EXEC FORM</em>}' class.

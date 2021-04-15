@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import org.xtext.example.mydsl.myDsl.EXEC_FORM;
+import org.xtext.example.mydsl.myDsl.Instruction;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Statement;
 
@@ -42,6 +43,7 @@ import org.xtext.example.mydsl.myDsl.Statement;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getChown_options <em>Chown options</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getFile <em>File</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getDirectory <em>Directory</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getStatement <em>Statement</em>}</li>
  * </ul>
  *
  * @generated
@@ -267,6 +269,16 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * @ordered
    */
   protected String directory = DIRECTORY_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getStatement() <em>Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStatement()
+   * @generated
+   * @ordered
+   */
+  protected Instruction statement;
 
   /**
    * <!-- begin-user-doc -->
@@ -610,12 +622,64 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * @generated
    */
   @Override
+  public Instruction getStatement()
+  {
+    return statement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetStatement(Instruction newStatement, NotificationChain msgs)
+  {
+    Instruction oldStatement = statement;
+    statement = newStatement;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__STATEMENT, oldStatement, newStatement);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setStatement(Instruction newStatement)
+  {
+    if (newStatement != statement)
+    {
+      NotificationChain msgs = null;
+      if (statement != null)
+        msgs = ((InternalEObject)statement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__STATEMENT, null, msgs);
+      if (newStatement != null)
+        msgs = ((InternalEObject)newStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__STATEMENT, null, msgs);
+      msgs = basicSetStatement(newStatement, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__STATEMENT, newStatement, newStatement));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
       case MyDslPackage.STATEMENT__EXEC_FORM:
         return basicSetExec_form(null, msgs);
+      case MyDslPackage.STATEMENT__STATEMENT:
+        return basicSetStatement(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -654,6 +718,8 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
         return getFile();
       case MyDslPackage.STATEMENT__DIRECTORY:
         return getDirectory();
+      case MyDslPackage.STATEMENT__STATEMENT:
+        return getStatement();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -706,6 +772,9 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
       case MyDslPackage.STATEMENT__DIRECTORY:
         setDirectory((String)newValue);
         return;
+      case MyDslPackage.STATEMENT__STATEMENT:
+        setStatement((Instruction)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -756,6 +825,9 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
       case MyDslPackage.STATEMENT__DIRECTORY:
         setDirectory(DIRECTORY_EDEFAULT);
         return;
+      case MyDslPackage.STATEMENT__STATEMENT:
+        setStatement((Instruction)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -794,6 +866,8 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
         return FILE_EDEFAULT == null ? file != null : !FILE_EDEFAULT.equals(file);
       case MyDslPackage.STATEMENT__DIRECTORY:
         return DIRECTORY_EDEFAULT == null ? directory != null : !DIRECTORY_EDEFAULT.equals(directory);
+      case MyDslPackage.STATEMENT__STATEMENT:
+        return statement != null;
     }
     return super.eIsSet(featureID);
   }

@@ -143,6 +143,17 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
+  public EAttribute getDockerfile_Comments()
+  {
+    return (EAttribute)dockerfileEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getInstruction()
   {
     return instructionEClass;
@@ -308,6 +319,17 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
+  public EReference getStatement_Statement()
+  {
+    return (EReference)statementEClass.getEStructuralFeatures().get(12);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getEXEC_FORM()
   {
     return exeC_FORMEClass;
@@ -368,6 +390,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     // Create classes and their features
     dockerfileEClass = createEClass(DOCKERFILE);
     createEReference(dockerfileEClass, DOCKERFILE__STATEMENTS);
+    createEAttribute(dockerfileEClass, DOCKERFILE__COMMENTS);
 
     instructionEClass = createEClass(INSTRUCTION);
     createEReference(instructionEClass, INSTRUCTION__STATEMENT);
@@ -385,6 +408,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEAttribute(statementEClass, STATEMENT__CHOWN_OPTIONS);
     createEAttribute(statementEClass, STATEMENT__FILE);
     createEAttribute(statementEClass, STATEMENT__DIRECTORY);
+    createEReference(statementEClass, STATEMENT__STATEMENT);
 
     exeC_FORMEClass = createEClass(EXEC_FORM);
     createEAttribute(exeC_FORMEClass, EXEC_FORM__EXECUTABLE);
@@ -424,6 +448,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     // Initialize classes and features; add operations and parameters
     initEClass(dockerfileEClass, Dockerfile.class, "Dockerfile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDockerfile_Statements(), this.getInstruction(), null, "statements", null, 0, -1, Dockerfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDockerfile_Comments(), ecorePackage.getEString(), "comments", null, 0, -1, Dockerfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(instructionEClass, Instruction.class, "Instruction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getInstruction_Statement(), this.getStatement(), null, "statement", null, 0, 1, Instruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -441,6 +466,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEAttribute(getStatement_Chown_options(), ecorePackage.getEString(), "chown_options", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStatement_File(), ecorePackage.getEString(), "file", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStatement_Directory(), ecorePackage.getEString(), "directory", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_Statement(), this.getInstruction(), null, "statement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exeC_FORMEClass, org.xtext.example.mydsl.myDsl.EXEC_FORM.class, "EXEC_FORM", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEXEC_FORM_Executable(), ecorePackage.getEString(), "executable", null, 0, 1, org.xtext.example.mydsl.myDsl.EXEC_FORM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

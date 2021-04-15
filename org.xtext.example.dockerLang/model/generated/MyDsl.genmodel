@@ -8,6 +8,7 @@
       fileExtensions="dockerlang" ecorePackage="MyDsl.ecore#/">
     <genClasses ecoreClass="MyDsl.ecore#//Dockerfile">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Dockerfile/statements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Dockerfile/comments"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Instruction">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Instruction/statement"/>
@@ -25,6 +26,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Statement/chown_options"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Statement/file"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Statement/directory"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Statement/statement"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//EXEC_FORM">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//EXEC_FORM/executable"/>

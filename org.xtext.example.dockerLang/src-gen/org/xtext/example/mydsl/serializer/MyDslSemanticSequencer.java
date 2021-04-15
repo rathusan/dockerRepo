@@ -81,6 +81,10 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 					sequence_Maintainer(context, (Statement) semanticObject); 
 					return; 
 				}
+				else if (rule == grammarAccess.getOnbuildRule()) {
+					sequence_Onbuild(context, (Statement) semanticObject); 
+					return; 
+				}
 				else if (rule == grammarAccess.getRunRule()) {
 					sequence_Run(context, (Statement) semanticObject); 
 					return; 
@@ -140,7 +144,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Dockerfile returns Dockerfile
 	 *
 	 * Constraint:
-	 *     statements+=Instruction+
+	 *     (statements+=Instruction | comments+=COMMENT)+
 	 */
 	protected void sequence_Dockerfile(ISerializationContext context, Dockerfile semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -233,7 +237,8 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         statement=Env | 
 	 *         statement=Label | 
 	 *         statement=Add | 
-	 *         statement=Copy
+	 *         statement=Copy | 
+	 *         statement=Onbuild
 	 *     )
 	 */
 	protected void sequence_Instruction(ISerializationContext context, Instruction semanticObject) {
@@ -270,6 +275,27 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMaintainerAccess().getKeyMAINTAINERKeyword_0_0(), semanticObject.getKey());
 		feeder.accept(grammarAccess.getMaintainerAccess().getNameSHELL_CMDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Onbuild returns Statement
+	 *
+	 * Constraint:
+	 *     (key='ONBUILD ' statement=Instruction)
+	 */
+	protected void sequence_Onbuild(ISerializationContext context, Statement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.STATEMENT__KEY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.STATEMENT__KEY));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.STATEMENT__STATEMENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.STATEMENT__STATEMENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getOnbuildAccess().getKeyONBUILDKeyword_0_0(), semanticObject.getKey());
+		feeder.accept(grammarAccess.getOnbuildAccess().getStatementInstructionParserRuleCall_1_0(), semanticObject.getStatement());
 		feeder.finish();
 	}
 	

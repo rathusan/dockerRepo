@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Dockerfile#getStatements <em>Statements</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Dockerfile#getComments <em>Comments</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getDockerfile()
@@ -36,5 +37,17 @@ public interface Dockerfile extends EObject
    * @generated
    */
   EList<Instruction> getStatements();
+
+  /**
+   * Returns the value of the '<em><b>Comments</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Comments</em>' attribute list.
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getDockerfile_Comments()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getComments();
 
 } // Dockerfile

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -30,6 +31,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.DockerfileImpl#getStatements <em>Statements</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.DockerfileImpl#getComments <em>Comments</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,6 +47,16 @@ public class DockerfileImpl extends MinimalEObjectImpl.Container implements Dock
    * @ordered
    */
   protected EList<Instruction> statements;
+
+  /**
+   * The cached value of the '{@link #getComments() <em>Comments</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getComments()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> comments;
 
   /**
    * <!-- begin-user-doc -->
@@ -88,6 +100,21 @@ public class DockerfileImpl extends MinimalEObjectImpl.Container implements Dock
    * @generated
    */
   @Override
+  public EList<String> getComments()
+  {
+    if (comments == null)
+    {
+      comments = new EDataTypeEList<String>(String.class, this, MyDslPackage.DOCKERFILE__COMMENTS);
+    }
+    return comments;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -110,6 +137,8 @@ public class DockerfileImpl extends MinimalEObjectImpl.Container implements Dock
     {
       case MyDslPackage.DOCKERFILE__STATEMENTS:
         return getStatements();
+      case MyDslPackage.DOCKERFILE__COMMENTS:
+        return getComments();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -129,6 +158,10 @@ public class DockerfileImpl extends MinimalEObjectImpl.Container implements Dock
         getStatements().clear();
         getStatements().addAll((Collection<? extends Instruction>)newValue);
         return;
+      case MyDslPackage.DOCKERFILE__COMMENTS:
+        getComments().clear();
+        getComments().addAll((Collection<? extends String>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -146,6 +179,9 @@ public class DockerfileImpl extends MinimalEObjectImpl.Container implements Dock
       case MyDslPackage.DOCKERFILE__STATEMENTS:
         getStatements().clear();
         return;
+      case MyDslPackage.DOCKERFILE__COMMENTS:
+        getComments().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -162,8 +198,27 @@ public class DockerfileImpl extends MinimalEObjectImpl.Container implements Dock
     {
       case MyDslPackage.DOCKERFILE__STATEMENTS:
         return statements != null && !statements.isEmpty();
+      case MyDslPackage.DOCKERFILE__COMMENTS:
+        return comments != null && !comments.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (comments: ");
+    result.append(comments);
+    result.append(')');
+    return result.toString();
   }
 
 } //DockerfileImpl
