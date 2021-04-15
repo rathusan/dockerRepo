@@ -1,0 +1,5 @@
+1) To execute the langauge, first, go into "org.xtext.example.dockerLang" then into the package called  "org.xtext.example" and double click the "DockerLang.xtext".
+
+2) Next, run the file as "Generate artificats" and run the eviroment on "Java SE 10 - 10.0.2"
+
+3) To access the JUnitTests File, go into the "dockerRepo" file from the pull, and copy the "dockerJUnit" folder into the IDE.
